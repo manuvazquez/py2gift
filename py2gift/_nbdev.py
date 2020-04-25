@@ -3,8 +3,10 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"gaussian_pdf": "01_tex.ipynb",
+         "q_function_approximation": "01_tex.ipynb",
          "render_latex": "02_util.ipynb",
-         "to_formula_maybe": "02_util.ipynb"}
+         "to_formula_maybe": "02_util.ipynb",
+         "int_to_roman": "02_util.ipynb"}
 
 modules = ["tex.py",
            "util.py"]
