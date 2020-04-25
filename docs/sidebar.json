@@ -2,6 +2,7 @@
   "py2gift": {
     "Overview": "/",
     "module name here": "/core",
-    "TeX": "/tex"
+    "TeX": "/tex",
+    "Title": "/util"
   }
 }
