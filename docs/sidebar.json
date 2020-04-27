@@ -3,6 +3,7 @@
     "Overview": "/",
     "Core": "/core",
     "TeX": "/tex",
-    "Title": "/util"
+    "Util": "/util",
+    "Question": "/question"
   }
 }

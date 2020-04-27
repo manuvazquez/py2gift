@@ -2,19 +2,31 @@
 
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
-index = {"gaussian_pdf": "01_tex.ipynb",
+index = {"main": "00_core.ipynb",
+         "build": "00_core.ipynb",
+         "gaussian_pdf": "01_tex.ipynb",
          "q_function_approximation": "01_tex.ipynb",
          "from_number": "01_tex.ipynb",
          "from_matrix": "01_tex.ipynb",
          "enumerate_math": "01_tex.ipynb",
+         "mathfy_and_join": "01_tex.ipynb",
+         "zip": "01_tex.ipynb",
          "expand": "01_tex.ipynb",
          "render_latex": "02_util.ipynb",
          "to_formula_maybe": "02_util.ipynb",
          "int_to_roman": "02_util.ipynb",
-         "add_name": "02_util.ipynb"}
+         "supplement_file_name": "02_util.ipynb",
+         "write_multiple_categories": "02_util.ipynb",
+         "add_name": "02_util.ipynb",
+         "Question": "03_question.ipynb",
+         "NumericalQuestion": "03_question.ipynb",
+         "MultipleChoiceQuestion": "03_question.ipynb",
+         "MultipleChoiceTheoreticalQuestion": "03_question.ipynb"}
 
-modules = ["tex.py",
-           "util.py"]
+modules = ["core.py",
+           "tex.py",
+           "util.py",
+           "question.py"]
 
 doc_url = "https://manuvazquez.github.io/py2gift/"
 

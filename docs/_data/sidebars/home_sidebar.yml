@@ -16,8 +16,11 @@ entries:
       title: TeX
       url: /tex
     - output: web,pdf
-      title: Title
+      title: Util
       url: /util
+    - output: web,pdf
+      title: Question
+      url: /question
     output: web
     title: py2gift
   output: web
