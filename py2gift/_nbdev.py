@@ -18,10 +18,10 @@ index = {"main": "00_core.ipynb",
          "supplement_file_name": "02_util.ipynb",
          "write_multiple_categories": "02_util.ipynb",
          "add_name": "02_util.ipynb",
-         "Question": "03_question.ipynb",
-         "NumericalQuestion": "03_question.ipynb",
-         "MultipleChoiceQuestion": "03_question.ipynb",
-         "MultipleChoiceTheoreticalQuestion": "03_question.ipynb"}
+         "QuestionGenerator": "03_question.ipynb",
+         "NumericalQuestionGenerator": "03_question.ipynb",
+         "MultipleChoiceQuestionGenerator": "03_question.ipynb",
+         "MultipleChoiceTheoreticalQuestionGenerator": "03_question.ipynb"}
 
 modules = ["core.py",
            "tex.py",
