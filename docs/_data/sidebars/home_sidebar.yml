@@ -19,7 +19,7 @@ entries:
       title: Util
       url: /util
     - output: web,pdf
-      title: Question
+      title: Questions' generators
       url: /question
     output: web
     title: py2gift
