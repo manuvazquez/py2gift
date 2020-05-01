@@ -100,16 +100,6 @@ def build(input_file: str, local_run: bool, questions_module: ModuleType):
 
             question_generator = settings_to_class(c, questions_module)
 
-#             init_parameters = {
-#                 'unprocessed_statement': string.Template(c['statement']),
-#                 'unprocessed_feedback': string.Template(c['feedback'])}
-
-#             init_parameters.update(c.get('init parameters', {}))
-
-#             question_generator = getattr(questions_module, c['name'])(**init_parameters)
-
-#             assert ('parameters' in c) ^ ('number of instances' in c), 'either "parameters" or "number of instances" must be specified'
-
             if 'parameters' in c:
 
                 for p in c['parameters']:
