@@ -74,9 +74,19 @@ def build(input_file: str, local_run: bool, questions_module: ModuleType):
 
             question_generator = getattr(questions_module, c['name'])(**init_parameters)
 
-            for p in c['parameters']:
+            assert ('parameters' in c) ^ ('number of instances' in c), 'either "parameters" or "number of instances" must be specified'
 
-                this_class_questions.append(question_generator(**p))
+            if 'parameters' in c:
+
+                for p in c['parameters']:
+
+                    this_class_questions.append(question_generator(**p))
+
+            else:
+
+                for _ in range(c['number of instances']):
+
+                    this_class_questions.append(question_generator())
 
             questions.extend(util.add_name(this_class_questions, base_name=c['question base name']))
 
