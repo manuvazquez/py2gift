@@ -3,6 +3,8 @@
 __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"main": "00_core.ipynb",
+         "settings_to_class": "00_core.ipynb",
+         "build_question": "00_core.ipynb",
          "build": "00_core.ipynb",
          "mathfy_and_join": "01_tex.ipynb",
          "gaussian_pdf": "01_tex.ipynb",
