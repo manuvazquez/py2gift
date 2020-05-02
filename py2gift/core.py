@@ -63,8 +63,26 @@ def settings_to_class(c: dict, module: ModuleType) -> question.QuestionGenerator
 
 def build_question(category_name: str, class_name: str, settings: dict, module: ModuleType) -> dict:
 
-    category_settings = [cat for cat in settings['categories'] if cat['name'] == category_name][0]
-    class_settings = [cls for cls in category_settings['classes'] if cls['name'] == class_name][0]
+
+    try:
+
+        category_settings = [cat for cat in settings['categories'] if cat['name'] == category_name][0]
+
+    except IndexError:
+
+        print(f'cannot find the requested category, {category_name}')
+        sys.exit(1)
+
+    try:
+
+        class_settings = [cls for cls in category_settings['classes'] if cls['name'] == class_name][0]
+
+    except IndexError:
+
+        print(f'cannot find the requested class, {class_name}')
+        sys.exit(1)
+
+
 
     question_generator = settings_to_class(class_settings, module)
 
