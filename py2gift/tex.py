@@ -88,9 +88,9 @@ def from_matrix(m: Union[list, np.ndarray], float_point_precision: int = 3) -> s
 # Cell
 
 @to_formula_maybe
-def dot_product(lhs_template: str, lhs: list, rhs_template: str, rhs: list, product_operator = '') -> str:
+def dot_product(lhs_template: str, lhs: list, rhs_template: str, rhs: list, product_operator: str = '', addition_operator: str = '+') -> str:
 
-    return '+'.join([lhs_template.format(l) + product_operator + rhs_template.format(r) for l,r in zip(lhs, rhs)])
+    return addition_operator.join([lhs_template.format(l) + product_operator + rhs_template.format(r) for l,r in zip(lhs, rhs)])
 
 # Cell
 
