@@ -8,6 +8,7 @@ __all__ = ['render_latex', 'to_formula_maybe', 'AccessorEndowedClass', 'int_to_r
 
 import pathlib
 import re
+import sys
 from typing import List, Dict, Union, Optional
 
 import numpy as np
