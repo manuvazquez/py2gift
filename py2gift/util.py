@@ -227,6 +227,8 @@ def markdown_from_question(question_settings: dict, question_class: gift_wrapper
 
     question_settings['history'] = {'already compiled': set()}
 
+    question_settings['latex_auxiliary_file'] = '__latex__.tex'
+
     question_settings['name'] = 'Test'
 
     question = gift_wrapper.question.SvgToMarkdown(
