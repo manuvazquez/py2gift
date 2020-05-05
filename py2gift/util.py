@@ -42,6 +42,11 @@ def to_formula_maybe(func):
 
         else:
 
+            if ('to_formula' in kwargs):
+
+                # it must also be popped out
+                kwargs.pop('to_formula')
+
             return func(*args, **kwargs)
     return wrapper
 
