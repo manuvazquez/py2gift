@@ -3,7 +3,7 @@
 COLOR="\033[40m\033[32m"
 UNCOLOR="\033[0m"
 
-NAME=newgift
+NAME=py2gift
 
 # only required if "anaconda" is not in the path
 source $HOME/anaconda3/etc/profile.d/conda.sh
