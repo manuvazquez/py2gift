@@ -2,7 +2,7 @@
 
 __all__ = ['render_latex', 'to_formula_maybe', 'AccessorEndowedClass', 'int_to_roman', 'hash_matrix',
            'extract_class_settings', 'write_multiple_categories', 'supplement_file_name', 'add_name',
-           'markdown_from_question', 'generator_to_markdown']
+           'markdown_from_question', 'generator_to_markdown', 'latex_to_markdown']
 
 # Cell
 
@@ -20,6 +20,7 @@ from pandas.core.accessor import _register_accessor as register_accessor
 
 import gift_wrapper.core
 import gift_wrapper.question
+import gift_wrapper.image
 import py2gift.core
 import py2gift.question
 
@@ -260,3 +261,21 @@ def generator_to_markdown(settings_file: str, category: str, cls: py2gift.questi
     question_class = getattr(gift_wrapper.question, question_settings['class'])
 
     return markdown_from_question(question_settings, question_class)
+
+# Cell
+
+def latex_to_markdown(input_file: Union[str, pathlib.Path], delete_input_file_afterwards: bool = False) -> str:
+
+    output_file = gift_wrapper.image.pdf_to_svg(gift_wrapper.image.tex_to_pdf(input_file))
+
+    suffixes = ['.aux', '.log', '.pdf']
+
+    if delete_input_file_afterwards:
+
+        suffixes.append('.tex')
+
+    for suffix in suffixes:
+
+        output_file.with_suffix(suffix).unlink()
+
+    return r'![](' + output_file.as_posix() + ')'
