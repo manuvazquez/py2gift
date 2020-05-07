@@ -7,7 +7,6 @@ __all__ = ['main', 'init_parameters_from_settings', 'build_question', 'build']
 import sys
 import argparse
 import pathlib
-import subprocess
 import importlib.util
 import string
 import collections
@@ -16,6 +15,8 @@ from types import ModuleType
 import yaml
 from py2gift import util
 from py2gift import question
+
+import gift_wrapper.core
 
 # Cell
 
@@ -79,14 +80,13 @@ def build_question(question_generator: question.QuestionGenerator, category_name
 
 # Cell
 
-def build(input_file: str, local_run: bool, questions_module: ModuleType):
+def build(input_file: str, local_run: bool, questions_module: ModuleType, parameters_file: str = 'parameters.yaml'):
 
     with open(input_file) as f:
 
         settings = yaml.load(f, Loader=yaml.FullLoader)
 
     output_file = settings['output file']
-    executable = pathlib.Path(settings['path to gift-wrapper']).expanduser()
 
     category_questions = collections.defaultdict(list)
 
@@ -122,15 +122,4 @@ def build(input_file: str, local_run: bool, questions_module: ModuleType):
 
     util.write_multiple_categories(category_questions, settings['pictures base directory'], output_file=output_file)
 
-    command = [executable.as_posix()]
-
-    # if "local" running was requested...
-    if local_run:
-
-        command.append('-l')
-
-    command.extend(['-i', output_file])
-
-    run_summary = subprocess.run(command, capture_output=True)
-
-    assert run_summary.returncode == 0, f'"gift-wrapper" finished abruptly ({run_summary.stderr})'
+    gift_wrapper.core.wrap(parameters_file, output_file, local_run=local_run, no_checks=False)

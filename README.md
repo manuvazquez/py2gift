@@ -18,15 +18,3 @@ Fill me in please! Don't forget code examples:
 ```python
 1+1
 ```
-
-Remote
-
-![](http://www.tsc.uc3m.es/~mvazquez/tc/midterm2/constellations/4QAM.svg)
-
-after
-
-Local
-
-![](4QAM.svg)
-
-After
