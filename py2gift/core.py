@@ -81,7 +81,7 @@ def build_question(question_generator: question.QuestionGenerator, category_name
 
 # Cell
 
-def build(input_file: str, local_run: bool, questions_module: ModuleType, parameters_file: str = 'parameters.yaml'):
+def build(input_file: str, local_run: bool, questions_module: ModuleType, parameters_file: str = 'parameters.yaml', no_checks: bool = False):
 
     with open(input_file) as f:
 
@@ -123,4 +123,4 @@ def build(input_file: str, local_run: bool, questions_module: ModuleType, parame
 
     util.write_multiple_categories(category_questions, settings['pictures base directory'], output_file=output_file)
 
-    gift_wrapper.core.wrap(parameters_file, output_file, local_run=local_run, no_checks=False)
+    gift_wrapper.core.wrap(parameters_file, output_file, local_run=local_run, no_checks=no_checks)
