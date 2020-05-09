@@ -2,7 +2,8 @@
 
 __all__ = ['render_latex', 'to_formula_maybe', 'AccessorEndowedClass', 'int_to_roman', 'hash_matrix', 'hash_number',
            'extract_class_settings', 'write_multiple_categories', 'supplement_file_name', 'add_name',
-           'markdown_from_question', 'generator_to_markdown', 'latex_to_markdown']
+           'markdown_from_question', 'generator_to_markdown', 'latex_to_markdown',
+           'wrong_numerical_solutons_from_correct_one']
 
 # Cell
 
@@ -120,25 +121,31 @@ assert hash_number(2.3) == '2_3'
 
 def extract_class_settings(category_name: str, class_name: str, settings: dict):
 
-    try:
+    category_found = False
 
-        category_settings = [cat for cat in settings['categories'] if cat['name'] == category_name][0]
+    for cat in settings['categories']:
 
-    except IndexError:
+        if cat['name'] == category_name:
 
-        print(f'cannot find the requested category, {category_name}')
-        sys.exit(1)
+            category_found = True
 
-    try:
+            for cls in cat['classes']:
 
-        class_settings = [cls for cls in category_settings['classes'] if cls['name'] == class_name][0]
+                if cls['name'] == class_name:
 
-    except IndexError:
+                    return cls
 
-        print(f'cannot find the requested class, {class_name}')
-        sys.exit(1)
+    else:
 
-    return class_settings
+        if category_found:
+
+            print(f'cannot find the requested class, {class_name}')
+            sys.exit(1)
+
+        else:
+
+            print(f'cannot find the requested category, {category_name}')
+            sys.exit(1)
 
 # Cell
 
@@ -293,3 +300,29 @@ def latex_to_markdown(input_file: Union[str, pathlib.Path], delete_input_file_af
         output_file.with_suffix(suffix).unlink()
 
     return r'![](' + output_file.as_posix() + ')'
+
+# Cell
+
+def wrong_numerical_solutons_from_correct_one(
+    solution: float, n: int, min_sep: float, max_sep: float, lower_bound: float, upper_bound: float,
+    precision: int = 4, to_str: bool = True, prng: np.random.RandomState = np.random.RandomState(42)) -> Union[List[float], List[str]]:
+
+    assert (solution - min_sep > lower_bound) or (solution + min_sep < upper_bound)
+
+    res = []
+
+    current = solution
+
+    while len(res) < n:
+
+        steps = prng.uniform(min_sep, max_sep, size=2)
+
+        next_values = [v.round(precision) for v in [current + steps[0], current - steps[1]]  if lower_bound < v < upper_bound]
+
+        res.extend(next_values)
+
+    if to_str:
+
+        res = [str(e) for e in res]
+
+    return res[:n]

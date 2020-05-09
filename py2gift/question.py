@@ -118,8 +118,6 @@ class MultipleChoiceQuestionGenerator(QuestionGenerator):
 
     def __init__(
             self, unprocessed_statement: Union[str, string.Template], unprocessed_feedback: Union[str, string.Template],
-            # unprocessed_right_answer: Union[str, string.Template],
-            # unprocessed_wrong_answers: List[Union[str, string.Template]],
             prng: np.random.RandomState = np.random.RandomState(42)) -> None:
 
         super().__init__(unprocessed_statement, unprocessed_feedback, prng)

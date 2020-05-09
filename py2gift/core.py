@@ -12,6 +12,7 @@ import string
 import collections
 from types import ModuleType
 
+import numpy as np
 import yaml
 from py2gift import util
 from py2gift import question
