@@ -16,19 +16,18 @@ import numpy as np
 class QuestionGenerator(metaclass=abc.ABCMeta):
 
     def __init__(
-            self, unprocessed_statement: string.Template, unprocessed_feedback: string.Template,
+            self, unprocessed_statement: string.Template, unprocessed_feedback: string.Template, time: Optional[int] = None,
             prng: np.random.RandomState = np.random.RandomState(42)) -> None:
 
         self.prng = prng
         self.unprocessed_statement = unprocessed_statement
         self.unprocessed_feedback = unprocessed_feedback
+        self.time = time
 
         self.statement = None
 
         # try...
         try:
-
-            # breakpoint()
 
             # ...to get the final string with no substitutions
             self.feedback = self.unprocessed_feedback.substitute()
@@ -44,6 +43,7 @@ class QuestionGenerator(metaclass=abc.ABCMeta):
 
         pass
 
+    # this is the method to be defined by the user
     @abc.abstractmethod
     def setup(self, **kwargs):
 
@@ -57,10 +57,15 @@ class QuestionGenerator(metaclass=abc.ABCMeta):
         question['statement'] = statement
         question['feedback'] = feedback
 
+        if self.time:
+
+            question['time'] = str(self.time)
+
         return question
 
     def __call__(self, **kwargs):
 
+        # arguments are passed directly to `setup`
         self.setup(**kwargs)
 
         assert self.statement is not None
@@ -74,10 +79,10 @@ class QuestionGenerator(metaclass=abc.ABCMeta):
 class NumericalQuestionGenerator(QuestionGenerator):
 
     def __init__(
-            self, unprocessed_statement: string.Template, unprocessed_feedback: string.Template,
+            self, unprocessed_statement: string.Template, unprocessed_feedback: string.Template,  time: Optional[int] = None,
             prng: np.random.RandomState = np.random.RandomState(42)) -> None:
 
-        super().__init__(unprocessed_statement, unprocessed_feedback, prng)
+        super().__init__(unprocessed_statement, unprocessed_feedback, time, prng)
 
         self.solution = None
         self.error = None
@@ -117,10 +122,10 @@ class NumericalQuestionGenerator(QuestionGenerator):
 class MultipleChoiceQuestionGenerator(QuestionGenerator):
 
     def __init__(
-            self, unprocessed_statement: Union[str, string.Template], unprocessed_feedback: Union[str, string.Template],
+            self, unprocessed_statement: Union[str, string.Template], unprocessed_feedback: Union[str, string.Template], time: Optional[int] = None,
             prng: np.random.RandomState = np.random.RandomState(42)) -> None:
 
-        super().__init__(unprocessed_statement, unprocessed_feedback, prng)
+        super().__init__(unprocessed_statement, unprocessed_feedback, time, prng)
 
         self.right_answer = None
         self.wrong_answers = None

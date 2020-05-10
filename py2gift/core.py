@@ -50,14 +50,18 @@ def main():
 
 # Cell
 
-def init_parameters_from_settings(settings: dict) -> dict:
+def init_parameters_from_settings(cls_settings: dict) -> dict:
 
     init_parameters = {
-        'unprocessed_statement': string.Template(settings['statement']),
-        'unprocessed_feedback': string.Template(settings['feedback'])
+        'unprocessed_statement': string.Template(cls_settings['statement']),
+        'unprocessed_feedback': string.Template(cls_settings['feedback'])
     }
 
-    init_parameters.update(settings.get('init parameters', {}))
+    if 'time' in cls_settings:
+
+        init_parameters['time'] = cls_settings['time']
+
+    init_parameters.update(cls_settings.get('init parameters', {}))
 
     return init_parameters
 
@@ -99,6 +103,7 @@ def build(input_file: str, local_run: bool, questions_module: ModuleType, parame
 
             this_class_questions = []
 
+            # either `parameters` or `number of instances` is present, but not both
             assert ('parameters' in c) ^ ('number of instances' in c), 'either "parameters" or "number of instances" must be specified'
 
             question_generator = getattr(questions_module, c['name'])(**init_parameters_from_settings(c))
