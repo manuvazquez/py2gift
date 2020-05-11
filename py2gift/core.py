@@ -122,7 +122,7 @@ def build(input_file: str, local_run: bool, questions_module: ModuleType, parame
 
             questions.extend(util.add_name(this_class_questions, base_name=c['question base name']))
 
-        category_questions[cat['name']].extend(questions)
+        category_questions[cat['name'] if type(cat['name']) != list else tuple(cat['name'])].extend(questions)
 
     # --------
 

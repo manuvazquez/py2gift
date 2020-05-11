@@ -119,7 +119,7 @@ assert hash_number(2.3) == '2_3'
 
 # Cell
 
-def extract_class_settings(category_name: str, class_name: str, settings: dict):
+def extract_class_settings(category_name: Union[str, list], class_name: str, settings: dict):
 
     category_found = False
 
