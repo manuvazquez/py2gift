@@ -4,8 +4,8 @@ __all__ = ["index", "modules", "custom_doc_links", "git_url"]
 
 index = {"main": "00_core.ipynb",
          "init_parameters_from_settings": "00_core.ipynb",
-         "build_question": "00_core.ipynb",
          "build": "00_core.ipynb",
+         "build_question": "00_core.ipynb",
          "join": "01_tex.ipynb",
          "gaussian_pdf": "01_tex.ipynb",
          "q_function_approximation": "01_tex.ipynb",
