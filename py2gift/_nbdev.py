@@ -33,12 +33,17 @@ index = {"main": "00_core.ipynb",
          "QuestionGenerator": "03_question.ipynb",
          "NumericalQuestionGenerator": "03_question.ipynb",
          "MultipleChoiceQuestionGenerator": "03_question.ipynb",
-         "MultipleChoiceTheoreticalQuestionGenerator": "03_question.ipynb"}
+         "MultipleChoiceTheoreticalQuestionGenerator": "03_question.ipynb",
+         "write_header": "40_input_file.ipynb",
+         "write_class_preamble": "40_input_file.ipynb",
+         "write_class_closing": "40_input_file.ipynb",
+         "function_to_make_hierarchical_category_name": "40_input_file.ipynb"}
 
 modules = ["core.py",
            "tex.py",
            "util.py",
-           "question.py"]
+           "question.py",
+           "input_file.py"]
 
 doc_url = "https://manuvazquez.github.io/py2gift/"
 

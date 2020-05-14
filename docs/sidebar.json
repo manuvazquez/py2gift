@@ -4,6 +4,7 @@
     "Core": "/core",
     "TeX": "/tex",
     "Util": "/util",
-    "Questions' generators": "/question"
+    "Questions' generators": "/question",
+    "Input file": "/input_file"
   }
 }

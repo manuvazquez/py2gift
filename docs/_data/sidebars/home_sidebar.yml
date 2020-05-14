@@ -21,6 +21,9 @@ entries:
     - output: web,pdf
       title: Questions' generators
       url: /question
+    - output: web,pdf
+      title: Input file
+      url: /input_file
     output: web
     title: py2gift
   output: web

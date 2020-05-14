@@ -96,11 +96,17 @@ class NumericalQuestionGenerator(QuestionGenerator):
 
         question = self.partially_assemble_question(statement, feedback)
 
+        # some yaml "writers" (e.g., ruamel.yaml) don't play well with numpy floats
+        if type(solution) == np.float64:
+
+            solution = solution.item()
+
         question['solution'] = dict()
         question['solution']['value'] = solution
 
         if error is None:
 
+            # 10% margin
             error = solution * 0.1
 
         question['solution']['error'] = error

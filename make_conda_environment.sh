@@ -14,14 +14,14 @@ echo -e new environment is \"$COLOR$NAME$UNCOLOR\"
 
 conda activate $NAME
 
-# just for testing purposes
-conda install sympy
-
 # pip install gift-wrapper nbdev
 pip install nbdev
 
-# ipython widgets (tqdm progress bar in a notebook)
-conda install ipywidgets
+# just for testing purposes
+conda install --yes sympy
+
+# required by tqdm (progress bar in a notebook)
+conda install --yes ipywidgets
 jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 # a Table of Contents extension for JupyterLab
