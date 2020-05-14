@@ -148,7 +148,11 @@ class MultipleChoiceQuestionGenerator(QuestionGenerator):
         question = self.partially_assemble_question(statement, feedback)
 
         question['answers'] = dict()
-        question['answers']['perfect'] = perfect_answer
+
+        if self.right_answer:
+
+            question['answers']['perfect'] = perfect_answer
+
         question['answers']['wrong'] = wrong_answers
 
         return question
@@ -157,12 +161,23 @@ class MultipleChoiceQuestionGenerator(QuestionGenerator):
 
         super().__call__(**kwargs)
 
-        assert self.right_answer is not None
-        assert isinstance(self.right_answer, str), f'right answer {self.right_answer} is not a string'
+        if self.right_answer:
+
+            assert isinstance(self.right_answer, str), f'right answer {self.right_answer} is not a string'
 
         assert self.wrong_answers is not None
-        assert all([isinstance(e, str) for e in self.wrong_answers]),\
-            f'one or several elements in {self.wrong_answers} is not a string'
+#         assert all([isinstance(e, str) for e in self.wrong_answers]),\
+#             f'one or several elements in {self.wrong_answers} is not a string'
+
+        for e in self.wrong_answers:
+
+            assert isinstance(e, str) or isinstance(e, list)
+
+            if isinstance(e, list):
+
+                assert isinstance(e[0], str)
+                assert isinstance(e[1], int) or isinstance(e[1], float)
+
 
         return self.assemble_question(
             statement=self.statement, feedback=self.feedback, perfect_answer=self.right_answer,

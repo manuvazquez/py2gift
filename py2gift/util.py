@@ -3,7 +3,7 @@
 __all__ = ['render_latex', 'to_formula_maybe', 'AccessorEndowedClass', 'int_to_roman', 'hash_matrix', 'hash_number',
            'extract_class_settings', 'write_multiple_categories', 'supplement_file_name', 'add_name',
            'markdown_from_question', 'generator_to_markdown', 'latex_to_markdown',
-           'wrong_numerical_solutons_from_correct_one']
+           'wrong_numerical_solutions_from_correct_one']
 
 # Cell
 
@@ -303,7 +303,7 @@ def latex_to_markdown(input_file: Union[str, pathlib.Path], delete_input_file_af
 
 # Cell
 
-def wrong_numerical_solutons_from_correct_one(
+def wrong_numerical_solutions_from_correct_one(
     solution: float, n: int, min_sep: float, max_sep: float, lower_bound: float, upper_bound: float,
     precision: int = 4, to_str: bool = True, prng: np.random.RandomState = np.random.RandomState(42)) -> Union[List[float], List[str]]:
 
