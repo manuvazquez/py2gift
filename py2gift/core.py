@@ -112,7 +112,7 @@ def build(input_file: str, local_run: bool, questions_module: ModuleType, parame
 
     py2gift.util.write_multiple_categories(category_questions, settings['pictures base directory'], output_file=output_file)
 
-    gift_wrapper.core.wrap(parameters_file, output_file, local_run=local_run, no_checks=no_checks)
+    gift_wrapper.core.wrap(parameters_file, output_file, local_run=local_run, no_checks=no_checks, overwrite_existing_latex_files=True)
 
 # Cell
 
