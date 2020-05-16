@@ -297,7 +297,11 @@ def latex_to_markdown(input_file: Union[str, pathlib.Path], delete_input_file_af
 
     for suffix in suffixes:
 
-        output_file.with_suffix(suffix).unlink()
+        file_to_delete = output_file.with_suffix(suffix)
+
+        if file_to_delete.exists():
+
+            file_to_delete.unlink()
 
     return r'![](' + output_file.as_posix() + ')'
 
