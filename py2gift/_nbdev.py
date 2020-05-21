@@ -40,7 +40,6 @@ index = {"main": "00_core.ipynb",
          "write_class_preamble": "40_input_file.ipynb",
          "write_class_closing": "40_input_file.ipynb",
          "function_to_make_hierarchical_category_name": "40_input_file.ipynb",
-         "accumulator_field": "50_time.ipynb",
          "TimeKeeper": "50_time.ipynb"}
 
 modules = ["core.py",
