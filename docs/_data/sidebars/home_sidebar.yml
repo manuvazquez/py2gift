@@ -24,6 +24,9 @@ entries:
     - output: web,pdf
       title: Input file
       url: /input_file
+    - output: web,pdf
+      title: Time
+      url: /time
     output: web
     title: py2gift
   output: web

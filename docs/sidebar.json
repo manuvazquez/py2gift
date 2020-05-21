@@ -5,6 +5,7 @@
     "TeX": "/tex",
     "Util": "/util",
     "Questions' generators": "/question",
-    "Input file": "/input_file"
+    "Input file": "/input_file",
+    "Time": "/time"
   }
 }
