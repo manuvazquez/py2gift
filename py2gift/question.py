@@ -166,8 +166,9 @@ class MultipleChoiceQuestionGenerator(QuestionGenerator):
             assert isinstance(self.right_answer, str), f'right answer {self.right_answer} is not a string'
 
         assert self.wrong_answers is not None
-#         assert all([isinstance(e, str) for e in self.wrong_answers]),\
-#             f'one or several elements in {self.wrong_answers} is not a string'
+
+        # in order to check that every wrong answer is different
+        wrong_answers_texts = []
 
         for e in self.wrong_answers:
 
@@ -175,8 +176,17 @@ class MultipleChoiceQuestionGenerator(QuestionGenerator):
 
             if isinstance(e, list):
 
+                wrong_answers_texts.append(e[0])
+
                 assert isinstance(e[0], str)
                 assert isinstance(e[1], int) or isinstance(e[1], float)
+
+            else:
+
+                wrong_answers_texts.append(e)
+
+        # all the answers are different
+        assert np.unique(wrong_answers_texts).size == np.array(wrong_answers_texts).size, f'all the wrong answers are not different: {wrong_answers_texts}'
 
 
         return self.assemble_question(
