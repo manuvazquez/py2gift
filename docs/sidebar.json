@@ -6,6 +6,7 @@
     "Util": "/util",
     "Questions' generators": "/question",
     "Input file": "/input_file",
-    "Time": "/time"
+    "Time": "/time",
+    "Hash": "/hash"
   }
 }

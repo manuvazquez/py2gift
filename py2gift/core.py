@@ -69,7 +69,9 @@ def init_parameters_from_settings(cls_settings: dict) -> dict:
 
 # Cell
 
-def build(input_file: str, local_run: bool, questions_module: ModuleType, parameters_file: str = 'parameters.yaml', no_checks: bool = False):
+def build(
+    input_file: str, local_run: bool, questions_module: ModuleType, parameters_file: str = 'parameters.yaml',
+    no_checks: bool = False, overwrite_existing_latex_files: bool = True, embed_images: bool = False):
 
     with open(input_file) as f:
 
@@ -112,7 +114,9 @@ def build(input_file: str, local_run: bool, questions_module: ModuleType, parame
 
     py2gift.util.write_multiple_categories(category_questions, settings['pictures base directory'], output_file=output_file)
 
-    gift_wrapper.core.wrap(parameters_file, output_file, local_run=local_run, no_checks=no_checks, overwrite_existing_latex_files=True)
+    gift_wrapper.core.wrap(
+        parameters_file, output_file, local_run=local_run, no_checks=no_checks,
+        overwrite_existing_latex_files=overwrite_existing_latex_files, embed_images=embed_images)
 
 # Cell
 

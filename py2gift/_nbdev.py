@@ -21,9 +21,6 @@ index = {"main": "00_core.ipynb",
          "to_formula_maybe": "02_util.ipynb",
          "AccessorEndowedClass": "02_util.ipynb",
          "int_to_roman": "02_util.ipynb",
-         "hash_matrix": "02_util.ipynb",
-         "hash_number": "02_util.ipynb",
-         "hash_string": "02_util.ipynb",
          "extract_class_settings": "02_util.ipynb",
          "write_multiple_categories": "02_util.ipynb",
          "supplement_file_name": "02_util.ipynb",
@@ -40,14 +37,18 @@ index = {"main": "00_core.ipynb",
          "write_class_preamble": "40_input_file.ipynb",
          "write_class_closing": "40_input_file.ipynb",
          "function_to_make_hierarchical_category_name": "40_input_file.ipynb",
-         "TimeKeeper": "50_time.ipynb"}
+         "TimeKeeper": "50_time.ipynb",
+         "matrix": "70_hash.ipynb",
+         "number": "70_hash.ipynb",
+         "string": "70_hash.ipynb"}
 
 modules = ["core.py",
            "tex.py",
            "util.py",
            "question.py",
            "input_file.py",
-           "time.py"]
+           "time.py",
+           "hash.py"]
 
 doc_url = "https://manuvazquez.github.io/py2gift/"
 

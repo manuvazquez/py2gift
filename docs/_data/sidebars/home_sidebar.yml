@@ -27,6 +27,9 @@ entries:
     - output: web,pdf
       title: Time
       url: /time
+    - output: web,pdf
+      title: Hash
+      url: /hash
     output: web
     title: py2gift
   output: web
