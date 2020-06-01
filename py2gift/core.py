@@ -18,6 +18,7 @@ import yaml
 
 import py2gift.util
 import py2gift.question
+import py2gift.input_file
 
 import gift_wrapper.core
 
@@ -70,12 +71,19 @@ def init_parameters_from_settings(cls_settings: dict) -> dict:
 # Cell
 
 def build(
-    input_file: str, local_run: bool, questions_module: ModuleType, parameters_file: str = 'parameters.yaml',
+    settings: str, local_run: bool, questions_module: ModuleType, parameters_file: str = 'parameters.yaml',
     no_checks: bool = False, overwrite_existing_latex_files: bool = True, embed_images: bool = False):
 
-    with open(input_file) as f:
+    # if the settings is the name of a file...
+    if type(settings) == str:
 
-        settings = yaml.load(f, Loader=yaml.FullLoader)
+        with open(settings) as f:
+
+            settings = yaml.load(f, Loader=yaml.FullLoader)
+
+    else:
+
+        assert type(settings) == dict
 
     output_file = settings['output file']
 
@@ -124,7 +132,7 @@ def build_question(question_generator: py2gift.question.QuestionGenerator, categ
 
     class_name = question_generator.__name__
 
-    class_settings = py2gift.util.extract_class_settings(category_name, class_name, settings)
+    class_settings = py2gift.input_file.extract_class_settings(category_name, class_name, settings)
 
     # an instance
     question_generator = question_generator(**init_parameters_from_settings(class_settings))
