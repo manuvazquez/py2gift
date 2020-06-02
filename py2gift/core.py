@@ -128,7 +128,7 @@ def build(
 
 # Cell
 
-def build_question(question_generator: py2gift.question.QuestionGenerator, category_name: str, settings: dict) -> dict:
+def build_question(question_generator: py2gift.question.QuestionGenerator, category_name: str, settings: dict, n_question: int=0) -> dict:
 
     class_name = question_generator.__name__
 
@@ -140,6 +140,7 @@ def build_question(question_generator: py2gift.question.QuestionGenerator, categ
     assert ('parameters' in class_settings) ^ ('number of instances' in class_settings), 'either "parameters" or "number of instances" must be specified'
 
     if 'parameters' in class_settings:
-        return question_generator(**class_settings['parameters'])
+        # notice that `parameters` yields a list
+        return question_generator(**class_settings['parameters'][n_question])
     else:
         return question_generator()
