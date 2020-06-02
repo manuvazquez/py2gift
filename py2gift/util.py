@@ -234,11 +234,27 @@ def markdown_from_question(question_settings: dict, question_class: gift_wrapper
 
 # Cell
 
-def generator_to_markdown(settings_file: str, category: str, cls: py2gift.question.QuestionGenerator):
+# def generator_to_markdown(settings_file: str, category: str, cls: py2gift.question.QuestionGenerator):
 
-    with open(settings_file) as yaml_data:
+#     with open(settings_file) as yaml_data:
 
-        settings = yaml.load(yaml_data, Loader=yaml.FullLoader)
+#         settings = yaml.load(yaml_data, Loader=yaml.FullLoader)
+
+#     question_settings = py2gift.core.build_question(cls, category, settings)
+#     question_class = getattr(gift_wrapper.question, question_settings['class'])
+
+#     return markdown_from_question(question_settings, question_class)
+
+def generator_to_markdown(settings: Union[str, pathlib.Path], category: str, cls: py2gift.question.QuestionGenerator):
+
+    # if settings is the name of a file...
+    if type(settings) == str:
+
+        settings = yaml_to_dict(settings)
+
+    else:
+
+        assert type(settings) == dict
 
     question_settings = py2gift.core.build_question(cls, category, settings)
     question_class = getattr(gift_wrapper.question, question_settings['class'])

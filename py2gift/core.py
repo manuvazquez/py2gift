@@ -74,7 +74,7 @@ def build(
     settings: str, local_run: bool, questions_module: ModuleType, parameters_file: str = 'parameters.yaml',
     no_checks: bool = False, overwrite_existing_latex_files: bool = True, embed_images: bool = False):
 
-    # if the settings is the name of a file...
+    # if settings is the name of a file...
     if type(settings) == str:
 
         with open(settings) as f:

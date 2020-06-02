@@ -28,6 +28,9 @@ entries:
       title: Time
       url: /time
     - output: web,pdf
+      title: Notebook
+      url: /notebook
+    - output: web,pdf
       title: Hash
       url: /hash
     output: web

@@ -7,6 +7,7 @@
     "Questions' generators": "/question",
     "Input file": "/input_file",
     "Time": "/time",
+    "Notebook": "/notebook",
     "Hash": "/hash"
   }
 }

@@ -38,11 +38,14 @@ index = {"main": "00_core.ipynb",
          "initialize": "40_input_file.ipynb",
          "set_class_preamble": "40_input_file.ipynb",
          "set_class_closing": "40_input_file.ipynb",
+         "set_class": "40_input_file.ipynb",
          "write_header": "40_input_file.ipynb",
          "write_class_preamble": "40_input_file.ipynb",
          "write_class_closing": "40_input_file.ipynb",
          "function_to_make_hierarchical_category_name": "40_input_file.ipynb",
          "TimeKeeper": "50_time.ipynb",
+         "ClassesContainer": "60_notebook.ipynb",
+         "MyMagics": "60_notebook.ipynb",
          "matrix": "70_hash.ipynb",
          "number": "70_hash.ipynb",
          "string": "70_hash.ipynb"}
@@ -53,6 +56,7 @@ modules = ["core.py",
            "question.py",
            "input_file.py",
            "time.py",
+           "notebook.py",
            "hash.py"]
 
 doc_url = "https://manuvazquez.github.io/py2gift/"
