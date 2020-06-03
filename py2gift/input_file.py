@@ -6,6 +6,7 @@ __all__ = ['extract_class_settings', 'Settings', 'initialize', 'set_class_preamb
 # Cell
 
 import pathlib
+import pprint
 from typing import Union, Optional, Callable, List
 
 import py2gift.util
@@ -57,6 +58,10 @@ class Settings:
     def to_dict(self) -> dict:
 
         return self.store
+
+    def __str__(self) -> str:
+
+        return pprint.pformat(self.store)
 
     def set_class_preamble(self, category_name: str, base_category: Optional[str] = None, test_mode: bool = False) -> Union[str, list]:
 

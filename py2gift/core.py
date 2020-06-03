@@ -54,6 +54,15 @@ def main():
 # Cell
 
 def init_parameters_from_settings(cls_settings: dict) -> dict:
+    """
+    Returns a dictionary with the initialization parameters for a question.
+
+    Parameters
+    ----------
+
+    cls_settings: dict
+        The settings for the class.
+    """
 
     init_parameters = {
         'unprocessed_statement': string.Template(cls_settings['statement']),

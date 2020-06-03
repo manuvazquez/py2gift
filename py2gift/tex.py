@@ -77,15 +77,19 @@ def from_number(n: Union[int, float], prefix: str = '', precision: int = 3) -> s
     Returns a string for a given number.
     """
 
-    if (type(n) == float) or (type(n) == np.float64):
+#     if (type(n) == float) or (type(n) == np.float64):
 
-        format_specifier = f'.{precision}f'
+#         format_specifier = f'.{precision}f'
 
-        return f'{prefix}{n:{format_specifier}}'
+#         return f'{prefix}{n:{format_specifier}}'
 
-    else:
+#     else:
 
-        return f'{n}'
+#         return f'{n}'
+
+    format_specifier = f'.{precision}g'
+
+    return f'{prefix}{n:{format_specifier}}'
 
 # Cell
 
@@ -95,7 +99,8 @@ def from_matrix(m: Union[list, np.ndarray], float_point_precision: int = 3) -> s
     Returns a string for a given array or matrix.
     """
 
-    format_from_number = lambda x: f'.{float_point_precision}f' if (type(x) == np.float64) or (type(x) == float) else f'd'
+#     format_from_number = lambda x: f'.{float_point_precision}f' if (type(x) == np.float64) or (type(x) == float) else f'd'
+    format_from_number = lambda x: f'.{float_point_precision}g' if (type(x) == np.float64) or (type(x) == float) else f'd'
 
     if isinstance(m[0], (list, np.ndarray)):
 
@@ -128,7 +133,8 @@ def enumerate_math(
     Returns a string for a enumeration of formulas.
     """
 
-    format_specifier = f'.{precision}f'
+#     format_specifier = f'.{precision}f'
+    format_specifier = f'.{precision}g'
 
     strings_list = [f'{e:{format_specifier}}' for e in numbers_list]
 
