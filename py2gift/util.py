@@ -201,12 +201,6 @@ assert add_name([{'k1': 'aa', 'k2': 1}, {'k3': 'pi', 'foo': 'variance'}], 'Viter
 
 def markdown_from_question(question_settings: dict, question_class: gift_wrapper.question.HtmlQuestion) -> str:
 
-#     # `None` values for width and height are assumed
-#     question_settings['images_settings'] = {'width': None, 'height': None}
-
-#     # the class is removed from the dictionary so that it doesn't get passed to the initializer
-#     del question_settings['class']
-
     # the class that will be instantiated for this particular question; notice the class is removed
     # (popped) from the dictionary so that it doesn't get passed to the initializer
     question_class = getattr(gift_wrapper.question, question_settings.pop('class'))
@@ -233,17 +227,6 @@ def markdown_from_question(question_settings: dict, question_class: gift_wrapper
     return markdown
 
 # Cell
-
-# def generator_to_markdown(settings_file: str, category: str, cls: py2gift.question.QuestionGenerator):
-
-#     with open(settings_file) as yaml_data:
-
-#         settings = yaml.load(yaml_data, Loader=yaml.FullLoader)
-
-#     question_settings = py2gift.core.build_question(cls, category, settings)
-#     question_class = getattr(gift_wrapper.question, question_settings['class'])
-
-#     return markdown_from_question(question_settings, question_class)
 
 def generator_to_markdown(settings: Union[str, pathlib.Path], category: str, cls: py2gift.question.QuestionGenerator):
 

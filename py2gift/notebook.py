@@ -8,6 +8,8 @@ import argparse
 
 from IPython.core.magic import Magics, magics_class, line_magic, cell_magic, line_cell_magic
 
+import py2gift.input_file
+
 # Cell
 
 class ClassesContainer:
@@ -40,9 +42,9 @@ class MyMagics(Magics):
 
         line_arguments = self.location_parser.parse_args(line.split())
 
-        self.shell.user_ns[line_arguments.settings]['categories'][-1]['classes'][-1][key] = cell
+        self.shell.user_ns[line_arguments.settings].store['categories'][-1]['classes'][-1][key] = cell
 
-        print(line_arguments)
+#         print(line_arguments)
 
 #     @line_magic
 #     def lmagic(self, line):
