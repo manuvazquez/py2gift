@@ -47,7 +47,9 @@ def extract_class_settings(category_name: Union[str, list], class_name: str, set
 
 class Settings:
 
-    def __init__(self, output_file: str, pictures_directory: str) -> None:
+    def __init__(self, output_file: str, pictures_directory: str, test_mode: bool = False) -> None:
+
+        self.test_mode = test_mode
 
         self.store = {}
 
@@ -63,9 +65,9 @@ class Settings:
 
         return pprint.pformat(self.store)
 
-    def set_class_preamble(self, category_name: str, base_category: Optional[str] = None, test_mode: bool = False) -> Union[str, list]:
+    def add_category(self, category_name: str, base_category: Optional[str] = None) -> Union[str, list]:
 
-        if test_mode:
+        if self.test_mode:
 
             category_name = 'test'
 
@@ -80,9 +82,51 @@ class Settings:
 
             self.store['categories'] = []
 
-        self.store['categories'].append({'name': category_name, 'classes': None})
+        # only if the category doesn't exist...
+        if self.locate(category_name=category_name) is None:
+
+            # ...is it added
+            self.store['categories'].append({'name': category_name, 'classes': None})
 
         return category_name
+
+    def locate(self, category_name: Union[str, list], class_name: Optional[str] = None):
+
+        for cat in self.store['categories']:
+
+            if cat['name'] == category_name:
+
+                if class_name is None:
+
+                    return cat
+
+                else:
+
+                    category_settings = cat
+
+                    break
+
+        else:
+
+            return None
+
+
+        # if at this point, then the category has been found and `class_name` is not `Ǹone`
+
+        if category_settings['classes'] is None:
+
+            return None
+
+        for cls in category_settings['classes']:
+
+            if cls['name'] == class_name:
+
+                return cls
+
+        else:
+
+            return None
+
 
     def set_class_closing(self, n_instances: int, time: Optional[int] = None) -> None:
 
@@ -118,6 +162,48 @@ class Settings:
             d['time'] = time
 
         self.store['categories'][-1]['classes'] = [d]
+
+    def add_or_update_class(
+        self, category_name: Union[str, list], class_name: str, question_base_name: str, init_parameters: Optional[dict] = None,
+        parameters: Optional[List[dict]] = None, n_instances: Optional[int] = None, time: Optional[int]=None) -> None:
+
+        d = {'name': class_name, 'question base name': question_base_name}
+
+        if init_parameters:
+
+            d['init parameters'] = init_parameters
+
+        assert (parameters is not None) ^ (n_instances is not None)
+
+        if parameters:
+
+            d['parameters'] = parameters
+
+        else:
+
+            d['number of instances'] = n_instances
+
+        if time:
+
+            d['time'] = time
+
+        class_settings = self.locate(category_name, class_name)
+
+        if class_settings is None:
+
+            category_settings = self.locate(category_name)
+
+            assert category_settings is not None
+
+            if category_settings['classes'] is None:
+
+                category_settings['classes'] = []
+
+            category_settings['classes'].append(d)
+
+        else:
+
+            class_settings.update(d)
 
 # Cell
 
