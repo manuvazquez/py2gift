@@ -61,9 +61,10 @@ class Settings:
 
         return self.store
 
-    def __str__(self) -> str:
+    def __repr__(self) -> str:
 
         return pprint.pformat(self.store)
+
 
     def add_category(self, category_name: str, base_category: Optional[str] = None) -> Union[str, list]:
 

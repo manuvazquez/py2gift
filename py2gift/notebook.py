@@ -35,16 +35,38 @@ class MyMagics(Magics):
 #         self.parser.add_argument('-n', '--name')
 
         self.location_parser = argparse.ArgumentParser(description='Specification')
-        self.location_parser.add_argument('settings', help='settings variable (dictionary)')
+        self.location_parser.add_argument('settings', help='Settings object')
+        self.location_parser.add_argument('-c', '--class', default=None, help='class')
+
+        # the name of a category can contain spaces; notice that this will yield a *list* rather than a string
+        self.location_parser.add_argument('-C', '--category', default=None, nargs='+', help='category')
 
 #     def process(self, line, cell, variable):
     def process(self, line, cell, key):
 
         line_arguments = self.location_parser.parse_args(line.split())
 
+        print(f'{line_arguments.category=}')
+
+        if line_arguments.category:
+
+            # this is a list
+            category = ' '.join(line_arguments.category).split(',')
+
+            if len(category) == 1:
+
+                category = category[0]
+
+        else:
+
+            category = None
+
+#             line_arguments.category = ' '.join(line_arguments.category)
+
         self.shell.user_ns[line_arguments.settings].store['categories'][-1]['classes'][-1][key] = cell
 
-#         print(line_arguments)
+        print(f'{line_arguments=}')
+        print(f'processed category={category}')
 
 #     @line_magic
 #     def lmagic(self, line):
