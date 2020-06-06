@@ -5,6 +5,7 @@ __all__ = ['ClassesContainer', 'MyMagics']
 # Cell
 
 import argparse
+import json
 
 from IPython.core.magic import Magics, magics_class, line_magic, cell_magic, line_cell_magic
 
@@ -31,12 +32,10 @@ class MyMagics(Magics):
 
         super().__init__(shell=shell, **kwargs)
 
-#         self.parser = argparse.ArgumentParser(description='write settings')
-#         self.parser.add_argument('-n', '--name')
 
         self.location_parser = argparse.ArgumentParser(description='Specification')
         self.location_parser.add_argument('settings', help='Settings object')
-        self.location_parser.add_argument('-c', '--class', default=None, help='class')
+        self.location_parser.add_argument('-c', '--cls', default=None, help='class')
 
         # the name of a category can contain spaces; notice that this will yield a *list* rather than a string
         self.location_parser.add_argument('-C', '--category', default=None, nargs='+', help='category')
@@ -46,39 +45,48 @@ class MyMagics(Magics):
 
         line_arguments = self.location_parser.parse_args(line.split())
 
-        print(f'{line_arguments.category=}')
+        print(f'line_arguments.category={line_arguments.category}')
 
         if line_arguments.category:
 
-            # this is a list
-            category = ' '.join(line_arguments.category).split(',')
+            joined = ' '.join(line_arguments.category)
+#             breakpoint()
+            category = json.loads(joined)
 
-            if len(category) == 1:
+#             # this is a list
+#             category = ' '.join(line_arguments.category).split(',')
 
-                category = category[0]
+#             if len(category) == 1:
+
+#                 category = category[0]
 
         else:
 
             category = None
 
-#             line_arguments.category = ' '.join(line_arguments.category)
+#         self.shell.user_ns[line_arguments.settings].store['categories'][-1]['classes'][-1][key] = cell
 
-        self.shell.user_ns[line_arguments.settings].store['categories'][-1]['classes'][-1][key] = cell
+        settings = self.shell.user_ns[line_arguments.settings]
 
-        print(f'{line_arguments=}')
-        print(f'processed category={category}')
+        if category is None:
 
-#     @line_magic
-#     def lmagic(self, line):
+            category = settings.store['categories'][-1]['name']
 
-#         "my line magic"
-#         print("Full access to the main IPython object:", self.shell)
-#         print("Variables in the user namespace:", list(self.shell.user_ns.keys()))
 
-#         line_arguments = self.parser.parse_args(line.split())
-#         print(line_arguments)
+        cls = line_arguments.cls
 
-#         return line
+        if cls is None:
+
+            cls = settings.locate(category_name=category)['classes'][-1]['name']
+
+#         settings.store['categories'][-1]['classes'][-1][key] = cell
+
+        print(f'category={category}, class={cls}')
+
+        settings.locate(category_name=category, class_name=cls)[key] = cell
+
+        print(f'line_arguments={line_arguments}')
+#         print(f'processed category={category}')
 
     @cell_magic
     def statement(self, line, cell):
@@ -93,17 +101,6 @@ class MyMagics(Magics):
         self.process(line, cell, self.feedback_key)
 
         return f'feedback recorded'
-
-#     @line_cell_magic
-#     def lcmagic(self, line, cell=None):
-
-#         "Magic that works both as %lcmagic and as %%lcmagic"
-#         if cell is None:
-#             print("Called as line magic")
-#             return line
-#         else:
-#             print("Called as cell magic")
-#             return line, cell
 
 # Cell
 

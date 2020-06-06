@@ -3,6 +3,8 @@
 __all__ = ['TimeKeeper']
 
 # Cell
+
+import json
 from typing import Union
 
 import pandas as pd
@@ -20,7 +22,17 @@ class TimeKeeper:
 
         if type(category_name)==str:
 
-            return category_name
+            try:
+
+                category_name = json.loads(category_name)
+
+                if type(category_name)==str:
+
+                    return category_name
+
+            except json.JSONDecodeError:
+
+                return category_name
 
         return category_name[-1].split('/')[-1]
 
@@ -34,8 +46,10 @@ class TimeKeeper:
 
     def plot(self):
 
-        ax = self.df.plot.pie(y='time', legend=True)
-        ax.legend(bbox_to_anchor=(1.2, 0.5))
+#         ax = self.df.plot.pie(y='time', legend=True)
+        ax = self.df.plot.pie(y='time')
+#         ax.legend(bbox_to_anchor=(1.2, 0.5))
+        ax.legend().remove()
         ax.set_ylabel(None)
 
         return ax

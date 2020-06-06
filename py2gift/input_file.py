@@ -5,6 +5,7 @@ __all__ = ['extract_class_settings', 'Settings', 'initialize', 'set_class_preamb
 
 # Cell
 
+import sys
 import pathlib
 import pprint
 from typing import Union, Optional, Callable, List
@@ -47,7 +48,7 @@ def extract_class_settings(category_name: Union[str, list], class_name: str, set
 
 class Settings:
 
-    def __init__(self, output_file: str, pictures_directory: str, test_mode: bool = False) -> None:
+    def __init__(self, output_file: str = 'quiz.yaml', pictures_directory: str = 'quiz/pics', test_mode: bool = False) -> None:
 
         self.test_mode = test_mode
 
@@ -66,7 +67,26 @@ class Settings:
         return pprint.pformat(self.store)
 
 
-    def add_category(self, category_name: str, base_category: Optional[str] = None) -> Union[str, list]:
+    def add_category(self, category_name: str, base_category: Optional[str] = None) -> Union[str, List[str]]:
+        """
+        Adds a category if it doesn't exist.
+
+
+        Parameters
+        ----------
+        category_name: str
+            The name of the category to be added.
+        base_category: str, optional
+            Parent of the category
+
+        Returns
+        -------
+        out: str or list of str
+            The category *actually* added.
+
+        """
+
+        assert type(category_name) == str
 
         if self.test_mode:
 
@@ -91,20 +111,40 @@ class Settings:
 
         return category_name
 
-    def locate(self, category_name: Union[str, list], class_name: Optional[str] = None):
+    def locate(self, category_name: Union[str, list], class_name: Optional[str] = None) -> dict:
+        """
+        Returns the requested category or class (inside a category) or `None` if it can't be found.
+
+        Parameters
+        ----------
+        category_name: str
+            The name of the category.
+        class_name: str, optional
+            The name of the class.
+
+        Returns
+        -------
+        out: dict
+            The dictionary for the category or class.
+
+        """
 
         for cat in self.store['categories']:
 
             if cat['name'] == category_name:
 
+                # if no particular class was requested...
                 if class_name is None:
 
                     return cat
 
+                # if a particular class was requested...
                 else:
 
+                    # the found category is saved for use below
                     category_settings = cat
 
+                    # this is the only way out of the loop without return
                     break
 
         else:
@@ -112,8 +152,9 @@ class Settings:
             return None
 
 
-        # if at this point, then the category has been found and `class_name` is not `Ǹone`
+        # at this point the category has been found and `class_name` is not `Ǹone`
 
+        # if the category doesn't have any class...
         if category_settings['classes'] is None:
 
             return None
@@ -127,42 +168,6 @@ class Settings:
         else:
 
             return None
-
-
-    def set_class_closing(self, n_instances: int, time: Optional[int] = None) -> None:
-
-        if self.store['categories'][-1]['classes'] is None:
-
-            self.store['categories'][-1]['classes'] = [{}]
-
-        self.store['categories'][-1]['classes'][-1]['number of instances'] = n_instances
-        self.store['categories'][-1]['classes'][-1]['time'] = time
-
-    def set_class(
-        self, class_name: str, question_base_name: str, init_parameters: Optional[dict] = None,
-        parameters: Optional[List[dict]] = None, n_instances: Optional[int] = None, time: Optional[int]=None) -> None:
-
-        assert (parameters is not None) ^ (n_instances is not None)
-
-        d = {'name': class_name, 'question base name': question_base_name}
-
-        if init_parameters:
-
-            d['init parameters'] = init_parameters
-
-        if parameters:
-
-            d['parameters'] = parameters
-
-        else:
-
-            d['number of instances'] = n_instances
-
-        if time:
-
-            d['time'] = time
-
-        self.store['categories'][-1]['classes'] = [d]
 
     def add_or_update_class(
         self, category_name: Union[str, list], class_name: str, question_base_name: str, init_parameters: Optional[dict] = None,
@@ -194,7 +199,7 @@ class Settings:
 
             category_settings = self.locate(category_name)
 
-            assert category_settings is not None
+            assert category_settings is not None, f'category "{category_name}" not found'
 
             if category_settings['classes'] is None:
 
