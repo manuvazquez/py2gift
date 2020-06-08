@@ -8,6 +8,7 @@ __all__ = ['extract_class_settings', 'Settings', 'initialize', 'set_class_preamb
 import sys
 import pathlib
 import pprint
+import inspect
 from typing import Union, Optional, Callable, List
 
 import py2gift.util
@@ -58,6 +59,8 @@ class Settings:
         self.store['pictures base directory'] = pictures_directory
         self.store['categories'] = None
 
+        self._classes = set()
+
     def to_dict(self) -> dict:
 
         return self.store
@@ -65,6 +68,30 @@ class Settings:
     def __repr__(self) -> str:
 
         return pprint.pformat(self.store)
+
+    @property
+    def fake_module(self) -> 'ClassesContainer':
+
+#         return inspect.stack()
+
+        # [0] is the caller of the method (`stack`)
+        caller_globals = inspect.stack()[1].frame.f_globals
+
+        class ClassesContainer:
+
+            pass
+
+        class_container = ClassesContainer()
+
+        for c in self._classes:
+
+#             assert c in globals(), f'class "{c}" was not defined'
+            assert c in caller_globals, f'class "{c}" was not defined'
+
+#             setattr(class_container, c, globals()[c])
+            setattr(class_container, c, caller_globals[c])
+
+        return class_container
 
 
     def add_category(self, category_name: str, base_category: Optional[str] = None) -> Union[str, List[str]]:
@@ -211,6 +238,8 @@ class Settings:
 
             class_settings.update(d)
 
+        self._classes.add(class_name)
+
 # Cell
 
 def initialize(output_file: str, pictures_directory: str, ) -> dict:
@@ -219,7 +248,6 @@ def initialize(output_file: str, pictures_directory: str, ) -> dict:
 
     settings['output file'] = output_file
     settings['pictures base directory'] = pictures_directory
-#     settings['path to gift-wrapper'] = '~/gift-wrapper/wrap.py'
     settings['categories'] = None
 
     return settings

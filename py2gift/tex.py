@@ -72,22 +72,12 @@ def partwise_function(function: str, parts: List[Tuple[str, str]], add_zero_othe
 # Cell
 
 @to_formula_maybe
-def from_number(n: Union[int, float], prefix: str = '', precision: int = 3) -> str:
+def from_number(n: Union[int, float], prefix: str = '', precision: int = 3, fixed_point_format: bool = False) -> str:
     """
     Returns a string for a given number.
     """
 
-#     if (type(n) == float) or (type(n) == np.float64):
-
-#         format_specifier = f'.{precision}f'
-
-#         return f'{prefix}{n:{format_specifier}}'
-
-#     else:
-
-#         return f'{n}'
-
-    format_specifier = f'.{precision}g'
+    format_specifier = f'.{precision}{"f" if fixed_point_format else "g"}'
 
     return f'{prefix}{n:{format_specifier}}'
 

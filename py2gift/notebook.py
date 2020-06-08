@@ -40,31 +40,19 @@ class MyMagics(Magics):
         # the name of a category can contain spaces; notice that this will yield a *list* rather than a string
         self.location_parser.add_argument('-C', '--category', default=None, nargs='+', help='category')
 
-#     def process(self, line, cell, variable):
-    def process(self, line, cell, key):
+    def process(self, line: str, cell: str, key: str):
 
         line_arguments = self.location_parser.parse_args(line.split())
 
-        print(f'line_arguments.category={line_arguments.category}')
+#         print(f'line_arguments.category={line_arguments.category}')
 
         if line_arguments.category:
 
-            joined = ' '.join(line_arguments.category)
-#             breakpoint()
-            category = json.loads(joined)
-
-#             # this is a list
-#             category = ' '.join(line_arguments.category).split(',')
-
-#             if len(category) == 1:
-
-#                 category = category[0]
+            category = json.loads(' '.join(line_arguments.category))
 
         else:
 
             category = None
-
-#         self.shell.user_ns[line_arguments.settings].store['categories'][-1]['classes'][-1][key] = cell
 
         settings = self.shell.user_ns[line_arguments.settings]
 
@@ -79,14 +67,10 @@ class MyMagics(Magics):
 
             cls = settings.locate(category_name=category)['classes'][-1]['name']
 
-#         settings.store['categories'][-1]['classes'][-1][key] = cell
 
-        print(f'category={category}, class={cls}')
+#         print(f'category={category}, class={cls}')
 
         settings.locate(category_name=category, class_name=cls)[key] = cell
-
-        print(f'line_arguments={line_arguments}')
-#         print(f'processed category={category}')
 
     @cell_magic
     def statement(self, line, cell):
