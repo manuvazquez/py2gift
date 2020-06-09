@@ -7,6 +7,7 @@ __all__ = ['pre_process_string_template', 'QuestionGenerator', 'NumericalQuestio
 
 import abc
 import string
+import re
 from typing import List, Union, Optional, Tuple
 
 import numpy as np

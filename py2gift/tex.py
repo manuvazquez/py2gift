@@ -15,7 +15,22 @@ from .util import to_formula_maybe
 
 def join(strings_list: List[str], nexus: str = 'and', to_formula: bool = True):
     """
-    Encloses every element in a list between `$`s and returns a string enumerating them.
+    Enumerates the strings in a list, optionally enclosing every element between `$`s.
+
+    Parameters
+    ----------
+    strings_list: list
+        A list with the strings to be joined.
+    nexus: str
+        Text between the second to last and last elements.
+    to_formula: bool, optional
+        If True every string will be enclosed in '$'s.
+
+    Returns
+    -------
+    out: str
+        TeX compatible string.
+
     """
 
     if to_formula:
@@ -34,6 +49,20 @@ def join(strings_list: List[str], nexus: str = 'and', to_formula: bool = True):
 def gaussian_pdf(x: str = 'x', mean: str = r'\mu', variance: str = r'\sigma^2') -> str:
     """
     Returns a string representing the probability density function for a Gaussian distribution.
+
+    Parameters
+    ----------
+    x: str
+        The random variable.
+    mean: str, optional
+        The mean of the random variable.
+    variance: str, optional
+        The variance of the random variable.
+
+    Returns
+    -------
+    out: str
+        TeX compatible string.
     """
 
     return r'\frac{1}{\sqrt{2\pi ' + variance + r'}}e^{-\frac{(' + x + '-' + mean + r')^2}{2' + variance + r'}}'
@@ -43,7 +72,17 @@ def gaussian_pdf(x: str = 'x', mean: str = r'\mu', variance: str = r'\sigma^2') 
 @to_formula_maybe
 def q_function_approximation(x: str = 'x') -> str:
     """
-    Returns a string representing the Stirling approximation.
+    Returns a string representing the Stirling approximation for the Q function.
+
+    Parameters
+    ----------
+    x: str
+        The argument of the Q function.
+
+    Returns
+    -------
+    out: str
+        TeX compatible string.
     """
 
     return f'Q({x}) \\approx \\frac{{1}}{{2}} e^{{-\\frac{{{x}^2}}{{2}}}}'
@@ -52,6 +91,23 @@ def q_function_approximation(x: str = 'x') -> str:
 
 @to_formula_maybe
 def partwise_function(function: str, parts: List[Tuple[str, str]], add_zero_otherwise: bool = True) -> str:
+    """
+    Returns a string representing the definition a part-wise mathematical function.
+
+    Parameters
+    ----------
+    function: str
+        The name of the function.
+    parts: list
+        Each element is a tuple yields whose 1st element is the value of the function and whose second is a condition stating where the 1st applies.
+    add_zero_otherwise: bool
+        If True, one last part stating "0, otherwise" is added.
+
+    Returns
+    -------
+    out: str
+        TeX compatible string.
+    """
 
     res = f'{function}='
 
@@ -75,6 +131,24 @@ def partwise_function(function: str, parts: List[Tuple[str, str]], add_zero_othe
 def from_number(n: Union[int, float], prefix: str = '', precision: int = 3, fixed_point_format: bool = False) -> str:
     """
     Returns a string for a given number.
+
+    Parameters
+    ----------
+    n: int or float
+        The number.
+    prefix: str
+        A string to be prepended to the number.
+    precision: int
+        Number of decimals (ignored if the number is an integer).
+    fixed_point_format: bool
+        If True, a fixed-point format (f) is used regardless of the actual type.
+
+
+
+    Returns
+    -------
+    out: str
+        TeX compatible string.
     """
 
     format_specifier = f'.{precision}{"f" if fixed_point_format else "g"}'
