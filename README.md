@@ -19,3 +19,7 @@ Fill me in please! Don't forget code examples:
 ```python
 1+1
 ```
+
+The images are underneath handled by *gift-wrapper*, and hence either `.tex` (that can be compiled with *pdflatex*) or `.svg` files are fine.
+
+The difference between two instances of the same question can be minor or significant. Ultimately, it depends on how sophisticated your Python code is (if the latter can solve the question/problem in a very general form, and you are also able to present it in the `statement`, you are good to go).

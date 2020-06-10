@@ -72,8 +72,6 @@ class Settings:
     @property
     def fake_module(self) -> 'ClassesContainer':
 
-#         return inspect.stack()
-
         # [0] is the caller of the method (`stack`)
         caller_globals = inspect.stack()[1].frame.f_globals
 
@@ -197,8 +195,9 @@ class Settings:
             return None
 
     def add_or_update_class(
-        self, category_name: Union[str, list], class_name: str, question_base_name: str, init_parameters: Optional[dict] = None,
-        parameters: Optional[List[dict]] = None, n_instances: Optional[int] = None, time: Optional[int]=None) -> None:
+        self, category_name: Union[str, list], class_name: str, question_base_name: str,
+        init_parameters: Optional[dict] = None, parameters: Optional[List[dict]] = None,
+        n_instances: Optional[int] = None, time: Optional[int]=None) -> None:
 
         d = {'name': class_name, 'question base name': question_base_name}
 

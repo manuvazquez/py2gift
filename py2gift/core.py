@@ -65,8 +65,6 @@ def init_parameters_from_settings(cls_settings: dict) -> dict:
     """
 
     init_parameters = {
-#         'unprocessed_statement': string.Template(cls_settings['statement']),
-#         'unprocessed_feedback': string.Template(cls_settings['feedback'])
         'statement': py2gift.question.TemplatedLatexText(cls_settings['statement']),
         'feedback': py2gift.question.TemplatedLatexText(cls_settings['feedback'])
     }
@@ -109,7 +107,8 @@ def build(
             this_class_questions = []
 
             # either `parameters` or `number of instances` is present, but not both
-            assert ('parameters' in c) ^ ('number of instances' in c), 'either "parameters" or "number of instances" must be specified'
+            assert ('parameters' in c) ^ ('number of instances' in c), (
+                'either "parameters" or "number of instances" must be specified')
 
             question_generator = getattr(questions_module, c['name'])(**init_parameters_from_settings(c))
 
@@ -148,7 +147,8 @@ def build_question(question_generator: py2gift.question.QuestionGenerator, categ
     # an instance
     question_generator = question_generator(**init_parameters_from_settings(class_settings))
 
-    assert ('parameters' in class_settings) ^ ('number of instances' in class_settings), 'either "parameters" or "number of instances" must be specified'
+    assert ('parameters' in class_settings) ^ ('number of instances' in class_settings), (
+        'either "parameters" or "number of instances" must be specified')
 
     if 'parameters' in class_settings:
         # notice that `parameters` yields a list

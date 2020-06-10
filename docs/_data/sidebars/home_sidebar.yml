@@ -33,6 +33,9 @@ entries:
     - output: web,pdf
       title: Hash
       url: /hash
+    - output: web,pdf
+      title: General settings
+      url: /sample_1
     output: web
     title: py2gift
   output: web
