@@ -65,8 +65,10 @@ def init_parameters_from_settings(cls_settings: dict) -> dict:
     """
 
     init_parameters = {
-        'unprocessed_statement': string.Template(cls_settings['statement']),
-        'unprocessed_feedback': string.Template(cls_settings['feedback'])
+#         'unprocessed_statement': string.Template(cls_settings['statement']),
+#         'unprocessed_feedback': string.Template(cls_settings['feedback'])
+        'statement': py2gift.question.TemplatedLatexText(cls_settings['statement']),
+        'feedback': py2gift.question.TemplatedLatexText(cls_settings['feedback'])
     }
 
     if 'time' in cls_settings:
