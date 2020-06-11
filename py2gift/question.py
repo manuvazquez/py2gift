@@ -8,43 +8,43 @@ __all__ = ['TemplatedLatexText', 'QuestionGenerator', 'NumericalQuestionGenerato
 import abc
 import string
 import re
+import pathlib
 from typing import List, Union, Optional, Tuple
 
 import numpy as np
+
+import py2gift.tex
+import py2gift.util
 
 # Cell
 class TemplatedLatexText:
 
     wildcard_symbol = '!'
 
+    type_to_processing_function = {
+        type('string'): lambda x: x,
+        type(pathlib.Path('foo')): lambda x: str(x),
+        type(np.array([1,2])): py2gift.tex.from_matrix,
+        type([1,2]): py2gift.tex.from_matrix,
+        type(3): py2gift.tex.from_number,
+        type(4.2): py2gift.tex.from_number,
+        type(np.array([2, 3], dtype=int)[0]): py2gift.tex.from_number,
+        type(np.array([2.0, 3.0], dtype=float)[0]): py2gift.tex.from_number
+    }
+
     def __init__(self, raw_text: str) -> None:
 
-        # For the sake of "retrocompatibility", it is attempted to guess the format...
-        # if "$$" is not present in the passed statement (new format)...
-        if raw_text.find('$$') == -1:
-
-            self.template = string.Template(self.pre_process(raw_text))
-
-        # if there is some "$$" (old format)...
-        else:
-
-
-            self.template = raw_text
-
-        # --------
+        self.template = string.Template(self.pre_process(raw_text))
 
         try:
 
-#             self.template.substitute()
+            # this is fine if there are no "placeholder"s that need to be substituted
             self._final = self.template.substitute()
 
+        # if there are "placeholders" that need to be taken care of...
         except:
 
             self._final = None
-
-#         else:
-
-#             self._final = self.template.template
 
     def pre_process(self, text: str) -> str:
 
@@ -52,7 +52,21 @@ class TemplatedLatexText:
 
     def fill(self, **kwargs) -> None:
 
-        self._final = self.template.substitute(**kwargs)
+        processed_args = dict()
+
+        for k,v in kwargs.items():
+
+            # the type of the passed value
+            t = type(v)
+
+            assert t in self.type_to_processing_function, (
+                f'the type of {k} ({t}) cannot be handled (turned into a string)')
+
+            processed_args[k] = self.type_to_processing_function[t](v)
+
+
+#         self._final = self.template.substitute(**kwargs)
+        self._final = self.template.substitute(**processed_args)
 
     @property
     def final(self) -> str:
@@ -167,8 +181,9 @@ class NumericalQuestionGenerator(QuestionGenerator):
 
         super().__call__(**kwargs)
 
-        assert self.solution is not None
-        assert self.error is not None
+        assert self.solution is not None, 'solution was not defined, please try setting `self.solution` to a number'
+        assert self.error is not None, (
+            'error (tolerance) was not defined, please try setting `self.error` to a number')
 
         return self.assemble_question(
             statement=self.statement.final, feedback=self.feedback.final, solution=self.solution, error=self.error)
@@ -213,16 +228,18 @@ class MultipleChoiceQuestionGenerator(QuestionGenerator):
 
         if self.right_answer:
 
-            assert isinstance(self.right_answer, str), f'right answer {self.right_answer} is not a string'
+            assert isinstance(self.right_answer, str), f'right answer "{self.right_answer}" is not a string'
 
-        assert self.wrong_answers is not None
+        assert self.wrong_answers is not None, (
+            'wrong answers were not given, please try setting `self.wrong_answers` to a list of strings')
 
         # in order to check that every wrong answer is different
         wrong_answers_texts = []
 
         for e in self.wrong_answers:
 
-            assert isinstance(e, str) or isinstance(e, list)
+            assert isinstance(e, str) or isinstance(e, list), (
+                f'"{e}" is not a string or list encompassing a string and a number')
 
             if isinstance(e, list):
 
@@ -236,7 +253,8 @@ class MultipleChoiceQuestionGenerator(QuestionGenerator):
                 wrong_answers_texts.append(e)
 
         # all the answers are different
-        assert np.unique(wrong_answers_texts).size == np.array(wrong_answers_texts).size, f'all the wrong answers are not different: {wrong_answers_texts}'
+        assert np.unique(wrong_answers_texts).size == np.array(wrong_answers_texts).size, (
+            f'all the wrong answers are not different: {wrong_answers_texts}')
 
 
         return self.assemble_question(
