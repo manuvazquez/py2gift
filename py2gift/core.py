@@ -24,7 +24,6 @@ import py2gift.input_file
 import gift_wrapper.core
 
 # Cell
-
 def main():
 
     parser = argparse.ArgumentParser(description='Python to GIFT converter')
@@ -60,9 +59,14 @@ def init_parameters_from_settings(cls_settings: dict) -> dict:
 
     Parameters
     ----------
-
     cls_settings: dict
-        The settings for the class.
+        Settings for the class, which should include `statement`, `feedback` and, optionally, `time`.
+
+    Returns
+    -------
+    out: dict
+        A dictionary with the *exact* parameters that must be passed when instantiating the class.
+
     """
 
     init_parameters = {
@@ -79,10 +83,32 @@ def init_parameters_from_settings(cls_settings: dict) -> dict:
     return init_parameters
 
 # Cell
-
 def build(
-    settings: str, local_run: bool, questions_module: ModuleType, parameters_file: str = 'parameters.yaml',
-    no_checks: bool = False, overwrite_existing_latex_files: bool = True, embed_images: bool = False):
+    settings: Union[str, dict], local_run: bool, questions_module: ModuleType,
+    parameters_file: Union[str, dict] = 'parameters.yaml', no_checks: bool = False,
+    overwrite_existing_latex_files: bool = True, embed_images: bool = False) -> None:
+    """
+    Generates a GIFT file.
+
+    Parameters
+    ----------
+    settings: str or dict
+        Settings for all the questions (generators).
+    local_run: bool
+        If True, pictures will not be copied to a remote host.
+    questions_module: ModuleType
+        A module or structure that holds the classes referenced in the settings.
+    parameters_file: str or dict
+        File or dictionary with the parameters for "gift-wrapper".
+    no_checks: bool
+        Whether or not LaTeX formulas should be checked.
+    overwrite_existing_latex_files: bool
+        If True the auxiliar file for checks should be, if existing, overwritten without a warning.
+    embed_images: bool
+        If True, images will be embedded in the questions (rather than linked).
+
+
+    """
 
     # if settings is the name of a file...
     if type(settings) == str:
@@ -131,15 +157,35 @@ def build(
 
     # --------
 
-    py2gift.util.write_multiple_categories(category_questions, settings['pictures base directory'], output_file=output_file)
+    py2gift.util.write_multiple_categories(
+        category_questions, settings['pictures base directory'], output_file=output_file)
 
     gift_wrapper.core.wrap(
         parameters_file, output_file, local_run=local_run, no_checks=no_checks,
         overwrite_existing_latex_files=overwrite_existing_latex_files, embed_images=embed_images)
 
 # Cell
+def build_question(
+    question_generator: py2gift.question.QuestionGenerator, category_name: str, settings: dict, n_question: int=0
+) -> dict:
+    """
+    Returns the settings for building a question using "gift-wrapper".
 
-def build_question(question_generator: py2gift.question.QuestionGenerator, category_name: str, settings: dict, n_question: int=0) -> dict:
+    Parameters
+    ----------
+    question_generator: class
+        The question generator that will generate the appropirate settings.
+    category_name: str
+        The name of category the class belongs to.
+    n_question: int
+        The number of instance to be returned.
+
+    Returns
+    -------
+    out: dict
+        A dictionary with the settings that allow building the question using "gift-wrapper".
+
+    """
 
     class_name = question_generator.__name__
 
@@ -158,8 +204,23 @@ def build_question(question_generator: py2gift.question.QuestionGenerator, categ
         return question_generator()
 
 # Cell
-
 def markdown_from_question(question_settings: dict, question_class: gift_wrapper.question.HtmlQuestion) -> str:
+    """
+    Returns the settings for building a question using "gift-wrapper".
+
+    Parameters
+    ----------
+    question_settings: dict
+        Settings for a question (as opposed to a question generator).
+    question_class: class
+        The class implementing the question.
+
+    Returns
+    -------
+    out: str
+        Markdown representation.
+
+    """
 
     # the class that will be instantiated for this particular question; notice the class is removed
     # (popped) from the dictionary so that it doesn't get passed to the initializer

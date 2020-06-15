@@ -96,7 +96,6 @@ class Settings:
         """
         Adds a category if it doesn't exist.
 
-
         Parameters
         ----------
         category_name: str

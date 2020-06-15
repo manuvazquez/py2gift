@@ -9,8 +9,6 @@ from typing import Union, Iterable, List, Optional, Tuple
 
 import numpy as np
 
-# from py2gift.util import to_formula_maybe
-
 # Cell
 
 def to_formula_maybe(func):

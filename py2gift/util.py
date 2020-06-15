@@ -21,8 +21,6 @@ from pandas.core.accessor import _register_accessor as register_accessor
 import gift_wrapper.core
 import gift_wrapper.question
 import gift_wrapper.image
-# import py2gift.core
-# import py2gift.question
 
 # Cell
 
