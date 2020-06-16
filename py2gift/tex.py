@@ -32,7 +32,6 @@ def to_formula_maybe(func):
     return wrapper
 
 # Cell
-
 def join(strings_list: List[str], nexus: str = 'and', to_formula: bool = True):
     """
     Enumerates the strings in a list, optionally enclosing every element between `$`s.
@@ -64,7 +63,6 @@ def join(strings_list: List[str], nexus: str = 'and', to_formula: bool = True):
     return delimiter + f'{delimiter}, {delimiter}'.join(strings_list[:-1]) + f'{delimiter} {nexus} {delimiter}{strings_list[-1]}{delimiter}'
 
 # Cell
-
 @to_formula_maybe
 def gaussian_pdf(x: str = 'x', mean: str = r'\mu', variance: str = r'\sigma^2') -> str:
     """
@@ -88,7 +86,6 @@ def gaussian_pdf(x: str = 'x', mean: str = r'\mu', variance: str = r'\sigma^2') 
     return r'\frac{1}{\sqrt{2\pi ' + variance + r'}}e^{-\frac{(' + x + '-' + mean + r')^2}{2' + variance + r'}}'
 
 # Cell
-
 @to_formula_maybe
 def q_function_approximation(x: str = 'x') -> str:
     """
@@ -108,7 +105,6 @@ def q_function_approximation(x: str = 'x') -> str:
     return f'Q({x}) \\approx \\frac{{1}}{{2}} e^{{-\\frac{{{x}^2}}{{2}}}}'
 
 # Cell
-
 @to_formula_maybe
 def partwise_function(function: str, parts: List[Tuple[str, str]], add_zero_otherwise: bool = True) -> str:
     """
@@ -146,7 +142,6 @@ def partwise_function(function: str, parts: List[Tuple[str, str]], add_zero_othe
     return res
 
 # Cell
-
 @to_formula_maybe
 def from_number(n: Union[int, float], prefix: str = '', precision: int = 3, fixed_point_format: bool = False) -> str:
     """
@@ -176,14 +171,24 @@ def from_number(n: Union[int, float], prefix: str = '', precision: int = 3, fixe
     return f'{prefix}{n:{format_specifier}}'
 
 # Cell
-
 @to_formula_maybe
 def from_matrix(m: Union[list, np.ndarray], float_point_precision: int = 3) -> str:
     """
     Returns a string for a given array or matrix.
+
+    Parameters
+    ----------
+    m: list or ndarray
+        A numpy array or a list.
+    float_point_precision: int
+        Number of decimals (ignored if the number is an integer).
+
+    Returns
+    -------
+    out: str
+        TeX compatible string.
     """
 
-#     format_from_number = lambda x: f'.{float_point_precision}f' if (type(x) == np.float64) or (type(x) == float) else f'd'
     format_from_number = lambda x: f'.{float_point_precision}g' if (type(x) == np.float64) or (type(x) == float) else f'd'
 
     if isinstance(m[0], (list, np.ndarray)):

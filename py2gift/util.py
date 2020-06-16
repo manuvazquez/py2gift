@@ -176,9 +176,10 @@ assert add_name([{'k1': 'aa', 'k2': 1}, {'k3': 'pi', 'foo': 'variance'}], 'Viter
 # Cell
 
 def wrong_numerical_solutions_from_correct_one(
-    solution: float, n: int, min_sep: float, max_sep: float, lower_bound: float, upper_bound: float,
-    precision: int = 4, to_str: bool = True, bin_width: Optional[float] = None, unique: bool = False,
-    prng: np.random.RandomState = np.random.RandomState(42)) -> Union[List[float], List[str]]:
+    solution: float, n: int, min_sep: float, max_sep: float, lower_bound: float = -np.inf,
+    upper_bound: float = np.inf, precision: int = 4, to_str: bool = True, fixed_point_format: bool = False,
+    bin_width: Optional[float] = None, unique: bool = False, prng: np.random.RandomState = np.random.RandomState(42)
+) -> Union[List[float], List[str]]:
     """
     Generates random numerical wrong answers given the correct one.
 
@@ -193,14 +194,17 @@ def wrong_numerical_solutions_from_correct_one(
         Minimum separation.
     max_sep: float
         Maximum separation.
-    lower_bound: float
+    lower_bound: float, optional
         A lower bound on the returned numbers.
-    upper_bound: float
+    upper_bound: float, optional
         A upper bound on the returned numbers.
-    precision: int
+    precision: int, optional
         The number of decimal places.
     to_str: bool, optional
         If True, every element in the result will be converted to a string.
+    fixed_point_format: bool
+        Only meaningful when to_str is True. In such case, if True a fixed-point format (f) is used
+        regardless of the actual type.
     bin_width: float, optional
         The granularity on the answers: every one will be a multiple of this parameter.
     unique: bool, optional
@@ -265,7 +269,10 @@ def wrong_numerical_solutions_from_correct_one(
 
     if to_str:
 
-        res = [str(e) for e in res]
+        format_specifier = f'.{precision}{"f" if fixed_point_format else "g"}'
+
+#         res = [str(e) for e in res]
+        res = [f'{e:{format_specifier}}' for e in res]
 
 #     return res[:n]
     return prng.choice(res, n, replace=False).tolist()
