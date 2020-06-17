@@ -49,7 +49,16 @@ index = {"main": "00_core.ipynb",
          "MyMagics": "60_notebook.ipynb",
          "matrix": "70_hash.ipynb",
          "number": "70_hash.ipynb",
-         "string": "70_hash.ipynb"}
+         "string": "70_hash.ipynb",
+         "markdown_header": "80_markdown.ipynb",
+         "html_question_to_markdown": "80_markdown.ipynb",
+         "gift_wrapper.question.HtmlQuestion.to_markdown": "80_markdown.ipynb",
+         "numerical_to_markdown": "80_markdown.ipynb",
+         "gift_wrapper.question.Numerical.to_markdown": "80_markdown.ipynb",
+         "multiple_choice_to_markdown": "80_markdown.ipynb",
+         "gift_wrapper.question.MultipleChoice.to_markdown": "80_markdown.ipynb",
+         "SvgToMarkdown": "80_markdown.ipynb",
+         "settings_to_markdown": "80_markdown.ipynb"}
 
 modules = ["core.py",
            "tex.py",
@@ -58,7 +67,8 @@ modules = ["core.py",
            "input_file.py",
            "time.py",
            "notebook.py",
-           "hash.py"]
+           "hash.py",
+           "markdown.py"]
 
 doc_url = "https://manuvazquez.github.io/py2gift/"
 

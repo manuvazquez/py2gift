@@ -201,14 +201,39 @@ def from_matrix(m: Union[list, np.ndarray], float_point_precision: int = 3) -> s
         return r'\begin{bmatrix}' + r' & '.join([f'{e:{format_from_number(m[0])}}' for e in m]) + r'\end{bmatrix}'
 
 # Cell
-
 @to_formula_maybe
-def dot_product(lhs_template: str, lhs: list, rhs_template: str, rhs: list, product_operator: str = '', addition_operator: str = '+') -> str:
+def dot_product(
+    lhs_template: str, lhs: list, rhs_template: str, rhs: list, product_operator: str = '',
+    addition_operator: str = '+') -> str:
+    """
+    Returns a string for the dot product of two vectors, regardless of whether they are symbols or numbers.
+
+    Parameters
+    ----------
+    lhs_template: str
+        Left-hand side template; it should include a replacement field ({}) that will be replaced by one of
+        the elements in `lhs`
+    lhs: list
+        Left-hand side elements.
+    rhs_template: str
+        Right-hand side template; it should include a replacement field ({}) that will be replaced by one of
+        the elements in `rhs`
+    rhs: list
+        Right-hand side elements.
+    product_operator: str
+        Symbol to be used as product operator.
+    addition_operator: str
+        Symbol to be used as addition operator.
+
+    Returns
+    -------
+    out: str
+        TeX compatible string.
+    """
 
     return addition_operator.join([lhs_template.format(l) + product_operator + rhs_template.format(r) for l,r in zip(lhs, rhs)])
 
 # Cell
-
 @to_formula_maybe
 def total_probability(fixed_symbol: str, varying_symbol_template: str, n: int, start_at: int = 1) -> str:
 

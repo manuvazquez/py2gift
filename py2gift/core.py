@@ -4,7 +4,6 @@ __all__ = ['main', 'init_parameters_from_settings', 'build', 'build_question', '
            'latex_to_markdown']
 
 # Cell
-
 import sys
 import argparse
 import pathlib
@@ -23,6 +22,9 @@ import py2gift.input_file
 
 import gift_wrapper.core
 import gift_wrapper.question
+
+# some classes in `gift_wrapper.question` are "patched" when this module is imported
+import py2gift.markdown
 
 # Cell
 def main():
@@ -240,7 +242,7 @@ def generator_to_markdown(
 
     question_settings = build_question(cls, category, settings)
 
-    return gift_wrapper.question.settings_to_markdown(question_settings)
+    return py2gift.markdown.settings_to_markdown(question_settings)
 
 # Cell
 def latex_to_markdown(input_file: Union[str, pathlib.Path], delete_input_file_afterwards: bool = False) -> str:
