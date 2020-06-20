@@ -7,6 +7,7 @@ dependencies:
   - numpy
   - matplotlib
   - ruamel.yaml
+  - pip
   - pip:
     - gift-wrapper
 prefix: /home/manu/anaconda3/envs/py2gift

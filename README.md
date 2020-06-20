@@ -7,7 +7,9 @@
 * you can use all your Python skills to *compute* whatever is required for the statement, solution and feedback of a question
 * it makes easy to write different (random) versions of the same question
 * questions can be previewed (pictures, $\LaTeX$...) in the notebook
-* no need to install anything!! You can (though don't have to) click this mybinder link and start writing your questions right now from the browser.
+* no need to install anything!! You can click this mybinder badge, 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/manuvazquez/py2gift/master?filepath=examples%2Fminimal.ipynb)
+, and start writing your questions right now from the browser (the file generated at the end of the notebook, accesible through a link, can be imported in *Moodle*).
 
 This library relies [gift-wrapper](https://github.com/manuvazquez/gift-wrapper) and it has been created using [nbdev](https://github.com/fastai/nbdev). The latter fact means you can explore the *actual* source code through jupyter notebooks and see all the pieces in action.
 

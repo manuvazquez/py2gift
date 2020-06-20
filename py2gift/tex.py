@@ -166,22 +166,25 @@ def from_number(n: Union[int, float], prefix: str = '', precision: int = 3, fixe
     """
     Returns a string for a given number.
 
-    Parameters
-    ----------
-    n: int or float
+    **Parameters**
+
+    - `n`: int or float
+
         The number.
-    prefix: str
+    - `prefix`: str
+
         A string to be prepended to the number.
-    precision: int
+    - `precision`: int
+
         Number of decimals (ignored if the number is an integer).
-    fixed_point_format: bool
+    - `fixed_point_format`: bool
+
         If True, a fixed-point format (f) is used regardless of the actual type.
 
+    **Returns**
 
+    - `out`: str
 
-    Returns
-    -------
-    out: str
         TeX compatible string.
     """
 
