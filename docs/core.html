@@ -43,7 +43,7 @@ description: "Main functionality."
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Command-line-arguments">Command-line arguments<a class="anchor-link" href="#Command-line-arguments"> </a></h1>
+<h2 id="Command-line-arguments">Command-line arguments<a class="anchor-link" href="#Command-line-arguments"> </a></h2>
 </div>
 </div>
 </div>
@@ -87,13 +87,13 @@ description: "Main functionality."
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Auxiliary-functions">Auxiliary functions<a class="anchor-link" href="#Auxiliary-functions"> </a></h1>
+<h2 id="Auxiliary-functions">Auxiliary functions<a class="anchor-link" href="#Auxiliary-functions"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Obtaining-the-__init__-parameters-for-a-class-from-the-corresponding-settings">Obtaining the <code>__init__</code> parameters for a class from the corresponding settings<a class="anchor-link" href="#Obtaining-the-__init__-parameters-for-a-class-from-the-corresponding-settings"> </a></h2>
+<h3 id="Obtaining-the-__init__-parameters-for-a-class-from-the-corresponding-settings">Obtaining the <code>__init__</code> parameters for a class from the corresponding settings<a class="anchor-link" href="#Obtaining-the-__init__-parameters-for-a-class-from-the-corresponding-settings"> </a></h3>
 </div>
 </div>
 </div>
@@ -126,13 +126,21 @@ description: "Main functionality."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="init_parameters_from_settings" class="doc_header"><code>init_parameters_from_settings</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L63" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>init_parameters_from_settings</code>(<strong><code>cls_settings</code></strong>:<code>dict</code>)</p>
+<h4 id="init_parameters_from_settings" class="doc_header"><code>init_parameters_from_settings</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L62" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>init_parameters_from_settings</code>(<strong><code>cls_settings</code></strong>:<code>dict</code>)</p>
 </blockquote>
 <p>Returns a dictionary with the initialization parameters for a question.</p>
-<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>cls_settings: dict
-    Settings for the class, which should include <code>statement</code>, <code>feedback</code> and, optionally, <a href="/py2gift/time"><code>time</code></a>.</p>
-<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>out: dict
-    A dictionary with the <em>exact</em> parameters that must be passed when instantiating the class.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p>cls_settings: dict</p>
+<p>Settings for the class, which should include <code>statement</code>, <code>feedback</code> and, optionally, <a href="/py2gift/time"><code>time</code></a>.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><p>out: dict</p>
+<p>A dictionary with the <em>exact</em> parameters that must be passed when instantiating the class.</p>
+</li>
+</ul>
 
 </div>
 
@@ -282,13 +290,13 @@ description: "Main functionality."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Processing-of-a-bunch-of-questions">Processing of a bunch of questions<a class="anchor-link" href="#Processing-of-a-bunch-of-questions"> </a></h1>
+<h2 id="Processing-of-a-bunch-of-questions">Processing of a bunch of questions<a class="anchor-link" href="#Processing-of-a-bunch-of-questions"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Building-a-GIFT-file-from-generators'-settings">Building a <em>GIFT</em> file from generators' settings<a class="anchor-link" href="#Building-a-GIFT-file-from-generators'-settings"> </a></h2>
+<h3 id="Building-a-GIFT-file-from-generators'-settings">Building a <em>GIFT</em> file from generators' settings<a class="anchor-link" href="#Building-a-GIFT-file-from-generators'-settings"> </a></h3>
 </div>
 </div>
 </div>
@@ -320,20 +328,30 @@ description: "Main functionality."
 <h4 id="build" class="doc_header"><code>build</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L93" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build</code>(<strong><code>settings</code></strong>:<code>Union</code>[<code>str</code>, <code>dict</code>], <strong><code>local_run</code></strong>:<code>bool</code>, <strong><code>questions_module</code></strong>:<code>module</code>, <strong><code>parameters_file</code></strong>:<code>Union</code>[<code>str</code>, <code>dict</code>]=<em><code>'parameters.yaml'</code></em>, <strong><code>no_checks</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>overwrite_existing_latex_files</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>embed_images</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Generates a GIFT file.</p>
-<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>settings: str or dict
-    Settings for all the questions (generators).
-local_run: bool
-    If True, pictures will not be copied to a remote host.
-questions_module: ModuleType
-    A module or structure that holds the classes referenced in the settings.
-parameters_file: str or dict
-    File or dictionary with the parameters for "gift-wrapper".
-no_checks: bool
-    Whether or not LaTeX formulas should be checked.
-overwrite_existing_latex_files: bool
-    If True the auxiliar file for checks should be, if existing, overwritten without a warning.
-embed_images: bool
-    If True, images will be embedded in the questions (rather than linked).</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p>settings: str or dict</p>
+<p>Settings for all the questions (generators).</p>
+</li>
+<li><p>local_run: bool</p>
+<p>If True, pictures will not be copied to a remote host.</p>
+</li>
+<li><p>questions_module: ModuleType</p>
+<p>A module or structure that holds the classes referenced in the settings.</p>
+</li>
+<li><p>parameters_file: str or dict</p>
+<p>File or dictionary with the parameters for "gift-wrapper".</p>
+</li>
+<li><p>no_checks: bool</p>
+<p>Whether or not LaTeX formulas should be checked.</p>
+</li>
+<li><p>overwrite_existing_latex_files: bool</p>
+<p>If True the auxiliar file for checks should be, if existing, overwritten without a warning.</p>
+</li>
+<li><p>embed_images: bool</p>
+<p>If True, images will be embedded in the questions (rather than linked).</p>
+</li>
+</ul>
 
 </div>
 
@@ -354,7 +372,7 @@ embed_images: bool
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Module-with-questions">Module with questions<a class="anchor-link" href="#Module-with-questions"> </a></h3>
+<h4 id="Module-with-questions">Module with questions<a class="anchor-link" href="#Module-with-questions"> </a></h4>
 </div>
 </div>
 </div>
@@ -404,7 +422,7 @@ embed_images: bool
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Parameters-file">Parameters file<a class="anchor-link" href="#Parameters-file"> </a></h3>
+<h4 id="Parameters-file">Parameters file<a class="anchor-link" href="#Parameters-file"> </a></h4>
 </div>
 </div>
 </div>
@@ -550,7 +568,7 @@ categories<span class="ansi-blue-fg">:</span>
   <span class="ansi-blue-fg">-</span> name<span class="ansi-blue-fg">:</span> Test category
     questions<span class="ansi-blue-fg">:</span>
       <span class="ansi-blue-fg">-</span> <span class="ansi-green-fg">class</span><span class="ansi-blue-fg">:</span> Numerical
-        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.238 $ and\</span>
+        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.597 $ and\</span>
 <span class="ansi-blue-fg">          \ variance...\n&#34;</span>
         feedback<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Clearly, $Y$ is...\n&#34;</span>
         time<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#39;15&#39;</span>
@@ -559,7 +577,7 @@ categories<span class="ansi-blue-fg">:</span>
           error<span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">%</span>
         name<span class="ansi-blue-fg">:</span> Test <span class="ansi-green-fg">class</span> I
       <span class="ansi-blue-fg">-</span> <span class="ansi-green-fg">class</span><span class="ansi-blue-fg">:</span> Numerical
-        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.793 $ and\</span>
+        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.189 $ and\</span>
 <span class="ansi-blue-fg">          \ variance...\n&#34;</span>
         feedback<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Clearly, $Y$ is...\n&#34;</span>
         time<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#39;15&#39;</span>
@@ -609,12 +627,12 @@ categories<span class="ansi-blue-fg">:</span>
 <div class="output_text output_subarea ">
 <pre><span class="ansi-red-fg">$</span>CATEGORY<span class="ansi-blue-fg">:</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">$</span>course<span class="ansi-red-fg">$</span><span class="ansi-blue-fg">/</span>Test category
 
-<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span>Test <span class="ansi-green-fg">class</span> I<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">[</span>html<span class="ansi-blue-fg">]</span>Consider a random variable<span class="ansi-blue-fg">,</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span>X<span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">with</span> mean<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span>mu<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0.238</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> variance<span class="ansi-blue-fg">...</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>i<span class="ansi-blue-fg">&gt;</span>Estimated time<span class="ansi-red-fg">\</span><span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">15</span> minutes<span class="ansi-blue-fg">&lt;</span><span class="ansi-blue-fg">/</span>i<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">{</span>
+<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span>Test <span class="ansi-green-fg">class</span> I<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">[</span>html<span class="ansi-blue-fg">]</span>Consider a random variable<span class="ansi-blue-fg">,</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span>X<span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">with</span> mean<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span>mu<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0.597</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> variance<span class="ansi-blue-fg">...</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>i<span class="ansi-blue-fg">&gt;</span>Estimated time<span class="ansi-red-fg">\</span><span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">15</span> minutes<span class="ansi-blue-fg">&lt;</span><span class="ansi-blue-fg">/</span>i<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">{</span>
 <span class="ansi-red-fg">#       =%100%42:4.2#</span>
         <span class="ansi-red-fg">####Clearly, \\(Y\\) is...</span>
 <span class="ansi-blue-fg">}</span>
 
-<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span>Test <span class="ansi-green-fg">class</span> II<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">[</span>html<span class="ansi-blue-fg">]</span>Consider a random variable<span class="ansi-blue-fg">,</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span>X<span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">with</span> mean<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span>mu<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0.793</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> variance<span class="ansi-blue-fg">...</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>i<span class="ansi-blue-fg">&gt;</span>Estimated time<span class="ansi-red-fg">\</span><span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">15</span> minutes<span class="ansi-blue-fg">&lt;</span><span class="ansi-blue-fg">/</span>i<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">{</span>
+<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span>Test <span class="ansi-green-fg">class</span> II<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">[</span>html<span class="ansi-blue-fg">]</span>Consider a random variable<span class="ansi-blue-fg">,</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span>X<span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">with</span> mean<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span>mu<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0.189</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> variance<span class="ansi-blue-fg">...</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>i<span class="ansi-blue-fg">&gt;</span>Estimated time<span class="ansi-red-fg">\</span><span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">15</span> minutes<span class="ansi-blue-fg">&lt;</span><span class="ansi-blue-fg">/</span>i<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">{</span>
 <span class="ansi-red-fg">#       =%100%42:4.2#</span>
         <span class="ansi-red-fg">####Clearly, \\(Y\\) is...</span>
 <span class="ansi-blue-fg">}</span>
@@ -722,7 +740,7 @@ categories<span class="ansi-blue-fg">:</span>
   <span class="ansi-blue-fg">-</span> name<span class="ansi-blue-fg">:</span> Test category
     questions<span class="ansi-blue-fg">:</span>
       <span class="ansi-blue-fg">-</span> <span class="ansi-green-fg">class</span><span class="ansi-blue-fg">:</span> Numerical
-        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.471 $ and\</span>
+        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.0323 $ and\</span>
 <span class="ansi-blue-fg">          \ variance...\n&#34;</span>
         feedback<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Clearly, $Y$ is...\n&#34;</span>
         time<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#39;15&#39;</span>
@@ -731,7 +749,7 @@ categories<span class="ansi-blue-fg">:</span>
           error<span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">%</span>
         name<span class="ansi-blue-fg">:</span> Test <span class="ansi-green-fg">class</span> I
       <span class="ansi-blue-fg">-</span> <span class="ansi-green-fg">class</span><span class="ansi-blue-fg">:</span> Numerical
-        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.0754 $ and\</span>
+        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.476 $ and\</span>
 <span class="ansi-blue-fg">          \ variance...\n&#34;</span>
         feedback<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Clearly, $Y$ is...\n&#34;</span>
         time<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#39;15&#39;</span>
@@ -752,7 +770,7 @@ categories<span class="ansi-blue-fg">:</span>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Processing-a-single-question">Processing a single question<a class="anchor-link" href="#Processing-a-single-question"> </a></h1>
+<h2 id="Processing-a-single-question">Processing a single question<a class="anchor-link" href="#Processing-a-single-question"> </a></h2>
 </div>
 </div>
 </div>
@@ -765,7 +783,7 @@ categories<span class="ansi-blue-fg">:</span>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Building-a-single-question">Building a single question<a class="anchor-link" href="#Building-a-single-question"> </a></h2>
+<h3 id="Building-a-single-question">Building a single question<a class="anchor-link" href="#Building-a-single-question"> </a></h3>
 </div>
 </div>
 </div>
@@ -794,7 +812,7 @@ categories<span class="ansi-blue-fg">:</span>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_question" class="doc_header"><code>build_question</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L175" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_question</code>(<strong><code>question_generator</code></strong>:<a href="/py2gift/question#QuestionGenerator"><code>QuestionGenerator</code></a>, <strong><code>category_name</code></strong>:<code>str</code>, <strong><code>settings</code></strong>:<code>dict</code>, <strong><code>n_question</code></strong>:<code>int</code>=<em><code>0</code></em>)</p>
+<h4 id="build_question" class="doc_header"><code>build_question</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L180" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_question</code>(<strong><code>question_generator</code></strong>:<a href="/py2gift/question#QuestionGenerator"><code>QuestionGenerator</code></a>, <strong><code>category_name</code></strong>:<code>str</code>, <strong><code>settings</code></strong>:<code>dict</code>, <strong><code>n_question</code></strong>:<code>int</code>=<em><code>0</code></em>)</p>
 </blockquote>
 <p>Returns the settings for building a question using "gift-wrapper".</p>
 <h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>question_generator: class
@@ -1093,7 +1111,7 @@ n_question: int
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Previewing">Previewing<a class="anchor-link" href="#Previewing"> </a></h1>
+<h2 id="Previewing">Previewing<a class="anchor-link" href="#Previewing"> </a></h2>
 </div>
 </div>
 </div>
@@ -1189,7 +1207,7 @@ n_question: int
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="generator_to_markdown" class="doc_header"><code>generator_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L216" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generator_to_markdown</code>(<strong><code>settings</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>, <code>dict</code>], <strong><code>category</code></strong>:<code>str</code>)</p>
+<h4 id="generator_to_markdown" class="doc_header"><code>generator_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L221" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generator_to_markdown</code>(<strong><code>settings</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>, <code>dict</code>], <strong><code>category</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Returns markdown text from a generator.</p>
 <h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>settings: str, Pathlib, dict
@@ -1251,7 +1269,7 @@ cls: py2gift.question.QuestionGenerator
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Preprocessing-tex-files">Preprocessing tex files<a class="anchor-link" href="#Preprocessing-tex-files"> </a></h1>
+<h2 id="Preprocessing-tex-files">Preprocessing tex files<a class="anchor-link" href="#Preprocessing-tex-files"> </a></h2>
 </div>
 </div>
 </div>
@@ -1280,7 +1298,7 @@ cls: py2gift.question.QuestionGenerator
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="latex_to_markdown" class="doc_header"><code>latex_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L252" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>latex_to_markdown</code>(<strong><code>input_file</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>delete_input_file_afterwards</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="latex_to_markdown" class="doc_header"><code>latex_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L257" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>latex_to_markdown</code>(<strong><code>input_file</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>delete_input_file_afterwards</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Returns markdown text that shows the result of compiling a TeX file.</p>
 <h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>input_file: str, Pathlib

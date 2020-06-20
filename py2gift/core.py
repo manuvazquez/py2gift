@@ -59,21 +59,21 @@ def main():
     build(command_line_arguments.input_file.name, command_line_arguments.local, questions_generators)
 
 # Cell
-
 def init_parameters_from_settings(cls_settings: dict) -> dict:
     """
     Returns a dictionary with the initialization parameters for a question.
 
-    Parameters
-    ----------
-    cls_settings: dict
+    **Parameters**
+
+    - cls_settings: dict
+
         Settings for the class, which should include `statement`, `feedback` and, optionally, `time`.
 
-    Returns
-    -------
-    out: dict
-        A dictionary with the *exact* parameters that must be passed when instantiating the class.
+    **Returns**
 
+    - out: dict
+
+        A dictionary with the *exact* parameters that must be passed when instantiating the class.
     """
 
     init_parameters = {
@@ -97,24 +97,29 @@ def build(
     """
     Generates a GIFT file.
 
-    Parameters
-    ----------
-    settings: str or dict
+    **Parameters**
+
+    - settings: str or dict
+
         Settings for all the questions (generators).
-    local_run: bool
+    - local_run: bool
+
         If True, pictures will not be copied to a remote host.
-    questions_module: ModuleType
+    - questions_module: ModuleType
+
         A module or structure that holds the classes referenced in the settings.
-    parameters_file: str or dict
+    - parameters_file: str or dict
+
         File or dictionary with the parameters for "gift-wrapper".
-    no_checks: bool
+    - no_checks: bool
+
         Whether or not LaTeX formulas should be checked.
-    overwrite_existing_latex_files: bool
+    - overwrite_existing_latex_files: bool
+
         If True the auxiliar file for checks should be, if existing, overwritten without a warning.
-    embed_images: bool
+    - embed_images: bool
+
         If True, images will be embedded in the questions (rather than linked).
-
-
     """
 
     # if settings is the name of a file...

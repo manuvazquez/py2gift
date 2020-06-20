@@ -19,4 +19,4 @@ Underneath, images are handled by *gift-wrapper*, and hence *paths* (e.g., `imag
 
 Notice that the difference between two instances of the same question can be minor or significant. Ultimately, it depends on how sophisticated your Python code is (if the latter can solve the question/problem in a very general form, and you are also able to present it in the `statement`, then it is fine).
 
-Beside the above mentioned *core* functionality, `py2gift` provides some extra functions to ease the process of writing questions (modules `tex`, `util`, `time`, `hash`). However, a thorough description of the functionality would be very dry and you are probably better off by taking a look at the *sample* notebook, [sample_1](sample_1.ipynb).
+Beside the above mentioned *core* functionality, `py2gift` provides some extra functions to ease the process of writing questions (modules `tex`, `util`, `time`, `hash`). However, a thorough description of the functionality would be very dry and you are probably better off by taking a look at the *sample* notebook, [minimal](examples/minimal.ipynb).
