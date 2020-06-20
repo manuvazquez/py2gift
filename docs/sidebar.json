@@ -2,7 +2,7 @@
   "py2gift": {
     "Overview": "/",
     "Core": "/core",
-    "$\\TeX$": "/tex",
+    "TeX": "/tex",
     "Util": "/util",
     "Questions' generators": "/question",
     "Input file": "/input_file",

@@ -11,6 +11,10 @@ import pprint
 import inspect
 from typing import Union, Optional, Callable, List
 
+# to avoid tqdm's experimental warning
+import warnings
+warnings.filterwarnings("ignore", message='Using `tqdm.autonotebook.tqdm` in notebook mode')
+
 import py2gift.util
 
 import yaml

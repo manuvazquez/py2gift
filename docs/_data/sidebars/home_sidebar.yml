@@ -13,7 +13,7 @@ entries:
       title: Core
       url: /core
     - output: web,pdf
-      title: $\TeX$
+      title: TeX
       url: /tex
     - output: web,pdf
       title: Util

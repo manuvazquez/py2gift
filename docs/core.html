@@ -24,21 +24,6 @@ description: "Main functionality."
     
 <div class="cell border-box-sizing code_cell rendered">
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stderr output_text">
-<pre>/home/manu/py2gift/gift_wrapper/core.py:7: TqdmExperimentalWarning: Using `tqdm.autonotebook.tqdm` in notebook mode. Use `tqdm.tqdm` instead to force console mode (e.g. in jupyter console)
-  from tqdm.autonotebook import tqdm
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     {% endraw %}
 
@@ -87,7 +72,7 @@ description: "Main functionality."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="main" class="doc_header"><code>main</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L30" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>main</code>()</p>
+<h4 id="main" class="doc_header"><code>main</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L34" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>main</code>()</p>
 </blockquote>
 
 </div>
@@ -141,7 +126,7 @@ description: "Main functionality."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="init_parameters_from_settings" class="doc_header"><code>init_parameters_from_settings</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L59" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>init_parameters_from_settings</code>(<strong><code>cls_settings</code></strong>:<code>dict</code>)</p>
+<h4 id="init_parameters_from_settings" class="doc_header"><code>init_parameters_from_settings</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L63" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>init_parameters_from_settings</code>(<strong><code>cls_settings</code></strong>:<code>dict</code>)</p>
 </blockquote>
 <p>Returns a dictionary with the initialization parameters for a question.</p>
 <h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>cls_settings: dict
@@ -298,7 +283,7 @@ description: "Main functionality."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build" class="doc_header"><code>build</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L89" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build</code>(<strong><code>settings</code></strong>:<code>Union</code>[<code>str</code>, <code>dict</code>], <strong><code>local_run</code></strong>:<code>bool</code>, <strong><code>questions_module</code></strong>:<code>module</code>, <strong><code>parameters_file</code></strong>:<code>Union</code>[<code>str</code>, <code>dict</code>]=<em><code>'parameters.yaml'</code></em>, <strong><code>no_checks</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>overwrite_existing_latex_files</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>embed_images</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="build" class="doc_header"><code>build</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L93" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build</code>(<strong><code>settings</code></strong>:<code>Union</code>[<code>str</code>, <code>dict</code>], <strong><code>local_run</code></strong>:<code>bool</code>, <strong><code>questions_module</code></strong>:<code>module</code>, <strong><code>parameters_file</code></strong>:<code>Union</code>[<code>str</code>, <code>dict</code>]=<em><code>'parameters.yaml'</code></em>, <strong><code>no_checks</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>overwrite_existing_latex_files</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>embed_images</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Generates a GIFT file.</p>
 <h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>settings: str or dict
@@ -626,7 +611,7 @@ embed_images: bool
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_question" class="doc_header"><code>build_question</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L171" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_question</code>(<strong><code>question_generator</code></strong>:<a href="/py2gift/question#QuestionGenerator"><code>QuestionGenerator</code></a>, <strong><code>category_name</code></strong>:<code>str</code>, <strong><code>settings</code></strong>:<code>dict</code>, <strong><code>n_question</code></strong>:<code>int</code>=<em><code>0</code></em>)</p>
+<h4 id="build_question" class="doc_header"><code>build_question</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L175" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_question</code>(<strong><code>question_generator</code></strong>:<a href="/py2gift/question#QuestionGenerator"><code>QuestionGenerator</code></a>, <strong><code>category_name</code></strong>:<code>str</code>, <strong><code>settings</code></strong>:<code>dict</code>, <strong><code>n_question</code></strong>:<code>int</code>=<em><code>0</code></em>)</p>
 </blockquote>
 <p>Returns the settings for building a question using "gift-wrapper".</p>
 <h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>question_generator: class
@@ -948,7 +933,7 @@ n_question: int
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="generator_to_markdown" class="doc_header"><code>generator_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L212" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generator_to_markdown</code>(<strong><code>settings</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>, <code>dict</code>], <strong><code>category</code></strong>:<code>str</code>)</p>
+<h4 id="generator_to_markdown" class="doc_header"><code>generator_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L216" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generator_to_markdown</code>(<strong><code>settings</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>, <code>dict</code>], <strong><code>category</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Returns markdown text from a generator.</p>
 <h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>settings: str, Pathlib, dict
@@ -1018,7 +1003,7 @@ cls: py2gift.question.QuestionGenerator
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="latex_to_markdown" class="doc_header"><code>latex_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L248" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>latex_to_markdown</code>(<strong><code>input_file</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>delete_input_file_afterwards</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="latex_to_markdown" class="doc_header"><code>latex_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L252" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>latex_to_markdown</code>(<strong><code>input_file</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>delete_input_file_afterwards</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Returns markdown text that shows the result of compiling a TeX file.</p>
 <h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>input_file: str, Pathlib

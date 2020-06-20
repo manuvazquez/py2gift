@@ -18,6 +18,10 @@ import yaml
 import pandas as pd
 from pandas.core.accessor import _register_accessor as register_accessor
 
+# to avoid tqdm's experimental warning
+import warnings
+warnings.filterwarnings("ignore", message='Using `tqdm.autonotebook.tqdm` in notebook mode')
+
 import gift_wrapper.core
 import gift_wrapper.image
 

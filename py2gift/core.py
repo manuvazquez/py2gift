@@ -16,6 +16,10 @@ from typing import Optional, Union
 import numpy as np
 import yaml
 
+# to avoid tqdm's experimental warning
+import warnings
+warnings.filterwarnings("ignore", message='Using `tqdm.autonotebook.tqdm` in notebook mode')
+
 import py2gift.util
 import py2gift.question
 import py2gift.input_file

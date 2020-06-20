@@ -13,6 +13,10 @@ from typing import List, Union, Optional, Tuple
 
 import numpy as np
 
+# to avoid tqdm's experimental warning
+import warnings
+warnings.filterwarnings("ignore", message='Using `tqdm.autonotebook.tqdm` in notebook mode')
+
 import py2gift.tex
 import py2gift.util
 

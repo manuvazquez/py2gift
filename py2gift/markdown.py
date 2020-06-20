@@ -8,6 +8,10 @@ import string
 import functools
 from typing import Union
 
+# to avoid tqdm's experimental warning
+import warnings
+warnings.filterwarnings("ignore", message='Using `tqdm.autonotebook.tqdm` in notebook mode')
+
 import gift_wrapper.question
 import gift_wrapper.latex
 import gift_wrapper.parsing
