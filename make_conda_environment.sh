@@ -17,6 +17,9 @@ conda activate $NAME
 # pip install gift-wrapper nbdev
 pip install nbdev
 
+# for uploading to pypi
+pip install twine
+
 # just for testing purposes
 conda install --yes sympy
 
