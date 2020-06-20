@@ -1,0 +1,11 @@
+name: py2gift
+channels:
+  - defaults
+dependencies:
+  - pandas
+  - python=3
+  - numpy
+  - matplotlib
+  - ruamel.yaml
+  - gift-wrapper
+prefix: /home/manu/anaconda3/envs/py2gift
