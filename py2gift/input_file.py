@@ -20,7 +20,6 @@ import py2gift.util
 import yaml
 
 # Cell
-
 def extract_class_settings(category_name: Union[str, list], class_name: str, settings: dict):
 
     category_found = False
@@ -50,7 +49,6 @@ def extract_class_settings(category_name: Union[str, list], class_name: str, set
             sys.exit(1)
 
 # Cell
-
 class Settings:
 
     def __init__(self, output_file: str = 'quiz.yaml', pictures_directory: str = 'quiz/pics', test_mode: bool = False) -> None:
@@ -336,7 +334,6 @@ def write_class_preamble(file: Union[str, pathlib.Path], category_name: str, bas
     return category_name
 
 # Cell
-
 def write_class_closing(file: Union[str, pathlib.Path], n_instances: int, time: Optional[int] = None) -> None:
 
     settings = py2gift.util.yaml_to_dict(file)

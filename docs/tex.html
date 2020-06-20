@@ -379,23 +379,24 @@ description: "A collection of functions to ease the inclusion of $\TeX$ strings 
 <h4 id="join" class="doc_header"><code>join</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>join</code>(<strong><code>strings_list</code></strong>:<code>List</code>[<code>str</code>], <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>to_formula</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Enumerates the strings in a list, optionally enclosing every element between <code>$</code>s.</p>
-<p>Parameters</p>
-<p><strong>strings_list</strong>: list</p>
+<p><strong>Parameters</strong></p>
+<p><em>strings_list</em>: list</p>
 
 <pre><code>A list with the strings to be joined.
 
 </code></pre>
-<p><strong>nexus</strong>: str</p>
+<p><em>nexus</em>: str</p>
 
 <pre><code>Text between the second to last and last elements.
 
 </code></pre>
-<p><strong>to_formula</strong>: bool, optional</p>
+<p><em>to_formula</em>: bool, optional</p>
 
 <pre><code>If True every string will be enclosed in '$'s.
 
 </code></pre>
-<h3 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h3><p><strong>out</strong>: str</p>
+<p><strong>Returns</strong></p>
+<p><em>out</em>: str</p>
 
 <pre><code>TeX compatible string.</code></pre>
 
@@ -552,17 +553,26 @@ description: "A collection of functions to ease the inclusion of $\TeX$ strings 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="gaussian_pdf" class="doc_header"><code>gaussian_pdf</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L75" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>gaussian_pdf</code>(<strong><code>x</code></strong>:<code>str</code>=<em><code>'x'</code></em>, <strong><code>mean</code></strong>:<code>str</code>=<em><code>'\\mu'</code></em>, <strong><code>variance</code></strong>:<code>str</code>=<em><code>'\\sigma^2'</code></em>)</p>
+<h4 id="gaussian_pdf" class="doc_header"><code>gaussian_pdf</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L74" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>gaussian_pdf</code>(<strong><code>x</code></strong>:<code>str</code>=<em><code>'x'</code></em>, <strong><code>mean</code></strong>:<code>str</code>=<em><code>'\\mu'</code></em>, <strong><code>variance</code></strong>:<code>str</code>=<em><code>'\\sigma^2'</code></em>)</p>
 </blockquote>
 <p>Returns a string representing the probability density function for a Gaussian distribution.</p>
-<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>x: str
-    The random variable.</p>
-<p>mean: str, optional
-    The mean of the random variable.</p>
-<p>variance: str, optional
-    The variance of the random variable.</p>
-<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>out: str
-    TeX compatible string.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p>x: str</p>
+<p>The random variable.</p>
+</li>
+<li><p>mean: str, optional</p>
+<p>The mean of the random variable.</p>
+</li>
+<li><p>variance: str, optional
+  The variance of the random variable.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li>out: str
+  TeX compatible string.</li>
+</ul>
 
 </div>
 
