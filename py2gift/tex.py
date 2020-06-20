@@ -78,21 +78,21 @@ def gaussian_pdf(x: str = 'x', mean: str = r'\mu', variance: str = r'\sigma^2') 
 
     **Parameters**
 
-    - x: str
+    - `x`: str
 
         The random variable.
 
-    - mean: str, optional
+    - `mean`: str, optional
 
         The mean of the random variable.
 
-    - variance: str, optional
+    - `variance`: str, optional
 
         The variance of the random variable.
 
     **Returns**
 
-    - out: str
+    - `out`: str
 
         TeX compatible string.
     """
@@ -105,14 +105,16 @@ def q_function_approximation(x: str = 'x') -> str:
     """
     Returns a string representing the Stirling approximation for the Q function.
 
-    Parameters
-    ----------
-    x: str
+    **Parameters**
+
+    - `x`: str
+
         The argument of the Q function.
 
-    Returns
-    -------
-    out: str
+    **Returns**
+
+    `out`: str
+
         TeX compatible string.
     """
 
@@ -124,18 +126,21 @@ def partwise_function(function: str, parts: List[Tuple[str, str]], add_zero_othe
     """
     Returns a string representing the definition a part-wise mathematical function.
 
-    Parameters
-    ----------
-    function: str
+    **Parameters**
+
+    - `function`: str
+
         The name of the function.
-    parts: list
+    - `parts`: list
+
         Each element is a tuple yields whose 1st element is the value of the function and whose second is a condition stating where the 1st applies.
-    add_zero_otherwise: bool
+    - `add_zero_otherwise`: bool
+
         If True, one last part stating "0, otherwise" is added.
 
-    Returns
-    -------
-    out: str
+    **Returns**
+
+    `out`: str
         TeX compatible string.
     """
 
