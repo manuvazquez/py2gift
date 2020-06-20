@@ -376,7 +376,7 @@ description: "A collection of functions to ease the inclusion of $\TeX$ strings 
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="join" class="doc_header"><code>join</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L35" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>join</code>(<strong><code>strings_list</code></strong>:<code>List</code>[<code>str</code>], <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>to_formula</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
+<h4 id="join" class="doc_header"><code>join</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L38" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>join</code>(<strong><code>strings_list</code></strong>:<code>List</code>[<code>str</code>], <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>to_formula</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
 <p>Enumerates the strings in a list, optionally enclosing every element between <code>$</code>s.</p>
 <h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>strings_list: list
@@ -541,8 +541,17 @@ to_formula: bool, optional
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="to_formula_maybe.<locals>.wrapper" class="doc_header"><code>to_formula_maybe.<locals>.wrapper</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>to_formula_maybe.<locals>.wrapper</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="gaussian_pdf" class="doc_header"><code>gaussian_pdf</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L69" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>gaussian_pdf</code>(<strong><code>x</code></strong>:<code>str</code>=<em><code>'x'</code></em>, <strong><code>mean</code></strong>:<code>str</code>=<em><code>'\\mu'</code></em>, <strong><code>variance</code></strong>:<code>str</code>=<em><code>'\\sigma^2'</code></em>)</p>
 </blockquote>
+<p>Returns a string representing the probability density function for a Gaussian distribution.</p>
+<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>x: str
+    The random variable.
+mean: str, optional
+    The mean of the random variable.
+variance: str, optional
+    The variance of the random variable.</p>
+<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>out: str
+    TeX compatible string.</p>
 
 </div>
 
@@ -658,8 +667,13 @@ to_formula: bool, optional
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="to_formula_maybe.<locals>.wrapper" class="doc_header"><code>to_formula_maybe.<locals>.wrapper</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>to_formula_maybe.<locals>.wrapper</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="q_function_approximation" class="doc_header"><code>q_function_approximation</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L92" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>q_function_approximation</code>(<strong><code>x</code></strong>:<code>str</code>=<em><code>'x'</code></em>)</p>
 </blockquote>
+<p>Returns a string representing the Stirling approximation for the Q function.</p>
+<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>x: str
+    The argument of the Q function.</p>
+<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>out: str
+    TeX compatible string.</p>
 
 </div>
 
@@ -775,8 +789,17 @@ to_formula: bool, optional
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="to_formula_maybe.<locals>.wrapper" class="doc_header"><code>to_formula_maybe.<locals>.wrapper</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>to_formula_maybe.<locals>.wrapper</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="partwise_function" class="doc_header"><code>partwise_function</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L111" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>partwise_function</code>(<strong><code>function</code></strong>:<code>str</code>, <strong><code>parts</code></strong>:<code>List</code>[<code>Tuple</code>[<code>str</code>, <code>str</code>]], <strong><code>add_zero_otherwise</code></strong>:<code>bool</code>=<em><code>True</code></em>)</p>
 </blockquote>
+<p>Returns a string representing the definition a part-wise mathematical function.</p>
+<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>function: str
+    The name of the function.
+parts: list
+    Each element is a tuple yields whose 1st element is the value of the function and whose second is a condition stating where the 1st applies.
+add_zero_otherwise: bool
+    If True, one last part stating "0, otherwise" is added.</p>
+<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>out: str
+    TeX compatible string.</p>
 
 </div>
 
@@ -895,8 +918,19 @@ x+1,&amp; 0 &lt; x \le 1 \\\end{cases}$</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="to_formula_maybe.<locals>.wrapper" class="doc_header"><code>to_formula_maybe.<locals>.wrapper</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>to_formula_maybe.<locals>.wrapper</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="from_number" class="doc_header"><code>from_number</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L148" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>from_number</code>(<strong><code>n</code></strong>:<code>Union</code>[<code>int</code>, <code>float</code>], <strong><code>prefix</code></strong>:<code>str</code>=<em><code>''</code></em>, <strong><code>precision</code></strong>:<code>int</code>=<em><code>3</code></em>, <strong><code>fixed_point_format</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
+<p>Returns a string for a given number.</p>
+<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>n: int or float
+    The number.
+prefix: str
+    A string to be prepended to the number.
+precision: int
+    Number of decimals (ignored if the number is an integer).
+fixed_point_format: bool
+    If True, a fixed-point format (f) is used regardless of the actual type.</p>
+<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>out: str
+    TeX compatible string.</p>
 
 </div>
 
@@ -1144,8 +1178,15 @@ x+1,&amp; 0 &lt; x \le 1 \\\end{cases}$</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="to_formula_maybe.<locals>.wrapper" class="doc_header"><code>to_formula_maybe.<locals>.wrapper</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>to_formula_maybe.<locals>.wrapper</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="from_matrix" class="doc_header"><code>from_matrix</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L177" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>from_matrix</code>(<strong><code>m</code></strong>:<code>Union</code>[<code>list</code>, <code>ndarray</code>], <strong><code>float_point_precision</code></strong>:<code>int</code>=<em><code>3</code></em>)</p>
 </blockquote>
+<p>Returns a string for a given array or matrix.</p>
+<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>m: list or ndarray
+    A numpy array or a list.
+float_point_precision: int
+    Number of decimals (ignored if the number is an integer).</p>
+<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>out: str
+    TeX compatible string.</p>
 
 </div>
 
@@ -1414,8 +1455,25 @@ x+1,&amp; 0 &lt; x \le 1 \\\end{cases}$</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="to_formula_maybe.<locals>.wrapper" class="doc_header"><code>to_formula_maybe.<locals>.wrapper</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>to_formula_maybe.<locals>.wrapper</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="dot_product" class="doc_header"><code>dot_product</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L207" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dot_product</code>(<strong><code>lhs_template</code></strong>:<code>str</code>, <strong><code>lhs</code></strong>:<code>list</code>, <strong><code>rhs_template</code></strong>:<code>str</code>, <strong><code>rhs</code></strong>:<code>list</code>, <strong><code>product_operator</code></strong>:<code>str</code>=<em><code>''</code></em>, <strong><code>addition_operator</code></strong>:<code>str</code>=<em><code>'+'</code></em>)</p>
 </blockquote>
+<p>Returns a string for the dot product of two vectors, regardless of whether they are symbols or numbers.</p>
+<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>lhs_template: str
+    Left-hand side template; it should include a replacement field ({}) that will be replaced by one of
+    the elements in <code>lhs</code>
+lhs: list
+    Left-hand side elements.
+rhs_template: str
+    Right-hand side template; it should include a replacement field ({}) that will be replaced by one of
+    the elements in <code>rhs</code>
+rhs: list
+    Right-hand side elements.
+product_operator: str
+    Symbol to be used as product operator.
+addition_operator: str
+    Symbol to be used as addition operator.</p>
+<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>out: str
+    TeX compatible string.</p>
 
 </div>
 
@@ -1517,7 +1575,7 @@ x+1,&amp; 0 &lt; x \le 1 \\\end{cases}$</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="to_formula_maybe.<locals>.wrapper" class="doc_header"><code>to_formula_maybe.<locals>.wrapper</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L16" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>to_formula_maybe.<locals>.wrapper</code>(<strong>*<code>args</code></strong>, <strong>**<code>kwargs</code></strong>)</p>
+<h4 id="total_probability" class="doc_header"><code>total_probability</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L240" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>total_probability</code>(<strong><code>fixed_symbol</code></strong>:<code>str</code>, <strong><code>varying_symbol_template</code></strong>:<code>str</code>, <strong><code>n</code></strong>:<code>int</code>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
 </blockquote>
 
 </div>
@@ -1639,7 +1697,7 @@ x+1,&amp; 0 &lt; x \le 1 \\\end{cases}$</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="enumerate_math" class="doc_header"><code>enumerate_math</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L244" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>enumerate_math</code>(<strong><code>numbers_list</code></strong>:<code>List</code>[<code>float</code>], <strong><code>assigned_to</code></strong>:<code>Optional</code>[<code>str</code>]=<em><code>None</code></em>, <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>precision</code></strong>:<code>int</code>=<em><code>3</code></em>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
+<h4 id="enumerate_math" class="doc_header"><code>enumerate_math</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L247" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>enumerate_math</code>(<strong><code>numbers_list</code></strong>:<code>List</code>[<code>float</code>], <strong><code>assigned_to</code></strong>:<code>Optional</code>[<code>str</code>]=<em><code>None</code></em>, <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>precision</code></strong>:<code>int</code>=<em><code>3</code></em>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>Returns a string for a enumeration of formulas.</p>
 
@@ -1810,7 +1868,7 @@ x+1,&amp; 0 &lt; x \le 1 \\\end{cases}$</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="enumerate_assignments" class="doc_header"><code>enumerate_assignments</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L263" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>enumerate_assignments</code>(<strong><code>lhs_template</code></strong>:<code>str</code>, <strong><code>rhs_template</code></strong>:<code>str</code>, <strong><code>rhs</code></strong>:<code>List</code>[<code>float</code>], <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>precision</code></strong>:<code>int</code>=<em><code>3</code></em>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
+<h4 id="enumerate_assignments" class="doc_header"><code>enumerate_assignments</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L266" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>enumerate_assignments</code>(<strong><code>lhs_template</code></strong>:<code>str</code>, <strong><code>rhs_template</code></strong>:<code>str</code>, <strong><code>rhs</code></strong>:<code>List</code>[<code>float</code>], <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>precision</code></strong>:<code>int</code>=<em><code>3</code></em>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>Returns a string for a enumeration of formulas.</p>
 
@@ -1915,7 +1973,7 @@ x+1,&amp; 0 &lt; x \le 1 \\\end{cases}$</p>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="expand" class="doc_header"><code>expand</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L273" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>expand</code>(<strong><code>template</code></strong>:<code>str</code>, <strong><code>n</code></strong>:<code>int</code>, <strong><code>to_math</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
+<h4 id="expand" class="doc_header"><code>expand</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L276" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>expand</code>(<strong><code>template</code></strong>:<code>str</code>, <strong><code>n</code></strong>:<code>int</code>, <strong><code>to_math</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>Expand a symbol according to a pattern.</p>
 <blockquote><blockquote><blockquote><p>util.expand('s_{}', 3, True)
