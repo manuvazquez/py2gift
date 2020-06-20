@@ -40,17 +40,23 @@ def join(strings_list: List[str], nexus: str = 'and', to_formula: bool = True):
     Enumerates the strings in a list, optionally enclosing every element between `$`s.
 
     Parameters
-    ----------
-    strings_list: list
+
+    **strings_list**: list
+
         A list with the strings to be joined.
-    nexus: str
+
+    **nexus**: str
+
         Text between the second to last and last elements.
-    to_formula: bool, optional
+
+    **to_formula**: bool, optional
+
         If True every string will be enclosed in '$'s.
 
-    Returns
-    -------
-    out: str
+    ### Returns
+
+    **out**: str
+
         TeX compatible string.
 
     """
@@ -75,8 +81,10 @@ def gaussian_pdf(x: str = 'x', mean: str = r'\mu', variance: str = r'\sigma^2') 
     ----------
     x: str
         The random variable.
+
     mean: str, optional
         The mean of the random variable.
+
     variance: str, optional
         The variance of the random variable.
 
