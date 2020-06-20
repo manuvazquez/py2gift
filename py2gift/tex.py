@@ -4,7 +4,7 @@ __all__ = ['to_formula_maybe', 'join', 'gaussian_pdf', 'q_function_approximation
            'from_matrix', 'dot_product', 'total_probability', 'enumerate_math', 'enumerate_assignments', 'expand']
 
 # Cell
-
+import functools
 from typing import Union, Iterable, List, Optional, Tuple
 
 import numpy as np
@@ -29,6 +29,9 @@ def to_formula_maybe(func):
                 kwargs.pop('to_formula')
 
             return func(*args, **kwargs)
+
+    functools.update_wrapper(wrapper, func)
+
     return wrapper
 
 # Cell
