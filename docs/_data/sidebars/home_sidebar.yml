@@ -37,7 +37,7 @@ entries:
       title: Markdown
       url: /markdown
     - output: web,pdf
-      title: General settings
+      title: Sample 1
       url: /sample_1
     output: web
     title: py2gift
