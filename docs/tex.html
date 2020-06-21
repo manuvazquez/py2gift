@@ -1225,12 +1225,21 @@ x+1,&amp; 0 &lt; x \le 1 \\\end{cases}$</p>
 <h4 id="from_matrix" class="doc_header"><code>from_matrix</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L196" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>from_matrix</code>(<strong><code>m</code></strong>:<code>Union</code>[<code>list</code>, <code>ndarray</code>], <strong><code>float_point_precision</code></strong>:<code>int</code>=<em><code>3</code></em>)</p>
 </blockquote>
 <p>Returns a string for a given array or matrix.</p>
-<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>m: list or ndarray
-    A numpy array or a list.
-float_point_precision: int
-    Number of decimals (ignored if the number is an integer).</p>
-<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>out: str
-    TeX compatible string.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><code>m</code>: list or ndarray</p>
+<p>A numpy array or a list.</p>
+</li>
+<li><p><code>float_point_precision</code>: int</p>
+<p>Number of decimals (ignored if the number is an integer).</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><p><code>out</code>: str</p>
+<p>TeX compatible string.</p>
+</li>
+</ul>
 
 </div>
 
@@ -1499,25 +1508,38 @@ float_point_precision: int
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="dot_product" class="doc_header"><code>dot_product</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L226" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dot_product</code>(<strong><code>lhs_template</code></strong>:<code>str</code>, <strong><code>lhs</code></strong>:<code>list</code>, <strong><code>rhs_template</code></strong>:<code>str</code>, <strong><code>rhs</code></strong>:<code>list</code>, <strong><code>product_operator</code></strong>:<code>str</code>=<em><code>''</code></em>, <strong><code>addition_operator</code></strong>:<code>str</code>=<em><code>'+'</code></em>)</p>
+<h4 id="dot_product" class="doc_header"><code>dot_product</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L230" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>dot_product</code>(<strong><code>lhs_template</code></strong>:<code>str</code>, <strong><code>lhs</code></strong>:<code>list</code>, <strong><code>rhs_template</code></strong>:<code>str</code>, <strong><code>rhs</code></strong>:<code>list</code>, <strong><code>product_operator</code></strong>:<code>str</code>=<em><code>''</code></em>, <strong><code>addition_operator</code></strong>:<code>str</code>=<em><code>'+'</code></em>)</p>
 </blockquote>
 <p>Returns a string for the dot product of two vectors, regardless of whether they are symbols or numbers.</p>
-<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>lhs_template: str
-    Left-hand side template; it should include a replacement field ({}) that will be replaced by one of
-    the elements in <code>lhs</code>
-lhs: list
-    Left-hand side elements.
-rhs_template: str
-    Right-hand side template; it should include a replacement field ({}) that will be replaced by one of
-    the elements in <code>rhs</code>
-rhs: list
-    Right-hand side elements.
-product_operator: str
-    Symbol to be used as product operator.
-addition_operator: str
-    Symbol to be used as addition operator.</p>
-<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>out: str
-    TeX compatible string.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><code>lhs_template</code>: str</p>
+<p>Left-hand side template; it should include a replacement field ({}) that will be replaced by one of
+  the elements in <code>lhs</code></p>
+</li>
+<li><p><code>lhs</code>: list</p>
+<p>Left-hand side elements.</p>
+</li>
+<li><p><code>rhs_template</code>: str</p>
+<p>Right-hand side template; it should include a replacement field ({}) that will be replaced by one of
+  the elements in <code>rhs</code></p>
+</li>
+<li><p><code>rhs</code>: list</p>
+<p>Right-hand side elements.</p>
+</li>
+<li><p><code>product_operator</code>: str</p>
+<p>Symbol to be used as product operator.</p>
+</li>
+<li><p><code>addition_operator</code>: str</p>
+<p>Symbol to be used as addition operator.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><p><code>out</code>: str</p>
+<p>TeX compatible string.</p>
+</li>
+</ul>
 
 </div>
 
@@ -1619,8 +1641,30 @@ addition_operator: str
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="total_probability" class="doc_header"><code>total_probability</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L259" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>total_probability</code>(<strong><code>fixed_symbol</code></strong>:<code>str</code>, <strong><code>varying_symbol_template</code></strong>:<code>str</code>, <strong><code>n</code></strong>:<code>int</code>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
+<h4 id="total_probability" class="doc_header"><code>total_probability</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L275" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>total_probability</code>(<strong><code>fixed_symbol</code></strong>:<code>str</code>, <strong><code>varying_symbol_template</code></strong>:<code>str</code>, <strong><code>n</code></strong>:<code>int</code>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
 </blockquote>
+<p>Returns a string for law of total probability.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><code>fixed_symbol</code>: str</p>
+<p>The symbol that stays the same in the summation.</p>
+</li>
+<li><p><code>varying_symbol_template</code>: str</p>
+<p>A template for the varying symbol that includes a replacement field (<code>{}</code>) for the index.</p>
+</li>
+<li><p><code>n</code>: int</p>
+<p>The number of values for the varying symbol.</p>
+</li>
+<li><p><code>start_at</code>: int</p>
+<p>The index at which <code>varying_symbol_template</code>starts.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><p><code>out</code>: str</p>
+<p>TeX compatible string.</p>
+</li>
+</ul>
 
 </div>
 
@@ -1711,18 +1755,6 @@ addition_operator: str
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Given a list of <code>float</code>s,  <a href="/py2gift/tex#enumerate_math"><code>enumerate_math</code></a> builds a $\TeX$ string in which the value of each one is printed after (optionally) being assigned to an indexed variable that follows a given pattern.</p>
-<ul>
-<li><code>numbers_list</code> is a list of <code>float</code>s</li>
-<li><code>assigned_to</code> is a string with a <a href="https://docs.python.org/3/library/string.html#format-string-syntax">replacement field</a>. This means that any <code>{</code> or <code>}</code> must be escaped by doubling it.</li>
-<li><code>precision</code> is the number of decimal places</li>
-</ul>
-
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1741,9 +1773,33 @@ addition_operator: str
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="enumerate_math" class="doc_header"><code>enumerate_math</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L266" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>enumerate_math</code>(<strong><code>numbers_list</code></strong>:<code>List</code>[<code>float</code>], <strong><code>assigned_to</code></strong>:<code>Optional</code>[<code>str</code>]=<em><code>None</code></em>, <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>precision</code></strong>:<code>int</code>=<em><code>3</code></em>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
+<h4 id="enumerate_math" class="doc_header"><code>enumerate_math</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L309" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>enumerate_math</code>(<strong><code>numbers_list</code></strong>:<code>List</code>[<code>float</code>], <strong><code>assigned_to</code></strong>:<code>Optional</code>[<code>str</code>]=<em><code>None</code></em>, <strong><code>nexus</code></strong>:<code>Optional</code>[<code>str</code>]=<em><code>'and'</code></em>, <strong><code>precision</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>3</code></em>, <strong><code>start_at</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>1</code></em>)</p>
 </blockquote>
-<p>Returns a string for a enumeration of formulas.</p>
+<p>Builds a $\TeX$ string from a list of numbers in which each one is printed after (optionally) being assigned to an indexed variable that follows a given pattern.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><code>numbers_list</code>:  list of floats</p>
+<p>The elements to be enumerated.</p>
+</li>
+<li><p><code>assigned_to</code>: str, optional</p>
+<p>Some text with a replacement field (this means that any { or } must be escaped by doubling it).</p>
+</li>
+<li><p><code>nexus</code>: str, optional</p>
+<p>The text joining the second to last and last elements.</p>
+</li>
+<li><p><code>precision</code>: int</p>
+<p>The number of decimal places.</p>
+</li>
+<li><p><code>start_at</code>: int</p>
+<p>The index of the first element that enters the enumeration.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><p><code>out</code>: str</p>
+<p>TeX compatible string.</p>
+</li>
+</ul>
 
 </div>
 
@@ -1882,18 +1938,6 @@ addition_operator: str
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="/py2gift/tex#enumerate_assignments"><code>enumerate_assignments</code></a> constructs a enumeration of assignments from left-hand-side and right-hand-side templates and right-hand-side values. It's similar to <a href="/py2gift/tex#enumerate_math"><code>enumerate_math</code></a> when the argument <code>assigned_to</code> is passed to the latter, but more general since the right-hand expression is also obtained from a template.</p>
-<ul>
-<li><code>lhs_template</code> is a string with a <a href="https://docs.python.org/3/library/string.html#format-string-syntax">replacement field</a> that will be replaced by an <strong>index</strong></li>
-<li><code>rhs_template</code> is a string with a <a href="https://docs.python.org/3/library/string.html#format-string-syntax">replacement field</a> that will be replaced by one of the corresponding elements in <code>rhs</code></li>
-<li><code>rhs</code> is a list of <code>float</code>s</li>
-</ul>
-
-</div>
-</div>
-</div>
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -1912,9 +1956,36 @@ addition_operator: str
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="enumerate_assignments" class="doc_header"><code>enumerate_assignments</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L285" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>enumerate_assignments</code>(<strong><code>lhs_template</code></strong>:<code>str</code>, <strong><code>rhs_template</code></strong>:<code>str</code>, <strong><code>rhs</code></strong>:<code>List</code>[<code>float</code>], <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>precision</code></strong>:<code>int</code>=<em><code>3</code></em>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
+<h4 id="enumerate_assignments" class="doc_header"><code>enumerate_assignments</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L356" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>enumerate_assignments</code>(<strong><code>lhs_template</code></strong>:<code>str</code>, <strong><code>rhs_template</code></strong>:<code>str</code>, <strong><code>rhs</code></strong>:<code>List</code>[<code>float</code>], <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>precision</code></strong>:<code>int</code>=<em><code>3</code></em>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
 </blockquote>
-<p>Returns a string for a enumeration of formulas.</p>
+<p>Constructs a enumeration of assignments from left-hand-side and right-hand-side templates and right-hand-side values. It's similar to <a href="/py2gift/tex#enumerate_math"><code>enumerate_math</code></a> when the argument <code>assigned_to</code> is passed to the latter, but more general since the right-hand expression is also obtained from a template.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><code>lhs_template</code>:  str</p>
+<p>Text with a replacement field that will be replaced by an index.</p>
+</li>
+<li><p><code>rhs_template</code>: str</p>
+<p>Text with a replacement field that will be replaced by one of the corresponding elements in rhs.</p>
+</li>
+<li><p><code>rhs</code>: list of <code>float</code></p>
+<p>Elements to be enumerated.</p>
+</li>
+<li><p><code>nexus</code>: str, optional</p>
+<p>The text joining the second to last and last elements.</p>
+</li>
+<li><p><code>precision</code>: int</p>
+<p>The number of decimal places.</p>
+</li>
+<li><p><code>start_at</code>: int</p>
+<p>The index of the first element that enters the enumeration.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><p><code>out</code>: str</p>
+<p>TeX compatible string.</p>
+</li>
+</ul>
 
 </div>
 
@@ -2017,7 +2088,7 @@ addition_operator: str
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="expand" class="doc_header"><code>expand</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L295" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>expand</code>(<strong><code>template</code></strong>:<code>str</code>, <strong><code>n</code></strong>:<code>int</code>, <strong><code>to_math</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
+<h4 id="expand" class="doc_header"><code>expand</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/tex.py#L399" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>expand</code>(<strong><code>template</code></strong>:<code>str</code>, <strong><code>n</code></strong>:<code>int</code>, <strong><code>to_math</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>nexus</code></strong>:<code>str</code>=<em><code>'and'</code></em>, <strong><code>start_at</code></strong>:<code>int</code>=<em><code>1</code></em>)</p>
 </blockquote>
 <p>Expand a symbol according to a pattern.</p>
 <blockquote><blockquote><blockquote><p>util.expand('s_{}', 3, True)
@@ -2025,17 +2096,31 @@ addition_operator: str
 </blockquote>
 </blockquote>
 </blockquote>
-<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>template : str
-    String with a <em>single</em> replacement field ({})
-n : int
-    Requested number of terms
-to_math : bool
-    If <code>True</code>, every output term is enclosed between $'s
-nexus : str
-    String joining the second to last and last terms.
-start_at: int
-    The number at which indexes start.</p>
-<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2>
+<p><strong><em>Parameters</em></strong></p>
+<ul>
+<li><p><code>template</code> : str</p>
+<p>String with a <em>single</em> replacement field ({})</p>
+</li>
+<li><p><code>n</code> : int</p>
+<p>Requested number of terms</p>
+</li>
+<li><p><code>to_math</code> : bool</p>
+<p>If <code>True</code>, every output term is enclosed between $'s</p>
+</li>
+<li><p><code>nexus</code> : str</p>
+<p>String joining the second to last and last terms.</p>
+</li>
+<li><p><code>start_at</code>: int</p>
+<p>The number at which indexes start.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><p><code>out</code>: str</p>
+<p>TeX compatible string.</p>
+</li>
+</ul>
+
 </div>
 
 </div>

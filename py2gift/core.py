@@ -183,20 +183,25 @@ def build_question(
     """
     Returns the settings for building a question using "gift-wrapper".
 
-    Parameters
-    ----------
-    question_generator: class
+    ***Parameters***
+
+    - `question_generator`: class
+
         The question generator that will generate the appropirate settings.
-    category_name: str
+    - `category_name`: str
+
         The name of category the class belongs to.
-    settings: dict
+    - `settings`: dict
+
         User settings.
-    n_question: int
+    - `n_question`: int
+
         The number of instance to be returned.
 
-    Returns
-    -------
-    out: dict
+    ***Returns***
+
+    - `out`: dict
+
         A dictionary with the settings that allow building the question using "gift-wrapper".
 
     """
@@ -224,18 +229,24 @@ def generator_to_markdown(
     Returns markdown text from a generator.
 
 
-    Parameters
-    ----------
-    settings: str, Pathlib, dict
+    ***Parameters***
+
+    - `settings`: str, Pathlib, dict
+
         The settings file or corresponding dictionary.
-    category: str
+
+    - `category`: str
+
         The category of the question.
-    cls: py2gift.question.QuestionGenerator
+
+    - `cls`: py2gift.question.QuestionGenerator
+
         The class implementing the generator.
 
-    Returns
-    -------
+    ***Returns***
+
     out: str
+
         Markdown text.
 
     """
@@ -259,16 +270,20 @@ def latex_to_markdown(input_file: Union[str, pathlib.Path], delete_input_file_af
     Returns markdown text that shows the result of compiling a TeX file.
 
 
-    Parameters
-    ----------
-    input_file: str, Pathlib
+    ***Parameters***
+
+    - `input_file`: str, Pathlib
+
         The TeX file.
-    delete_input_file_afterwards: bool
+
+    - `delete_input_file_afterwards`: bool
+
         If True the TeX file is deleted after conversion to svg.
 
-    Returns
-    -------
-    out: str
+    ***Returns***
+
+    - `out`: str
+
         Markdown text.
 
     """

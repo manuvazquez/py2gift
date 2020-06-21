@@ -36,7 +36,7 @@ description: "Conversion to markdown capabilities."
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Creating-a-header-in-markdown">Creating a header in markdown<a class="anchor-link" href="#Creating-a-header-in-markdown"> </a></h1>
+<h2 id="Creating-a-header-in-markdown">Creating a header in markdown<a class="anchor-link" href="#Creating-a-header-in-markdown"> </a></h2>
 </div>
 </div>
 </div>
@@ -58,15 +58,23 @@ description: "Conversion to markdown capabilities."
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="markdown_header" class="doc_header"><code>markdown_header</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/markdown.py#L22" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>markdown_header</code>(<strong><code>text</code></strong>:<code>str</code>, <strong><code>template</code></strong>:<code>Template</code>=<em><code>&lt;string.Template object at 0x7fb6b38d1f10&gt;</code></em>)</p>
+<h4 id="markdown_header" class="doc_header"><code>markdown_header</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/markdown.py#L22" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>markdown_header</code>(<strong><code>text</code></strong>:<code>str</code>, <strong><code>template</code></strong>:<code>Template</code>=<em><code>&lt;string.Template object at 0x7f16c36183d0&gt;</code></em>)</p>
 </blockquote>
 <p>Returns a markdown header for a given text.</p>
-<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>text : str
-    Text for the header.
-template : string template
-    The template that defines the appearance of the header, and in which <code>text</code> will be embedded.</p>
-<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>out : str
-    Markdown-compatible text.</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><code>text</code> : str</p>
+<p>Text for the header.</p>
+</li>
+<li><p><code>template</code> : string template</p>
+<p>The template that defines the appearance of the header, and in which <code>text</code> will be embedded.</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><code>out</code> : str
+  Markdown-compatible text.</li>
+</ul>
 
 </div>
 
@@ -113,7 +121,7 @@ template : string template
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Markdown-from-a-question">Markdown from a question<a class="anchor-link" href="#Markdown-from-a-question"> </a></h1>
+<h2 id="Markdown-from-user-settings-for-a-question">Markdown from user settings for a question<a class="anchor-link" href="#Markdown-from-user-settings-for-a-question"> </a></h2>
 </div>
 </div>
 </div>
@@ -189,13 +197,13 @@ template : string template
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Markdown-from-a-question">Markdown from a question<a class="anchor-link" href="#Markdown-from-a-question"> </a></h1>
+<h2 id="Patching-gift-wrapper-questions">Patching gift-wrapper questions<a class="anchor-link" href="#Patching-gift-wrapper-questions"> </a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Abstract-class-for-a-question">Abstract class for a question<a class="anchor-link" href="#Abstract-class-for-a-question"> </a></h2>
+<h3 id="Base-(abstract)-HtmlQuestion">Base (abstract) <em>HtmlQuestion</em><a class="anchor-link" href="#Base-(abstract)-HtmlQuestion"> </a></h3>
 </div>
 </div>
 </div>
@@ -217,7 +225,7 @@ template : string template
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="html_question_to_markdown" class="doc_header"><code>html_question_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/markdown.py#L46" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>html_question_to_markdown</code>()</p>
+<h4 id="html_question_to_markdown" class="doc_header"><code>html_question_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/markdown.py#L49" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>html_question_to_markdown</code>()</p>
 </blockquote>
 
 </div>
@@ -269,7 +277,7 @@ template : string template
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Numerical-question">Numerical question<a class="anchor-link" href="#Numerical-question"> </a></h2>
+<h3 id="Numerical-question">Numerical question<a class="anchor-link" href="#Numerical-question"> </a></h3>
 </div>
 </div>
 </div>
@@ -291,7 +299,7 @@ template : string template
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="numerical_to_markdown" class="doc_header"><code>numerical_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/markdown.py#L91" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>numerical_to_markdown</code>()</p>
+<h4 id="numerical_to_markdown" class="doc_header"><code>numerical_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/markdown.py#L94" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>numerical_to_markdown</code>()</p>
 </blockquote>
 
 </div>
@@ -345,7 +353,7 @@ template : string template
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Multiple-choice-question">Multiple-choice question<a class="anchor-link" href="#Multiple-choice-question"> </a></h2>
+<h3 id="Multiple-choice-question">Multiple-choice question<a class="anchor-link" href="#Multiple-choice-question"> </a></h3>
 </div>
 </div>
 </div>
@@ -367,7 +375,7 @@ template : string template
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="multiple_choice_to_markdown" class="doc_header"><code>multiple_choice_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/markdown.py#L100" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>multiple_choice_to_markdown</code>()</p>
+<h4 id="multiple_choice_to_markdown" class="doc_header"><code>multiple_choice_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/markdown.py#L103" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>multiple_choice_to_markdown</code>()</p>
 </blockquote>
 
 </div>
@@ -424,7 +432,7 @@ template : string template
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Decorating-a-gift-wrapper-question-to-process-paths-svg-files">Decorating a <em>gift-wrapper</em> question to process paths svg files<a class="anchor-link" href="#Decorating-a-gift-wrapper-question-to-process-paths-svg-files"> </a></h1>
+<h2 id="Decorating-a-gift-wrapper-question-to-process-paths-to-svg-files">Decorating a <em>gift-wrapper</em> question to process paths to svg files<a class="anchor-link" href="#Decorating-a-gift-wrapper-question-to-process-paths-to-svg-files"> </a></h2>
 </div>
 </div>
 </div>
@@ -446,7 +454,7 @@ template : string template
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="SvgToMarkdown" class="doc_header"><code>class</code> <code>SvgToMarkdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/markdown.py#L135" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SvgToMarkdown</code>(<strong><code>decorated</code></strong>:<code>Union</code>[<code>HtmlQuestion</code>, <code>QuestionDecorator</code>]) :: <code>QuestionDecorator</code></p>
+<h2 id="SvgToMarkdown" class="doc_header"><code>class</code> <code>SvgToMarkdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/markdown.py#L138" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>SvgToMarkdown</code>(<strong><code>decorated</code></strong>:<code>Union</code>[<code>HtmlQuestion</code>, <code>QuestionDecorator</code>]) :: <code>QuestionDecorator</code></p>
 </blockquote>
 <p>Decorator to reformat svg files for including them in markdown strings.</p>
 
@@ -534,13 +542,21 @@ template : string template
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="settings_to_markdown" class="doc_header"><code>settings_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/markdown.py#L164" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>settings_to_markdown</code>(<strong><code>settings</code></strong>:<code>dict</code>)</p>
+<h4 id="settings_to_markdown" class="doc_header"><code>settings_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/markdown.py#L167" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>settings_to_markdown</code>(<strong><code>settings</code></strong>:<code>dict</code>)</p>
 </blockquote>
 <p>Returns a markdown representation of the question given the corresponding settings.</p>
-<h2 id="Parameters">Parameters<a class="anchor-link" href="#Parameters"> </a></h2><p>settings : dict
-    User settings (usually read from a YAML file).</p>
-<h2 id="Returns">Returns<a class="anchor-link" href="#Returns"> </a></h2><p>markdown: str
-    Markdown representation</p>
+<p><strong>Parameters</strong></p>
+<ul>
+<li><p><code>settings</code> : dict</p>
+<p>User settings (usually read from a YAML file).</p>
+</li>
+</ul>
+<p><strong>Returns</strong></p>
+<ul>
+<li><p><a href="/py2gift/markdown"><code>markdown</code></a>: str</p>
+<p>Markdown representation</p>
+</li>
+</ul>
 
 </div>
 

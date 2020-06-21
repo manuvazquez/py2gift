@@ -241,7 +241,6 @@ class Settings:
         self._classes.add(class_name)
 
 # Cell
-
 def initialize(output_file: str, pictures_directory: str, ) -> dict:
 
     settings = {}
@@ -253,8 +252,9 @@ def initialize(output_file: str, pictures_directory: str, ) -> dict:
     return settings
 
 # Cell
-
-def set_class_preamble(settings: dict, category_name: str, base_category: Optional[str] = None, test_mode: bool = False) -> Union[str, list]:
+def set_class_preamble(
+    settings: dict, category_name: str, base_category: Optional[str] = None, test_mode: bool = False
+) -> Union[str, list]:
 
     if test_mode:
 
@@ -287,7 +287,6 @@ def set_class_closing(settings: dict, n_instances: int, time: Optional[int] = No
     settings['categories'][-1]['classes'][-1]['time'] = time
 
 # Cell
-
 def set_class(
     settings: dict, class_name: str, question_base_name: str, init_parameters: Optional[dict] = None,
     parameters: Optional[List[dict]] = None, n_instances: Optional[int] = None, time: Optional[int]=None) -> None:
@@ -315,7 +314,6 @@ def set_class(
     settings['categories'][-1]['classes'] = [d]
 
 # Cell
-
 def write_header(file: Union[str, pathlib.Path], output_file: str, pictures_directory: str, ) -> None:
 
     settings = initialize(output_file, pictures_directory)
@@ -323,8 +321,38 @@ def write_header(file: Union[str, pathlib.Path], output_file: str, pictures_dire
     py2gift.util.dict_to_yaml(settings, file)
 
 # Cell
+def write_class_preamble(
+    file: Union[str, pathlib.Path], category_name: str, base_category: Optional[str] = None, test_mode: bool = False
+) -> Union[str, list]:
+    """
+    Writes the preamble for a class which includes the name of the category. Strictly speaking, it's not necessary to create a new category every time a class is added, but this is more general and a category can show up many times in the input file.
 
-def write_class_preamble(file: Union[str, pathlib.Path], category_name: str, base_category: Optional[str] = None, test_mode: bool = False) -> Union[str, list]:
+
+    **Parameters**
+
+    - `file`: str, Pathlib
+
+        Input file to be *appended to*.
+
+    - `category_name`: str
+
+        Name of the category in which the class will be encompassed.
+
+    - `base_category`: str, optional
+
+        The parent category for `category_name`.
+
+    - `test_mode`: bool
+
+        If `True` the last two parameters are overriden and the category is simply called `test`.
+
+    **Returns**
+
+    - `category_name`: str or list
+
+        The final name for the category (notice that it might get tweaked due to `test_mode`).
+
+    """
 
 
     settings = py2gift.util.yaml_to_dict(file)
@@ -341,7 +369,6 @@ def write_class_closing(file: Union[str, pathlib.Path], n_instances: int, time: 
     py2gift.util.dict_to_yaml(settings, file)
 
 # Cell
-
 def function_to_make_hierarchical_category_name(base_category: str) -> Callable[[str], list]:
 
     def make_subcategory(category: str) -> list:

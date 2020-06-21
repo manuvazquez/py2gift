@@ -26,8 +26,23 @@ import gift_wrapper.core
 import gift_wrapper.image
 
 # Cell
-
 def render_latex(text: str) -> str:
+    """
+    Returns latex-aware markdown text.
+
+
+    ***Parameters***
+
+    - `text`: str
+
+        Input text.
+
+    ***Returns***
+
+    - `out`: str
+
+        Markdown text.
+    """
 
     return IPython.display.Markdown(re.sub(r'\$([^\$]*)\$', '$' + '\\\Large ' + r'\1' + '$', text))
 
@@ -42,6 +57,18 @@ class AccessorEndowedClass:
 def int_to_roman(num: int) -> str:
     """
     Returns an integer number in roman format.
+
+    ***Parameters***
+
+    - `num`: int
+
+        Input integer.
+
+    ***Returns***
+
+    - `out`: str
+
+        Roman number for the input.
     """
 
     val = [
@@ -90,20 +117,24 @@ def yaml_to_dict(file: Union[str, pathlib.Path]) -> dict:
     return d
 
 # Cell
-
 def write_multiple_categories(
         category_questions: Dict[str, List[dict]], pictures_base_directory: str, output_file: str = 'out.yaml') -> None:
     """
     Writes a file suitable as input to `gift-wrapper`.
 
-    Parameters
-    ----------
-    category_questions : dict
+    ***Parameters***
+
+    - `category_questions` : dict
+
         Every key is the name of a category, and every value is a list of questions
         (every question is itself a dictionary).
-    pictures_base_directory : str
+
+    - `pictures_base_directory` : str
+
         The "pictures base directory" parameter that must be passed to `gift-wrapper`
-    output_file : str
+
+    - `output_file` : str
+
         Output file
 
     """
@@ -119,21 +150,24 @@ def write_multiple_categories(
     dict_to_yaml(file, output_file)
 
 # Cell
-
 def supplement_file_name(file: Union[str, pathlib.Path], sup: str) -> pathlib.Path:
     """
     Adds a string between the file name in a path and the suffix.
 
-    Parameters
-    ----------
-    file : str
+    **Parameters**
+
+    - `file` : str
+
         File name
-    sup : str
+
+    - `sup` : str
+
         String to be added
 
-    Returns
-    -------
-    out: pathlib.Path
+    **Returns**
+
+    - `out`: pathlib.Path
+
         "Supplemented" file
 
     """
@@ -146,21 +180,24 @@ def supplement_file_name(file: Union[str, pathlib.Path], sup: str) -> pathlib.Pa
 assert supplement_file_name('/a/b/quixote.tex', 'foo') == pathlib.Path('/a/b/quixote_foo.tex')
 
 # Cell
-
 def add_name(questions: List[dict], base_name: str) -> List[dict]:
     """
     Adds a name to every question based on a pattern.
 
-    Parameters
-    ----------
-    questions : list
+    **Parameters**
+
+    - `questions` : list
+
         List of questions; every question is a dictionary.
-    question_base_name : str
+
+    - `base_name` : str
+
         All the questions will be given this name and a different (Roman) number.
 
-    Returns
-    -------
-    out: list
+    **Returns**
+
+    - `out`: list
+
         List with the same questions after adding the corresponding name to each one.
 
     """
@@ -177,7 +214,6 @@ assert add_name([{'k1': 'aa', 'k2': 1}, {'k3': 'pi', 'foo': 'variance'}], 'Viter
     {'k1': 'aa', 'k2': 1, 'name': 'Viterbi I'}, {'k3': 'pi', 'foo': 'variance', 'name': 'Viterbi II'}]
 
 # Cell
-
 def wrong_numerical_solutions_from_correct_one(
     solution: float, n: int, min_sep: float, max_sep: float, lower_bound: float = -np.inf,
     upper_bound: float = np.inf, precision: int = 4, to_str: bool = True, fixed_point_format: bool = False,
@@ -187,37 +223,61 @@ def wrong_numerical_solutions_from_correct_one(
     Generates random numerical wrong answers given the correct one.
 
 
-    Parameters
-    ----------
-    solution: float
+    **Parameters**
+
+    - `solution`: float
+
         The actual solution.
-    n: int
+
+    - `n`: int
+
         The number of wrong solutions.
-    min_sep: float
+
+    - `min_sep`: float
+
         Minimum separation.
-    max_sep: float
+
+    - `max_sep`: float
+
         Maximum separation.
-    lower_bound: float, optional
+
+    - `lower_bound`: float, optional
+
         A lower bound on the returned numbers.
-    upper_bound: float, optional
+
+    - `upper_bound`: float, optional
+
         A upper bound on the returned numbers.
-    precision: int, optional
+
+    - `precision`: int, optional
+
         The number of decimal places.
-    to_str: bool, optional
+
+    - `to_str`: bool, optional
+
         If True, every element in the result will be converted to a string.
-    fixed_point_format: bool
+
+    - `fixed_point_format`: bool
+
         Only meaningful when to_str is True. In such case, if True a fixed-point format (f) is used
         regardless of the actual type.
-    bin_width: float, optional
+
+    - `bin_width`: float, optional
+
         The granularity on the answers: every one will be a multiple of this parameter.
-    unique: bool, optional
+
+    - `unique`: bool, optional
+
         If True, all the answers will be different.
-    prng: RandomState, optional
+
+    - `prng`: RandomState, optional
+
         A pseudo-random numbers generator.
 
-    Returns
-    -------
-    out: list of float, or list of str
+    **Returns**
+
+    - `out`: list of float, or list of str
+
         The random wrong solutions.
 
     """

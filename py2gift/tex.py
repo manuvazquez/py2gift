@@ -198,16 +198,20 @@ def from_matrix(m: Union[list, np.ndarray], float_point_precision: int = 3) -> s
     """
     Returns a string for a given array or matrix.
 
-    Parameters
-    ----------
-    m: list or ndarray
+    **Parameters**
+
+    - `m`: list or ndarray
+
         A numpy array or a list.
-    float_point_precision: int
+
+    - `float_point_precision`: int
+
         Number of decimals (ignored if the number is an integer).
 
-    Returns
-    -------
-    out: str
+    **Returns**
+
+    - `out`: str
+
         TeX compatible string.
     """
 
@@ -230,26 +234,38 @@ def dot_product(
     """
     Returns a string for the dot product of two vectors, regardless of whether they are symbols or numbers.
 
-    Parameters
-    ----------
-    lhs_template: str
+    **Parameters**
+
+    - `lhs_template`: str
+
         Left-hand side template; it should include a replacement field ({}) that will be replaced by one of
         the elements in `lhs`
-    lhs: list
+
+    - `lhs`: list
+
         Left-hand side elements.
-    rhs_template: str
+
+    - `rhs_template`: str
+
         Right-hand side template; it should include a replacement field ({}) that will be replaced by one of
         the elements in `rhs`
-    rhs: list
+
+    - `rhs`: list
+
         Right-hand side elements.
-    product_operator: str
+
+    - `product_operator`: str
+
         Symbol to be used as product operator.
-    addition_operator: str
+
+    - `addition_operator`: str
+
         Symbol to be used as addition operator.
 
-    Returns
-    -------
-    out: str
+    **Returns**
+
+    - `out`: str
+
         TeX compatible string.
     """
 
@@ -258,15 +274,71 @@ def dot_product(
 # Cell
 @to_formula_maybe
 def total_probability(fixed_symbol: str, varying_symbol_template: str, n: int, start_at: int = 1) -> str:
+    """
+    Returns a string for law of total probability.
+
+    **Parameters**
+
+    - `fixed_symbol`: str
+
+        The symbol that stays the same in the summation.
+
+    - `varying_symbol_template`: str
+
+        A template for the varying symbol that includes a replacement field (`{}`) for the index.
+
+    - `n`: int
+
+        The number of values for the varying symbol.
+
+    - `start_at`: int
+
+        The index at which `varying_symbol_template`starts.
+
+    **Returns**
+
+    - `out`: str
+
+        TeX compatible string.
+    """
 
     return '+'.join([f'p({fixed_symbol},{varying_symbol_template.format(i)})' for i in range(start_at, start_at+n)])
 
 # Cell
 
 def enumerate_math(
-    numbers_list: List[float], assigned_to: Optional[str] = None, nexus: str = 'and', precision: int = 3, start_at: int = 1) -> str:
+    numbers_list: List[float], assigned_to: Optional[str] = None, nexus: Optional[str] = 'and',
+    precision: Optional[int] = 3, start_at: Optional[int] = 1) -> str:
     """
-    Returns a string for a enumeration of formulas.
+    Builds a $\TeX$ string from a list of numbers in which each one is printed after (optionally) being assigned to an indexed variable that follows a given pattern.
+
+    **Parameters**
+
+    - `numbers_list`:  list of floats
+
+        The elements to be enumerated.
+
+    - `assigned_to`: str, optional
+
+        Some text with a replacement field (this means that any { or } must be escaped by doubling it).
+
+    - `nexus`: str, optional
+
+        The text joining the second to last and last elements.
+
+    - `precision`: int
+
+        The number of decimal places.
+
+    - `start_at`: int
+
+        The index of the first element that enters the enumeration.
+
+    **Returns**
+
+    - `out`: str
+
+        TeX compatible string.
     """
 
 #     format_specifier = f'.{precision}f'
@@ -281,11 +353,43 @@ def enumerate_math(
     return join(strings_list, nexus=nexus)
 
 # Cell
-
 def enumerate_assignments(
     lhs_template: str, rhs_template: str, rhs: List[float], nexus: str = 'and', precision: int = 3, start_at: int = 1) -> str:
     """
-    Returns a string for a enumeration of formulas.
+    Constructs a enumeration of assignments from left-hand-side and right-hand-side templates and right-hand-side values. It's similar to `enumerate_math` when the argument `assigned_to` is passed to the latter, but more general since the right-hand expression is also obtained from a template.
+
+    **Parameters**
+
+    - `lhs_template`:  str
+
+        Text with a replacement field that will be replaced by an index.
+
+    - `rhs_template`: str
+
+         Text with a replacement field that will be replaced by one of the corresponding elements in rhs.
+
+    - `rhs`: list of `float`
+
+        Elements to be enumerated.
+
+    - `nexus`: str, optional
+
+        The text joining the second to last and last elements.
+
+    - `precision`: int
+
+        The number of decimal places.
+
+    - `start_at`: int
+
+        The index of the first element that enters the enumeration.
+
+
+    **Returns**
+
+    - `out`: str
+
+        TeX compatible string.
     """
 
     return join([f'{lhs_template} = {rhs_template}'.format(i, r) for i, r in enumerate(rhs, start_at)])
@@ -299,22 +403,29 @@ def expand(template: str, n: int, to_math: bool = False, nexus: str = 'and', sta
     >>> util.expand('s_{}', 3, True)
     '$s_1$, $s_2$ and $s_3$'
 
-    Parameters
-    ----------
-    template : str
+    ***Parameters***
+
+    - `template` : str
+
         String with a *single* replacement field ({})
-    n : int
+    - `n` : int
+
         Requested number of terms
-    to_math : bool
+    - `to_math` : bool
+
         If `True`, every output term is enclosed between $'s
-    nexus : str
+    - `nexus` : str
+
         String joining the second to last and last terms.
-    start_at: int
+    - `start_at`: int
+
         The number at which indexes start.
 
-    Returns
-    -------
+    **Returns**
 
+    - `out`: str
+
+        TeX compatible string.
     """
 
     return join([template.format(i) for i in range(start_at, start_at + n)], to_formula=to_math)

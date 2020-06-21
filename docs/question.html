@@ -36,7 +36,7 @@ description: "Implementation of the different kinds of questions' generators."
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Text-with-formulas-and-wildcards">Text with formulas and wildcards<a class="anchor-link" href="#Text-with-formulas-and-wildcards"> </a></h1>
+<h2 id="Text-with-formulas-and-wildcards">Text with formulas and wildcards<a class="anchor-link" href="#Text-with-formulas-and-wildcards"> </a></h2>
 </div>
 </div>
 </div>
@@ -453,12 +453,12 @@ rac{N_0}{2}=2$.</pre>
 <div class="output_text output_subarea output_execute_result">
 <pre>{str: &lt;function __main__.TemplatedLatexText.&lt;lambda&gt;(x)&gt;,
  pathlib.PosixPath: &lt;function __main__.TemplatedLatexText.&lt;lambda&gt;(x)&gt;,
- numpy.ndarray: &lt;function py2gift.tex.to_formula_maybe.&lt;locals&gt;.wrapper(*args, **kwargs)&gt;,
- list: &lt;function py2gift.tex.to_formula_maybe.&lt;locals&gt;.wrapper(*args, **kwargs)&gt;,
- int: &lt;function py2gift.tex.to_formula_maybe.&lt;locals&gt;.wrapper(*args, **kwargs)&gt;,
- float: &lt;function py2gift.tex.to_formula_maybe.&lt;locals&gt;.wrapper(*args, **kwargs)&gt;,
- numpy.int64: &lt;function py2gift.tex.to_formula_maybe.&lt;locals&gt;.wrapper(*args, **kwargs)&gt;,
- numpy.float64: &lt;function py2gift.tex.to_formula_maybe.&lt;locals&gt;.wrapper(*args, **kwargs)&gt;}</pre>
+ numpy.ndarray: &lt;function py2gift.tex.from_matrix(m: Union[list, numpy.ndarray], float_point_precision: int = 3) -&gt; str&gt;,
+ list: &lt;function py2gift.tex.from_matrix(m: Union[list, numpy.ndarray], float_point_precision: int = 3) -&gt; str&gt;,
+ int: &lt;function py2gift.tex.from_number(n: Union[int, float], prefix: str = &#39;&#39;, precision: int = 3, fixed_point_format: bool = False) -&gt; str&gt;,
+ float: &lt;function py2gift.tex.from_number(n: Union[int, float], prefix: str = &#39;&#39;, precision: int = 3, fixed_point_format: bool = False) -&gt; str&gt;,
+ numpy.int64: &lt;function py2gift.tex.from_number(n: Union[int, float], prefix: str = &#39;&#39;, precision: int = 3, fixed_point_format: bool = False) -&gt; str&gt;,
+ numpy.float64: &lt;function py2gift.tex.from_number(n: Union[int, float], prefix: str = &#39;&#39;, precision: int = 3, fixed_point_format: bool = False) -&gt; str&gt;}</pre>
 </div>
 
 </div>
@@ -646,7 +646,7 @@ rac{N_0}{2}=2$.</pre>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Generators">Generators<a class="anchor-link" href="#Generators"> </a></h1>
+<h2 id="Generators">Generators<a class="anchor-link" href="#Generators"> </a></h2>
 </div>
 </div>
 </div>
@@ -675,7 +675,7 @@ rac{N_0}{2}=2$.</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="QuestionGenerator" class="doc_header"><code>class</code> <code>QuestionGenerator</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/question.py#L99" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>QuestionGenerator</code>(<strong><code>statement</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>feedback</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>time</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>prng</code></strong>:<code>RandomState</code>=<em><code>RandomState(MT19937) at 0x7F40F79FB240</code></em>)</p>
+<h2 id="QuestionGenerator" class="doc_header"><code>class</code> <code>QuestionGenerator</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/question.py#L98" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>QuestionGenerator</code>(<strong><code>statement</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>feedback</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>time</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>prng</code></strong>:<code>RandomState</code>=<em><code>RandomState(MT19937) at 0x7FD1960F8240</code></em>)</p>
 </blockquote>
 
 </div>
@@ -690,7 +690,7 @@ rac{N_0}{2}=2$.</pre>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Numerical-question">Numerical question<a class="anchor-link" href="#Numerical-question"> </a></h1>
+<h2 id="Numerical-question">Numerical question<a class="anchor-link" href="#Numerical-question"> </a></h2>
 </div>
 </div>
 </div>
@@ -712,7 +712,7 @@ rac{N_0}{2}=2$.</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="NumericalQuestionGenerator" class="doc_header"><code>class</code> <code>NumericalQuestionGenerator</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/question.py#L146" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>NumericalQuestionGenerator</code>(<strong><code>statement</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>feedback</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>time</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>prng</code></strong>:<code>RandomState</code>=<em><code>RandomState(MT19937) at 0x7F40F79FB340</code></em>) :: <a href="/py2gift/question#QuestionGenerator"><code>QuestionGenerator</code></a></p>
+<h2 id="NumericalQuestionGenerator" class="doc_header"><code>class</code> <code>NumericalQuestionGenerator</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/question.py#L144" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>NumericalQuestionGenerator</code>(<strong><code>statement</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>feedback</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>time</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>prng</code></strong>:<code>RandomState</code>=<em><code>RandomState(MT19937) at 0x7FD1960F8340</code></em>) :: <a href="/py2gift/question#QuestionGenerator"><code>QuestionGenerator</code></a></p>
 </blockquote>
 
 </div>
@@ -727,7 +727,7 @@ rac{N_0}{2}=2$.</pre>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Multiple-choice">Multiple choice<a class="anchor-link" href="#Multiple-choice"> </a></h1>
+<h2 id="Multiple-choice">Multiple choice<a class="anchor-link" href="#Multiple-choice"> </a></h2>
 </div>
 </div>
 </div>
@@ -749,7 +749,7 @@ rac{N_0}{2}=2$.</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="MultipleChoiceQuestionGenerator" class="doc_header"><code>class</code> <code>MultipleChoiceQuestionGenerator</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/question.py#L197" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MultipleChoiceQuestionGenerator</code>(<strong><code>statement</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>feedback</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>time</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>prng</code></strong>:<code>RandomState</code>=<em><code>RandomState(MT19937) at 0x7F40F79FB440</code></em>) :: <a href="/py2gift/question#QuestionGenerator"><code>QuestionGenerator</code></a></p>
+<h2 id="MultipleChoiceQuestionGenerator" class="doc_header"><code>class</code> <code>MultipleChoiceQuestionGenerator</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/question.py#L194" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MultipleChoiceQuestionGenerator</code>(<strong><code>statement</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>feedback</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>time</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>prng</code></strong>:<code>RandomState</code>=<em><code>RandomState(MT19937) at 0x7FD1960F8440</code></em>) :: <a href="/py2gift/question#QuestionGenerator"><code>QuestionGenerator</code></a></p>
 </blockquote>
 
 </div>
@@ -764,7 +764,7 @@ rac{N_0}{2}=2$.</pre>
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Theoretical">Theoretical<a class="anchor-link" href="#Theoretical"> </a></h1>
+<h2 id="Theoretical">Theoretical<a class="anchor-link" href="#Theoretical"> </a></h2>
 </div>
 </div>
 </div>
@@ -786,7 +786,7 @@ rac{N_0}{2}=2$.</pre>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h2 id="MultipleChoiceTheoreticalQuestionGenerator" class="doc_header"><code>class</code> <code>MultipleChoiceTheoreticalQuestionGenerator</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/question.py#L270" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MultipleChoiceTheoreticalQuestionGenerator</code>(<strong><code>statement</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>feedback</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>time</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>prng</code></strong>:<code>RandomState</code>=<em><code>RandomState(MT19937) at 0x7F40F79FB440</code></em>) :: <a href="/py2gift/question#MultipleChoiceQuestionGenerator"><code>MultipleChoiceQuestionGenerator</code></a></p>
+<h2 id="MultipleChoiceTheoreticalQuestionGenerator" class="doc_header"><code>class</code> <code>MultipleChoiceTheoreticalQuestionGenerator</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/question.py#L267" class="source_link" style="float:right">[source]</a></h2><blockquote><p><code>MultipleChoiceTheoreticalQuestionGenerator</code>(<strong><code>statement</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>feedback</code></strong>:<a href="/py2gift/question#TemplatedLatexText"><code>TemplatedLatexText</code></a>, <strong><code>time</code></strong>:<code>Optional</code>[<code>int</code>]=<em><code>None</code></em>, <strong><code>prng</code></strong>:<code>RandomState</code>=<em><code>RandomState(MT19937) at 0x7FD1960F8440</code></em>) :: <a href="/py2gift/question#MultipleChoiceQuestionGenerator"><code>MultipleChoiceQuestionGenerator</code></a></p>
 </blockquote>
 
 </div>

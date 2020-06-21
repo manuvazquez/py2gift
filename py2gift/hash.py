@@ -8,7 +8,6 @@ from typing import Union, Optional
 import numpy as np
 
 # Cell
-
 def matrix(matrix: Union[list, np.ndarray], decimal_sep_replacement: Optional[bool] = '_') -> str:
 
     res = ''.join(np.vectorize(str)(np.array(matrix).flatten()))

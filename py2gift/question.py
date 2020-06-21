@@ -95,7 +95,6 @@ class TemplatedLatexText:
         return self._final is not None
 
 # Cell
-
 class QuestionGenerator(metaclass=abc.ABCMeta):
 
     def __init__(
@@ -142,7 +141,6 @@ class QuestionGenerator(metaclass=abc.ABCMeta):
         assert self.feedback.is_full
 
 # Cell
-
 class NumericalQuestionGenerator(QuestionGenerator):
 
     def __init__(
@@ -193,7 +191,6 @@ class NumericalQuestionGenerator(QuestionGenerator):
             statement=self.statement.final, feedback=self.feedback.final, solution=self.solution, error=self.error)
 
 # Cell
-
 class MultipleChoiceQuestionGenerator(QuestionGenerator):
 
     def __init__(

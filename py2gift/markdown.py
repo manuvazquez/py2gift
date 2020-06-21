@@ -26,16 +26,19 @@ def markdown_header(
     """
     Returns a markdown header for a given text.
 
-    Parameters
-    ----------
-    text : str
+    **Parameters**
+
+    - `text` : str
+
         Text for the header.
-    template : string template
+
+    - `template` : string template
+
         The template that defines the appearance of the header, and in which `text` will be embedded.
 
-    Returns
-    -------
-    out : str
+    **Returns**
+
+    - `out` : str
         Markdown-compatible text.
 
     """
@@ -165,14 +168,16 @@ def settings_to_markdown(settings: dict) -> str:
     """
     Returns a markdown representation of the question given the corresponding settings.
 
-    Parameters
-    ----------
-    settings : dict
+    **Parameters**
+
+    - `settings` : dict
+
         User settings (usually read from a YAML file).
 
-    Returns
-    -------
-    markdown: str
+    **Returns**
+
+    - `markdown`: str
+
         Markdown representation
 
     """

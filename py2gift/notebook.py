@@ -3,7 +3,6 @@
 __all__ = ['ClassesContainer', 'MyMagics']
 
 # Cell
-
 import argparse
 import json
 
@@ -12,7 +11,6 @@ from IPython.core.magic import Magics, magics_class, line_magic, cell_magic, lin
 import py2gift.input_file
 
 # Cell
-
 class ClassesContainer:
 
     def add(cls, class_to_add):
@@ -20,7 +18,6 @@ class ClassesContainer:
         setattr(cls, class_to_add.__name__, class_to_add)
 
 # Cell
-
 # The class MUST call this class decorator at creation time
 @magics_class
 class MyMagics(Magics):
