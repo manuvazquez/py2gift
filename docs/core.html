@@ -283,11 +283,128 @@ description: "Main functionality."
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If <code>init_parameters</code> is absent, then no parameters will be passed when instatiating the class.</p>
+<p>If <code>init_parameters</code> is absent,</p>
 
 </div>
 </div>
 </div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">no_init_input_file</span> <span class="o">=</span> <span class="s1">&#39;_input2.yaml&#39;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%%writefile</span> {no_init_input_file}
+
+<span class="n">output</span> <span class="n">file</span><span class="p">:</span> <span class="n">quiz</span><span class="o">.</span><span class="n">yaml</span>
+<span class="n">pictures</span> <span class="n">base</span> <span class="n">directory</span><span class="p">:</span> <span class="n">tc</span><span class="o">/</span><span class="n">midterm3</span>
+
+<span class="n">categories</span><span class="p">:</span>
+
+  <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">Test</span> <span class="n">category</span>
+
+    <span class="n">classes</span><span class="p">:</span>
+
+      <span class="o">-</span> <span class="n">name</span><span class="p">:</span> <span class="n">TestClass</span>
+
+        <span class="n">question</span> <span class="n">base</span> <span class="n">name</span><span class="p">:</span> <span class="n">Test</span> <span class="k">class</span>
+
+        <span class="nc">statement</span><span class="p">:</span> <span class="o">|</span>
+          <span class="n">Consider</span> <span class="n">a</span> <span class="n">random</span> <span class="n">variable</span><span class="p">,</span> <span class="err">$</span><span class="n">X</span><span class="err">$</span><span class="p">,</span> <span class="k">with</span> <span class="n">mean</span> <span class="err">$</span> \<span class="n">mu</span> <span class="o">=</span> <span class="err">!</span><span class="n">mean</span> <span class="err">$</span> <span class="ow">and</span> <span class="n">variance</span><span class="o">...</span>
+          
+
+        <span class="n">feedback</span><span class="p">:</span> <span class="o">|</span>
+          <span class="n">Clearly</span><span class="p">,</span> <span class="err">$</span><span class="n">Y</span><span class="err">$</span> <span class="ow">is</span><span class="o">...</span>
+          
+
+        <span class="n">time</span><span class="p">:</span> <span class="mi">15</span>
+        
+        <span class="n">number</span> <span class="n">of</span> <span class="n">instances</span><span class="p">:</span> <span class="mi">2</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Overwriting _input2.yaml
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>, then only <em>basic</em> parameters will be passed when instatiating the class</p>
+
+</div>
+</div>
+</div>
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">input_data</span> <span class="o">=</span> <span class="n">py2gift</span><span class="o">.</span><span class="n">util</span><span class="o">.</span><span class="n">yaml_to_dict</span><span class="p">(</span><span class="n">no_init_input_file</span><span class="p">)</span>    
+<span class="n">init_parameters_from_settings</span><span class="p">(</span><span class="n">input_data</span><span class="p">[</span><span class="s1">&#39;categories&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">][</span><span class="s1">&#39;classes&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>{&#39;statement&#39;: un-filled template:
+ Consider a random variable, $$X$$, with mean $$ \mu = $mean $$ and variance...,
+ &#39;feedback&#39;: Clearly, $Y$ is...,
+ &#39;time&#39;: 15}</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Processing-of-a-bunch-of-questions">Processing of a bunch of questions<a class="anchor-link" href="#Processing-of-a-bunch-of-questions"> </a></h2>
@@ -396,8 +513,8 @@ description: "Main functionality."
     
         <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
             <span class="bp">self</span><span class="p">,</span> <span class="n">statement</span><span class="p">:</span> <span class="n">py2gift</span><span class="o">.</span><span class="n">question</span><span class="o">.</span><span class="n">TemplatedLatexText</span><span class="p">,</span> <span class="n">feedback</span><span class="p">:</span> <span class="n">py2gift</span><span class="o">.</span><span class="n">question</span><span class="o">.</span><span class="n">TemplatedLatexText</span><span class="p">,</span>
-            <span class="n">distribution</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span>
-            <span class="n">time</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span><span class="n">prng</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">distribution</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">time</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="nb">int</span><span class="p">]</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+            <span class="n">prng</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">RandomState</span><span class="p">(</span><span class="mi">42</span><span class="p">))</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
 
             <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">statement</span><span class="p">,</span> <span class="n">feedback</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">prng</span><span class="p">)</span>
             
@@ -568,7 +685,7 @@ categories<span class="ansi-blue-fg">:</span>
   <span class="ansi-blue-fg">-</span> name<span class="ansi-blue-fg">:</span> Test category
     questions<span class="ansi-blue-fg">:</span>
       <span class="ansi-blue-fg">-</span> <span class="ansi-green-fg">class</span><span class="ansi-blue-fg">:</span> Numerical
-        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.483 $ and\</span>
+        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.0678 $ and\</span>
 <span class="ansi-blue-fg">          \ variance...\n&#34;</span>
         feedback<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Clearly, $Y$ is...\n&#34;</span>
         time<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#39;15&#39;</span>
@@ -577,7 +694,7 @@ categories<span class="ansi-blue-fg">:</span>
           error<span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">%</span>
         name<span class="ansi-blue-fg">:</span> Test <span class="ansi-green-fg">class</span> I
       <span class="ansi-blue-fg">-</span> <span class="ansi-green-fg">class</span><span class="ansi-blue-fg">:</span> Numerical
-        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.741 $ and\</span>
+        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.311 $ and\</span>
 <span class="ansi-blue-fg">          \ variance...\n&#34;</span>
         feedback<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Clearly, $Y$ is...\n&#34;</span>
         time<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#39;15&#39;</span>
@@ -627,12 +744,12 @@ categories<span class="ansi-blue-fg">:</span>
 <div class="output_text output_subarea ">
 <pre><span class="ansi-red-fg">$</span>CATEGORY<span class="ansi-blue-fg">:</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">$</span>course<span class="ansi-red-fg">$</span><span class="ansi-blue-fg">/</span>Test category
 
-<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span>Test <span class="ansi-green-fg">class</span> I<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">[</span>html<span class="ansi-blue-fg">]</span>Consider a random variable<span class="ansi-blue-fg">,</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span>X<span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">with</span> mean<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span>mu<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0.483</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> variance<span class="ansi-blue-fg">...</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>i<span class="ansi-blue-fg">&gt;</span>Estimated time<span class="ansi-red-fg">\</span><span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">15</span> minutes<span class="ansi-blue-fg">&lt;</span><span class="ansi-blue-fg">/</span>i<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">{</span>
+<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span>Test <span class="ansi-green-fg">class</span> I<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">[</span>html<span class="ansi-blue-fg">]</span>Consider a random variable<span class="ansi-blue-fg">,</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span>X<span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">with</span> mean<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span>mu<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0.0678</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> variance<span class="ansi-blue-fg">...</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>i<span class="ansi-blue-fg">&gt;</span>Estimated time<span class="ansi-red-fg">\</span><span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">15</span> minutes<span class="ansi-blue-fg">&lt;</span><span class="ansi-blue-fg">/</span>i<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">{</span>
 <span class="ansi-red-fg">#       =%100%42:4.2#</span>
         <span class="ansi-red-fg">####Clearly, \\(Y\\) is...</span>
 <span class="ansi-blue-fg">}</span>
 
-<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span>Test <span class="ansi-green-fg">class</span> II<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">[</span>html<span class="ansi-blue-fg">]</span>Consider a random variable<span class="ansi-blue-fg">,</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span>X<span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">with</span> mean<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span>mu<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0.741</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> variance<span class="ansi-blue-fg">...</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>i<span class="ansi-blue-fg">&gt;</span>Estimated time<span class="ansi-red-fg">\</span><span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">15</span> minutes<span class="ansi-blue-fg">&lt;</span><span class="ansi-blue-fg">/</span>i<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">{</span>
+<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span>Test <span class="ansi-green-fg">class</span> II<span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">:</span><span class="ansi-blue-fg">[</span>html<span class="ansi-blue-fg">]</span>Consider a random variable<span class="ansi-blue-fg">,</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span>X<span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> <span class="ansi-green-fg">with</span> mean<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">(</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span>mu<span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">=</span> <span class="ansi-cyan-fg">0.311</span><span class="ansi-red-fg"> </span><span class="ansi-red-fg">\</span><span class="ansi-red-fg">\</span><span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">and</span> variance<span class="ansi-blue-fg">...</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>i<span class="ansi-blue-fg">&gt;</span>Estimated time<span class="ansi-red-fg">\</span><span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">15</span> minutes<span class="ansi-blue-fg">&lt;</span><span class="ansi-blue-fg">/</span>i<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">&lt;</span>br<span class="ansi-blue-fg">&gt;</span><span class="ansi-blue-fg">{</span>
 <span class="ansi-red-fg">#       =%100%42:4.2#</span>
         <span class="ansi-red-fg">####Clearly, \\(Y\\) is...</span>
 <span class="ansi-blue-fg">}</span>
@@ -740,7 +857,7 @@ categories<span class="ansi-blue-fg">:</span>
   <span class="ansi-blue-fg">-</span> name<span class="ansi-blue-fg">:</span> Test category
     questions<span class="ansi-blue-fg">:</span>
       <span class="ansi-blue-fg">-</span> <span class="ansi-green-fg">class</span><span class="ansi-blue-fg">:</span> Numerical
-        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.417 $ and\</span>
+        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.32 $ and\</span>
 <span class="ansi-blue-fg">          \ variance...\n&#34;</span>
         feedback<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Clearly, $Y$ is...\n&#34;</span>
         time<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#39;15&#39;</span>
@@ -749,7 +866,7 @@ categories<span class="ansi-blue-fg">:</span>
           error<span class="ansi-blue-fg">:</span> <span class="ansi-cyan-fg">10</span><span class="ansi-blue-fg">%</span>
         name<span class="ansi-blue-fg">:</span> Test <span class="ansi-green-fg">class</span> I
       <span class="ansi-blue-fg">-</span> <span class="ansi-green-fg">class</span><span class="ansi-blue-fg">:</span> Numerical
-        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.55 $ and\</span>
+        statement<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Consider a random variable, $X$, with mean $ \\mu = 0.854 $ and\</span>
 <span class="ansi-blue-fg">          \ variance...\n&#34;</span>
         feedback<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#34;Clearly, $Y$ is...\n&#34;</span>
         time<span class="ansi-blue-fg">:</span> <span class="ansi-blue-fg">&#39;15&#39;</span>

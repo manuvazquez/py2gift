@@ -174,9 +174,11 @@ def from_number(n: Union[int, float], prefix: str = '', precision: int = 3, fixe
     - `prefix`: str
 
         A string to be prepended to the number.
+
     - `precision`: int
 
-        Number of decimals (ignored if the number is an integer).
+        Number of decimals if `fixed_point_format` is True, overall number of figures otherwise (ignored if the number is an integer).
+
     - `fixed_point_format`: bool
 
         If True, a fixed-point format (f) is used regardless of the actual type.
@@ -395,7 +397,6 @@ def enumerate_assignments(
     return join([f'{lhs_template} = {rhs_template}'.format(i, r) for i, r in enumerate(rhs, start_at)])
 
 # Cell
-
 def expand(template: str, n: int, to_math: bool = False, nexus: str = 'and', start_at: int = 1) -> str:
     """
     Expand a symbol according to a pattern.

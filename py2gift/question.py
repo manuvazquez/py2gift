@@ -137,8 +137,8 @@ class QuestionGenerator(metaclass=abc.ABCMeta):
         # arguments are passed directly to `setup`
         self.setup(**kwargs)
 
-        assert self.statement.is_full
-        assert self.feedback.is_full
+        assert self.statement.is_full, f'unassigned variables in the statement'
+        assert self.feedback.is_full, f'unassigned variables in the feedback'
 
 # Cell
 class NumericalQuestionGenerator(QuestionGenerator):

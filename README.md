@@ -8,12 +8,24 @@
 * it makes easy to write different (random) versions of the same question
 * questions can be previewed (pictures, $\LaTeX$...) in the notebook
 * no need to install anything!! You can click this mybinder badge, 
-[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/manuvazquez/py2gift/master?filepath=examples%2Fminimal.ipynb)
-, and start writing your questions right now from the browser (the file generated at the end of the notebook, accesible through a link, can be imported in *Moodle*).
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/manuvazquez/py2gift/master?filepath=examples)
+, open any of the provided examples, and start writing your questions right now from the browser (the file generated at the end of the notebook, accesible through a link, can be imported in *Moodle*).
 
-This library relies on [gift-wrapper](https://github.com/manuvazquez/gift-wrapper) and it has been created using [nbdev](https://github.com/fastai/nbdev). The latter fact means you can explore the *actual* source code through jupyter notebooks and see all the pieces in action.
+This library relies on [gift-wrapper](https://github.com/manuvazquez/gift-wrapper) and it has been created using [nbdev](https://github.com/fastai/nbdev). The latter fact means you can [explore the *actual* source code](https://manuvazquez.github.io/py2gift/) through jupyter notebooks and see all the pieces in action.
 
 ## Setup
+
+Since the library is in [PyPI](https://pypi.org/)
+
+```
+pip install py2gift
+```
+
+should do.
+
+### Manual
+
+If you'd rather clone this repository, the command below should install all the required packages
 
 ```
 pip install pandas numpy matplotlib ruamel.yaml gift-wrapper
@@ -27,4 +39,4 @@ Underneath, images are handled by *gift-wrapper*, and hence *paths* (e.g., `imag
 
 Notice that the difference between two instances of the same question can be minor or significant. Ultimately, it depends on how sophisticated your Python code is (if the latter can solve the question/problem in a very general form, and you are also able to present it in the `statement`, then it is fine).
 
-Beside the above mentioned *core* functionality, `py2gift` provides some extra functions to ease the process of writing questions (modules `tex`, `util`, `time`, `hash`). However, a thorough description of the functionality would be very dry and you are probably better off by taking a look at the *sample* notebook, [minimal](examples/minimal.ipynb).
+Beside the above mentioned *core* functionality, `py2gift` provides some extra functions to ease the process of writing questions (modules `tex`, `util`, `time`, `hash`). However, a thorough description of the functionality would be very dry and you are probably better off by taking a look at the *sample* notebook, [minimal](examples/minimal.ipynb). Also, you can take a look at the [documentation](https://manuvazquez.github.io/py2gift/).

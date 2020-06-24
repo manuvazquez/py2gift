@@ -85,10 +85,8 @@ class Settings:
 
         for c in self._classes:
 
-#             assert c in globals(), f'class "{c}" was not defined'
             assert c in caller_globals, f'class "{c}" was not defined'
 
-#             setattr(class_container, c, globals()[c])
             setattr(class_container, c, caller_globals[c])
 
         return class_container
