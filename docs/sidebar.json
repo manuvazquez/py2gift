@@ -4,6 +4,7 @@
     "Core": "/core",
     "TeX": "/tex",
     "Util": "/util",
+    "File": "/file",
     "Questions' generators": "/question",
     "Input file": "/input_file",
     "Time": "/time",

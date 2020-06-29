@@ -11,11 +11,11 @@
 [![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/manuvazquez/py2gift/master?filepath=examples)
 , open any of the provided examples, and start writing your questions right now from the browser (the file generated at the end of the notebook, accesible through a link, can be imported in *Moodle*).
 
-This library relies on [gift-wrapper](https://github.com/manuvazquez/gift-wrapper) and it has been created using [nbdev](https://github.com/fastai/nbdev). The latter fact means you can [explore the *actual* source code](https://manuvazquez.github.io/py2gift/) through jupyter notebooks and see all the pieces in action.
+This library relies on [gift-wrapper](https://github.com/manuvazquez/gift-wrapper) and it has been created using [nbdev](https://github.com/fastai/nbdev). The latter fact means you can [explore the *actual* source code](https://manuvazquez.github.io/py2gift/) through jupyter notebooks and see the inner workings of each individual piece.
 
 ## Setup
 
-Since the library is in [PyPI](https://pypi.org/)
+Since the library is in [PyPI](https://pypi.org/project/py2gift/)
 
 ```
 pip install py2gift

@@ -19,6 +19,9 @@ entries:
       title: Util
       url: /util
     - output: web,pdf
+      title: File
+      url: /file
+    - output: web,pdf
       title: Questions' generators
       url: /question
     - output: web,pdf
