@@ -4,7 +4,6 @@ __all__ = ['render_latex', 'AccessorEndowedClass', 'int_to_roman', 'dict_to_yaml
            'write_multiple_categories', 'add_name', 'wrong_numerical_solutions_from_correct_one']
 
 # Cell
-
 import pathlib
 import re
 import sys

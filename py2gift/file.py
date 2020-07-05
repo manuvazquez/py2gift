@@ -3,7 +3,6 @@
 __all__ = ['supplement_file_name', 'unique_name']
 
 # Cell
-
 import pathlib
 import uuid
 from typing import Union

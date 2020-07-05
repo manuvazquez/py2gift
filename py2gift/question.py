@@ -46,7 +46,7 @@ class TemplatedLatexText:
             self._final = self.template.substitute()
 
         # if there are "placeholders" that need to be taken care of...
-        except:
+        except KeyError:
 
             self._final = None
 
