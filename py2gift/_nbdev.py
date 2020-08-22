@@ -59,6 +59,8 @@ index = {"main": "00_core.ipynb",
          "multiple_choice_to_markdown": "80_markdown.ipynb",
          "gift_wrapper.question.MultipleChoice.to_markdown": "80_markdown.ipynb",
          "SvgToMarkdown": "80_markdown.ipynb",
+         "from_question": "80_markdown.ipynb",
+         "pre_processors": "80_markdown.ipynb",
          "settings_to_markdown": "80_markdown.ipynb"}
 
 modules = ["core.py",
