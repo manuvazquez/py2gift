@@ -102,21 +102,27 @@ def build(
     - settings: str or dict
 
         Settings for all the questions (generators).
+
     - local_run: bool
 
         If True, pictures will not be copied to a remote host.
+
     - questions_module: ModuleType
 
         A module or structure that holds the classes referenced in the settings.
+
     - parameters_file: str or dict
 
         File or dictionary with the parameters for "gift-wrapper".
+
     - no_checks: bool
 
         Whether or not LaTeX formulas should be checked.
+
     - overwrite_existing_latex_files: bool
 
         If True the auxiliar file for checks should be, if existing, overwritten without a warning.
+
     - embed_images: bool
 
         If True, images will be embedded in the questions (rather than linked).

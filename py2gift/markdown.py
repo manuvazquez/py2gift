@@ -15,7 +15,7 @@ warnings.filterwarnings("ignore", message='Using `tqdm.autonotebook.tqdm` in not
 import gift_wrapper.question
 import gift_wrapper.latex
 import gift_wrapper.parsing
-import gift_wrapper.process
+import gift_wrapper.transformer
 
 import py2gift.util
 
@@ -60,7 +60,8 @@ def html_question_to_markdown(self):
     feedback = (f'{markdown_header("Feedback")}' + self.feedback.rstrip()) if self.feedback else ''
 
     # a copy of each list is made so that the class attribute is not modified
-    latex_in_text_substitutions = [e.copy() for e in gift_wrapper.parsing.latex_in_text_substitutions[:2]]
+#     latex_in_text_substitutions = [e.copy() for e in gift_wrapper.parsing.latex_in_text_substitutions[:2]]
+    latex_in_text_substitutions = [e.copy() for e in gift_wrapper.transformer.LatexCommandsWithinText.patterns[:2]]
 
     # \textbf-related substitutions are tweaked
     latex_in_text_substitutions[0][1] = r'**\1**'
@@ -136,7 +137,7 @@ def multiple_choice_to_markdown(self):
 gift_wrapper.question.MultipleChoice.to_markdown = multiple_choice_to_markdown
 
 # Cell
-class SvgToMarkdown(gift_wrapper.process.Processor):
+class SvgToMarkdown(gift_wrapper.transformer.Transformer):
     """
     Processor to reformat svg files for including them in markdown strings.
     """
@@ -150,11 +151,12 @@ class SvgToMarkdown(gift_wrapper.process.Processor):
             pass
 
         self.function = functools.partial(
-            gift_wrapper.process.process_paths, pattern=gift_wrapper.parsing.svg_file, process_match=process_match,
-            replacement=r'![](' + r'\1)')
+            gift_wrapper.transformer.process_paths, pattern=gift_wrapper.parsing.svg_file,
+            process_match=process_match, replacement=r'![](' + r'\1)')
 
 # Cell
-def from_question(q: gift_wrapper.question.HtmlQuestion, processors: List[gift_wrapper.process.Processor]) -> str:
+def from_question(
+    q: gift_wrapper.question.HtmlQuestion, processors: List[gift_wrapper.transformer.Transformer]) -> str:
     """
     Returns the markdown representation of a question.
 
@@ -185,7 +187,7 @@ def from_question(q: gift_wrapper.question.HtmlQuestion, processors: List[gift_w
 
 # Cell
 pre_processors = [
-    gift_wrapper.process.TexToSvg({'already compiled': set(), 'already transferred': set()}), SvgToMarkdown()]
+    gift_wrapper.transformer.TexToSvg({'already compiled': set(), 'already transferred': set()}), SvgToMarkdown()]
 
 # Cell
 def settings_to_markdown(settings: dict) -> str:
