@@ -1,0 +1,26 @@
+output file: quiz.yaml
+pictures base directory: quiz/pics
+categories:
+  - name: Calculus
+    classes:
+      - name: MatrixProduct
+        question base name: Product of matrices
+        number of instances: 2
+        time: 10
+        statement: "Multiply the matrices $!A$ and $!B$ and compute the trace of the\
+          \ result.\n"
+        feedback: "You just go row times column to get\n$\nA \\times B\n=\n!product\n\
+          $. Now, the trace is just the sum of the elements in the diagonal, i.e.,\
+          \ !diagonal.\n"
+  - name: Signals
+    classes:
+      - name: EnergySignal
+        question base name: Energy of a signal
+        number of instances: 2
+        time: 5
+        statement: "Compute the energy of the signal in the figure below\n!signal\n"
+        feedback: "We just need to square the signal and integrate it between $0$\
+          \ and $!width$. Now, the slope of the line is clearly $!slope$, and hence\n\
+          $\n    E\n    =\n    \\int_0^!width\n    x(t)^2\n    dt\n    =\n    \\int_0^!width\n\
+          \    !slope^2t^2\n    dt\n    =\n    !squared_slope\n    \\frac{t^3}{3}\n\
+          \    \\Big|_0^!width\n$\n"
