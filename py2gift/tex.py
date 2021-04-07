@@ -35,7 +35,7 @@ def to_formula_maybe(func):
     return wrapper
 
 # Cell
-def join(strings_list: List[str], nexus: str = 'and', to_formula: bool = True):
+def join(strings_list: List[str], nexus: str = ' and ', to_formula: bool = True):
     """
     Enumerates the strings in a list, optionally enclosing every element between `$`s.
 
@@ -68,7 +68,9 @@ def join(strings_list: List[str], nexus: str = 'and', to_formula: bool = True):
 
         delimiter = ''
 
-    return delimiter + f'{delimiter}, {delimiter}'.join(strings_list[:-1]) + f'{delimiter} {nexus} {delimiter}{strings_list[-1]}{delimiter}'
+    return delimiter + \
+        f'{delimiter}, {delimiter}'.join(strings_list[:-1]) +\
+        f'{delimiter}{nexus}{delimiter}{strings_list[-1]}{delimiter}'
 
 # Cell
 @to_formula_maybe
@@ -309,7 +311,7 @@ def total_probability(fixed_symbol: str, varying_symbol_template: str, n: int, s
 # Cell
 
 def enumerate_math(
-    numbers_list: List[float], assigned_to: Optional[str] = None, nexus: Optional[str] = 'and',
+    numbers_list: List[float], assigned_to: Optional[str] = None, nexus: Optional[str] = ' and ',
     precision: Optional[int] = 3, start_at: Optional[int] = 1) -> str:
     """
     Builds a $\TeX$ string from a list of numbers in which each one is printed after (optionally) being assigned to an indexed variable that follows a given pattern.
@@ -356,7 +358,7 @@ def enumerate_math(
 
 # Cell
 def enumerate_assignments(
-    lhs_template: str, rhs_template: str, rhs: List[float], nexus: str = 'and', precision: int = 3, start_at: int = 1) -> str:
+    lhs_template: str, rhs_template: str, rhs: List[float], nexus: str = ' and ', precision: int = 3, start_at: int = 1) -> str:
     """
     Constructs a enumeration of assignments from left-hand-side and right-hand-side templates and right-hand-side values. It's similar to `enumerate_math` when the argument `assigned_to` is passed to the latter, but more general since the right-hand expression is also obtained from a template.
 
@@ -394,10 +396,10 @@ def enumerate_assignments(
         TeX compatible string.
     """
 
-    return join([f'{lhs_template} = {rhs_template}'.format(i, r) for i, r in enumerate(rhs, start_at)])
+    return join([f'{lhs_template} = {rhs_template}'.format(i, r) for i, r in enumerate(rhs, start_at)], nexus=nexus)
 
 # Cell
-def expand(template: str, n: int, to_math: bool = False, nexus: str = 'and', start_at: int = 1) -> str:
+def expand(template: str, n: int, to_math: bool = False, nexus: str = ' and ', start_at: int = 1) -> str:
     """
     Expand a symbol according to a pattern.
 
@@ -429,6 +431,6 @@ def expand(template: str, n: int, to_math: bool = False, nexus: str = 'and', sta
         TeX compatible string.
     """
 
-    return join([template.format(i) for i in range(start_at, start_at + n)], to_formula=to_math)
+    return join([template.format(i) for i in range(start_at, start_at + n)], nexus=nexus, to_formula=to_math)
 
 assert expand('s_{}', 3, True) == '$s_1$, $s_2$ and $s_3$'

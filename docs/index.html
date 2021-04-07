@@ -7,6 +7,7 @@ sidebar: home_sidebar
 
 summary: "Write GIFT (Moodle-compatible quizzes) files using Python."
 description: "Write GIFT (Moodle-compatible quizzes) files using Python."
+nb_path: "index.ipynb"
 ---
 <!--
 
@@ -106,7 +107,7 @@ description: "Write GIFT (Moodle-compatible quizzes) files using Python."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Writing a question involves specifying the statement and, <em>optionally</em>, the feedback in different notebook cells. In every case <em>variables</em>, specified with the prefix <code>!</code>, can be included, and those are meant to be <em>filled in</em> from within a Python class. This comes very handy when you want to create different versions of a single question in which some input data (maybe in the form of a picture) <em>randomly</em> changes from question to question. Then, you can instruct <code>py2gift</code> to call your python code a number of times, each one giving rise to a different version of the same question (as long as some <em>variable</em> is set at random, e.g., by exploiting the functionality in <code>np.random</code>). The solution, whose format depends on the question type, must also be set from within the code.</p>
+<p>Writing a question involves specifying the statement and, <em>optionally</em>, the feedback in different notebook cells. In any case, <em>variables</em>, specified with the prefix <code>!</code>, can be included, and those are meant to be <em>filled in</em> from within a Python class. This comes very handy when you want to create different versions of a single question in which some input data (maybe in the form of a picture) <em>randomly</em> changes from question to question. Then, you can instruct <code>py2gift</code> to call your Python code a number of times, each one giving rise to a different version of the same question (as long as some <em>variable</em> is set at random, e.g., by exploiting the functionality in <code>np.random</code>). The solution, whose format depends on the question type, must also be set from within the code.</p>
 
 </div>
 </div>
@@ -127,7 +128,7 @@ description: "Write GIFT (Moodle-compatible quizzes) files using Python."
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Beside the above mentioned <em>core</em> functionality, <code>py2gift</code> provides some extra functions to ease the process of writing questions (modules <code>tex</code>, <code>util</code>, <code>time</code>, <code>hash</code>). However, a thorough description of the functionality would be very dry and you are probably better off by taking a look at one of the <em>sample</em> notebooks (<a href="examples/minimal.ipynb">minimal</a> or <a href="examples/example_1.ipynb">example_1</a>). Also, you can take a look at the <a href="https://manuvazquez.github.io/py2gift/">documentation</a>.</p>
+<p>Besides the above mentioned <em>core</em> functionality, <code>py2gift</code> provides some extra functions to ease the process of writing questions (modules <code>tex</code>, <code>util</code>, <code>time</code>, <code>hash</code>). However, a thorough description of the functionality would be very dry and you are probably better off by taking a look at one of the <em>sample</em> notebooks (<a href="examples/minimal.ipynb">minimal</a> or <a href="examples/example_1.ipynb">example_1</a>). Also, you can take a look at the <a href="https://manuvazquez.github.io/py2gift/">documentation</a>.</p>
 
 </div>
 </div>
