@@ -2,6 +2,7 @@
 
 title: Core
 
+
 keywords: fastai
 sidebar: home_sidebar
 
@@ -30,7 +31,7 @@ nb_path: "00_core.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The implementation of the main script is actually in the <a href="/py2gift/core#build"><code>build</code></a> function below. <a href="/py2gift/core#main"><code>main</code></a> is just a <em>wrapper</em> that parses command-line arguments.</p>
+<p>The implementation of the main script is actually in the <a href="/py2gift/core.html#build"><code>build</code></a> function below. <a href="/py2gift/core.html#main"><code>main</code></a> is just a <em>wrapper</em> that parses command-line arguments.</p>
 
 </div>
 </div>
@@ -50,18 +51,11 @@ nb_path: "00_core.ipynb"
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The function below just parses command-line arguments and pass them to the <a href="/py2gift/core#build"><code>build</code></a> function below.</p>
+<p>The function below just parses command-line arguments and pass them to the <a href="/py2gift/core.html#build"><code>build</code></a> function below.</p>
 
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -86,6 +80,13 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Auxiliary-functions">Auxiliary functions<a class="anchor-link" href="#Auxiliary-functions"> </a></h2>
@@ -102,20 +103,13 @@ nb_path: "00_core.ipynb"
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>A function to obtain the initialization parameters of a given class given the corresponding settings.</p>
 <ul>
-<li><code>cls_settings</code>: a <code>dict</code> with the all parameters for the class; it should include keys <code>statement</code>, <code>feedback</code> and, optionally, <code>time</code></li>
+<li><code>cls_settings</code>: a <code>dict</code> with the all parameters for the class; it should include keys <code>statement</code>, <code>feedback</code> and, optionally, <a href="/py2gift/time.html"><code>time</code></a></li>
 </ul>
 <p>It returns another dictionary.</p>
 
 </div>
 </div>
 </div>
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
-</div>
-    {% endraw %}
-
     {% raw %}
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -133,7 +127,7 @@ nb_path: "00_core.ipynb"
 <p><strong>Parameters</strong></p>
 <ul>
 <li><p>cls_settings: dict</p>
-<p>Settings for the class, which should include <code>statement</code>, <code>feedback</code> and, optionally, <a href="/py2gift/time"><code>time</code></a>.</p>
+<p>Settings for the class, which should include <code>statement</code>, <code>feedback</code> and, optionally, <a href="/py2gift/time.html"><code>time</code></a>.</p>
 </li>
 </ul>
 <p><strong>Returns</strong></p>
@@ -149,6 +143,13 @@ nb_path: "00_core.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -429,13 +430,6 @@ nb_path: "00_core.ipynb"
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -477,6 +471,13 @@ nb_path: "00_core.ipynb"
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -652,7 +653,7 @@ nb_path: "00_core.ipynb"
 
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The file actually created underneath by <a href="/py2gift/core#build"><code>build</code></a> (the name, <em>quiz.yaml</em>, was set above in the <code>input_file</code>)</p>
+<p>The file actually created underneath by <a href="/py2gift/core.html#build"><code>build</code></a> (the name, <em>quiz.yaml</em>, was set above in the <a href="/py2gift/input_file.html"><code>input_file</code></a>)</p>
 
 </div>
 </div>
@@ -912,13 +913,6 @@ categories<span class="ansi-blue-fg">:</span>
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -926,7 +920,7 @@ categories<span class="ansi-blue-fg">:</span>
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_question" class="doc_header"><code>build_question</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L186" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_question</code>(<strong><code>question_generator</code></strong>:<a href="/py2gift/question#QuestionGenerator"><code>QuestionGenerator</code></a>, <strong><code>category_name</code></strong>:<code>str</code>, <strong><code>settings</code></strong>:<code>dict</code>, <strong><code>n_question</code></strong>:<code>int</code>=<em><code>0</code></em>)</p>
+<h4 id="build_question" class="doc_header"><code>build_question</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L186" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_question</code>(<strong><code>question_generator</code></strong>:<a href="/py2gift/question.html#QuestionGenerator"><code>QuestionGenerator</code></a>, <strong><code>category_name</code></strong>:<code>str</code>, <strong><code>settings</code></strong>:<code>dict</code>, <strong><code>n_question</code></strong>:<code>int</code>=<em><code>0</code></em>)</p>
 </blockquote>
 <p>Returns the settings for building a question using "gift-wrapper".</p>
 <p><strong><em>Parameters</em></strong></p>
@@ -957,6 +951,13 @@ categories<span class="ansi-blue-fg">:</span>
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -1318,13 +1319,6 @@ categories<span class="ansi-blue-fg">:</span>
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -1358,6 +1352,13 @@ categories<span class="ansi-blue-fg">:</span>
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
@@ -1417,13 +1418,6 @@ categories<span class="ansi-blue-fg">:</span>
     
 <div class="cell border-box-sizing code_cell rendered">
 
-</div>
-    {% endraw %}
-
-    {% raw %}
-    
-<div class="cell border-box-sizing code_cell rendered">
-
 <div class="output_wrapper">
 <div class="output">
 
@@ -1436,7 +1430,7 @@ categories<span class="ansi-blue-fg">:</span>
 <p>Returns markdown text that shows the result of compiling a TeX file.</p>
 <p><strong><em>Parameters</em></strong></p>
 <ul>
-<li><p><a href="/py2gift/input_file"><code>input_file</code></a>: str, Pathlib</p>
+<li><p><code>input_file</code>: str, Pathlib</p>
 <p>The TeX file.</p>
 </li>
 <li><p><code>delete_input_file_afterwards</code>: bool</p>
@@ -1456,6 +1450,13 @@ categories<span class="ansi-blue-fg">:</span>
 
 </div>
 </div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
 
 </div>
     {% endraw %}
