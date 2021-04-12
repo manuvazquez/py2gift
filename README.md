@@ -25,7 +25,7 @@ should do.
 
 ### Manual
 
-If you'd rather clone this repository, the command below should install all the required packages
+If you'd rather clone this repository, the command below should install all the required packages 
 
 ```
 pip install pandas numpy matplotlib ruamel.yaml gift-wrapper
