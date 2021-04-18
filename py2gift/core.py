@@ -93,7 +93,7 @@ def init_parameters_from_settings(cls_settings: dict) -> dict:
 def build(
     settings: Union[str, dict], local_run: bool, questions_module: ModuleType,
     parameters_file: Union[str, dict] = 'parameters.yaml', no_checks: bool = False,
-    overwrite_existing_latex_files: bool = True, embed_images: bool = False) -> None:
+    embed_images: bool = False) -> None:
     """
     Generates a GIFT file.
 
@@ -118,10 +118,6 @@ def build(
     - no_checks: bool
 
         Whether or not LaTeX formulas should be checked.
-
-    - overwrite_existing_latex_files: bool
-
-        If True the auxiliar file for checks should be, if existing, overwritten without a warning.
 
     - embed_images: bool
 
@@ -179,8 +175,7 @@ def build(
         category_questions, settings['pictures base directory'], output_file=output_file)
 
     gift_wrapper.core.wrap(
-        parameters_file, output_file, local_run=local_run, no_checks=no_checks,
-        overwrite_existing_latex_files=overwrite_existing_latex_files, embed_images=embed_images)
+        parameters_file, output_file, local_run=local_run, no_checks=no_checks, embed_images=embed_images)
 
 # Cell
 def build_question(

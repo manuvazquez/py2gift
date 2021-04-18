@@ -1,15 +1,15 @@
 {
   "py2gift": {
     "Overview": "/",
-    "Core": "core.html",
-    "TeX": "tex.html",
-    "Util": "util.html",
-    "File": "file.html",
-    "Questions' generators": "question.html",
-    "Input file": "input_file.html",
-    "Time": "time.html",
-    "Notebook": "notebook.html",
-    "Hash": "hash.html",
-    "Markdown": "markdown.html"
+    "Core": "/core",
+    "TeX": "/tex",
+    "Util": "/util",
+    "File": "/file",
+    "Questions' generators": "/question",
+    "Input file": "/input_file",
+    "Time": "/time",
+    "Notebook": "/notebook",
+    "Hash": "/hash",
+    "Markdown": "/markdown"
   }
 }

@@ -370,7 +370,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build" class="doc_header"><code>build</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L93" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build</code>(<strong><code>settings</code></strong>:<code>Union</code>[<code>str</code>, <code>dict</code>], <strong><code>local_run</code></strong>:<code>bool</code>, <strong><code>questions_module</code></strong>:<code>module</code>, <strong><code>parameters_file</code></strong>:<code>Union</code>[<code>str</code>, <code>dict</code>]=<em><code>'parameters.yaml'</code></em>, <strong><code>no_checks</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>overwrite_existing_latex_files</code></strong>:<code>bool</code>=<em><code>True</code></em>, <strong><code>embed_images</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="build" class="doc_header"><code>build</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L93" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build</code>(<strong><code>settings</code></strong>:<code>Union</code>[<code>str</code>, <code>dict</code>], <strong><code>local_run</code></strong>:<code>bool</code>, <strong><code>questions_module</code></strong>:<code>module</code>, <strong><code>parameters_file</code></strong>:<code>Union</code>[<code>str</code>, <code>dict</code>]=<em><code>'parameters.yaml'</code></em>, <strong><code>no_checks</code></strong>:<code>bool</code>=<em><code>False</code></em>, <strong><code>embed_images</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Generates a GIFT file.</p>
 <p><strong>Parameters</strong></p>
@@ -389,9 +389,6 @@ nb_path: "00_core.ipynb"
 </li>
 <li><p>no_checks: bool</p>
 <p>Whether or not LaTeX formulas should be checked.</p>
-</li>
-<li><p>overwrite_existing_latex_files: bool</p>
-<p>If True the auxiliar file for checks should be, if existing, overwritten without a warning.</p>
 </li>
 <li><p>embed_images: bool</p>
 <p>If True, images will be embedded in the questions (rather than linked).</p>
@@ -708,7 +705,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="build_question" class="doc_header"><code>build_question</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L186" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_question</code>(<strong><code>question_generator</code></strong>:<a href="/py2gift/question.html#QuestionGenerator"><code>QuestionGenerator</code></a>, <strong><code>category_name</code></strong>:<code>str</code>, <strong><code>settings</code></strong>:<code>dict</code>, <strong><code>n_question</code></strong>:<code>int</code>=<em><code>0</code></em>)</p>
+<h4 id="build_question" class="doc_header"><code>build_question</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L181" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>build_question</code>(<strong><code>question_generator</code></strong>:<a href="/py2gift/question.html#QuestionGenerator"><code>QuestionGenerator</code></a>, <strong><code>category_name</code></strong>:<code>str</code>, <strong><code>settings</code></strong>:<code>dict</code>, <strong><code>n_question</code></strong>:<code>int</code>=<em><code>0</code></em>)</p>
 </blockquote>
 <p>Returns the settings for building a question using "gift-wrapper".</p>
 <p><strong><em>Parameters</em></strong></p>
@@ -1041,7 +1038,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="generator_to_markdown" class="doc_header"><code>generator_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L232" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generator_to_markdown</code>(<strong><code>settings</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>, <code>dict</code>], <strong><code>category</code></strong>:<code>str</code>)</p>
+<h4 id="generator_to_markdown" class="doc_header"><code>generator_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L227" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>generator_to_markdown</code>(<strong><code>settings</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>, <code>dict</code>], <strong><code>category</code></strong>:<code>str</code>)</p>
 </blockquote>
 <p>Returns markdown text from a generator.</p>
 <p><strong><em>Parameters</em></strong></p>
@@ -1119,7 +1116,7 @@ nb_path: "00_core.ipynb"
 
 
 <div class="output_markdown rendered_html output_subarea ">
-<h4 id="latex_to_markdown" class="doc_header"><code>latex_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L274" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>latex_to_markdown</code>(<strong><code>input_file</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>delete_input_file_afterwards</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
+<h4 id="latex_to_markdown" class="doc_header"><code>latex_to_markdown</code><a href="https://github.com/manuvazquez/py2gift/tree/master/py2gift/core.py#L269" class="source_link" style="float:right">[source]</a></h4><blockquote><p><code>latex_to_markdown</code>(<strong><code>input_file</code></strong>:<code>Union</code>[<code>str</code>, <code>Path</code>], <strong><code>delete_input_file_afterwards</code></strong>:<code>bool</code>=<em><code>False</code></em>)</p>
 </blockquote>
 <p>Returns markdown text that shows the result of compiling a TeX file.</p>
 <p><strong><em>Parameters</em></strong></p>

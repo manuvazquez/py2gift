@@ -11,34 +11,34 @@ entries:
       url: /
     - output: web,pdf
       title: Core
-      url: core.html
+      url: /core
     - output: web,pdf
       title: TeX
-      url: tex.html
+      url: /tex
     - output: web,pdf
       title: Util
-      url: util.html
+      url: /util
     - output: web,pdf
       title: File
-      url: file.html
+      url: /file
     - output: web,pdf
       title: Questions' generators
-      url: question.html
+      url: /question
     - output: web,pdf
       title: Input file
-      url: input_file.html
+      url: /input_file
     - output: web,pdf
       title: Time
-      url: time.html
+      url: /time
     - output: web,pdf
       title: Notebook
-      url: notebook.html
+      url: /notebook
     - output: web,pdf
       title: Hash
-      url: hash.html
+      url: /hash
     - output: web,pdf
       title: Markdown
-      url: markdown.html
+      url: /markdown
     output: web
     title: py2gift
   output: web
