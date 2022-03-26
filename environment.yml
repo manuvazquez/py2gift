@@ -10,4 +10,5 @@ dependencies:
   - pip
   - pip:
     - gift-wrapper
+    - py2gift
 prefix: /home/manu/anaconda3/envs/py2gift
