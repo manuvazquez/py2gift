@@ -76,6 +76,8 @@ some extra functions to ease the process of writing questions (modules
 `tex`, `util`, `time`, `hash`). However, a thorough description of the
 functionality would be very dry and you are probably better off by
 taking a look at one of the *sample* notebooks
-([minimal](examples/minimal.ipynb) or
-[example_1](examples/example_1.ipynb)). Also, you can take a look at the
+([minimal](https://github.com/manuvazquez/py2gift/blob/master/examples/minimal.ipynb)
+or
+[example_1](https://github.com/manuvazquez/py2gift/blob/master/examples/example_1.ipynb)).
+Also, you can take a look at the
 [documentation](https://manuvazquez.github.io/py2gift/).
