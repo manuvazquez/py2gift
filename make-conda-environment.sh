@@ -13,7 +13,7 @@ NAME=py2gift
 # only required if "anaconda" is not in the path
 source $HOME/$MY_CONDA_INSTALLATION/etc/profile.d/conda.sh
 
-$MANAGER create --yes -n $NAME jupyterlab ipywidgets numpy pandas ruamel.yaml tqdm pyyaml paramiko colorama twine nbdev">1.2" -c defaults -c conda-forge -c fastai
+$MANAGER create --yes -n $NAME jupyterlab ipywidgets numpy pandas ruamel.yaml tqdm pyyaml paramiko colorama twine nbdev">2.3" -c defaults -c conda-forge -c fastai
 
 echo -e new environment is \"$COLOR$NAME$UNCOLOR\"
 
