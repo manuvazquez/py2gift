@@ -1,0 +1,9 @@
+project:
+  output-dir: _docs
+
+website:
+  title: "py2gift"
+  site-url: "https://manuvazquez.github.io/py2gift/"
+  description: "Make input files for gift-wrapper programmatically"
+  repo-branch: master
+  repo-url: "https://github.com/manuvazquez/py2gift/tree/master/"
