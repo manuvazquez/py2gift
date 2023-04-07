@@ -9,27 +9,11 @@ import uuid
 from typing import Union
 
 # %% ../nbs/25_file.ipynb 5
-def supplement_file_name(file: Union[str, pathlib.Path], sup: str) -> pathlib.Path:
-    """
-    Adds a string between the file name in a path and the suffix.
-
-    **Parameters**
-    
-    - `file` : str
-        
-        File name
-    
-    - `sup` : str
-        
-        String to be added
-
-    **Returns**
-    
-    - `out`: pathlib.Path
-        
-        "Supplemented" file
-
-    """
+def supplement_file_name(
+    file: str | pathlib.Path, # File name
+    sup: str # String to be added
+) -> pathlib.Path: # "Supplemented" file name
+    "Adds a string between the file name in a path and the suffix"
 
     file = pathlib.Path(file)
 
@@ -39,22 +23,9 @@ def supplement_file_name(file: Union[str, pathlib.Path], sup: str) -> pathlib.Pa
 assert supplement_file_name('/a/b/quixote.tex', 'foo') == pathlib.Path('/a/b/quixote_foo.tex')
 
 # %% ../nbs/25_file.ipynb 8
-def unique_name(file: Union[str, pathlib.Path]) -> pathlib.Path:
-    """
-    Builds a unique file name out of a given one.
-
-    **Parameters**
-    
-    - `file` : str
-        
-        Input file name.
-
-    **Returns**
-    
-    - `out`: pathlib.Path
-        
-        Unique file name.
-
-    """
+def unique_name(
+    file: str | pathlib.Path # Input file name
+) -> pathlib.Path: # Unique file name
+    "Builds a unique file name out of a given one"
     
     return supplement_file_name(file, uuid.uuid1())

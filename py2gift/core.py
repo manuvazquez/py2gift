@@ -3,7 +3,7 @@
 # %% auto 0
 __all__ = ['main', 'init_parameters_from_settings', 'build', 'build_question', 'generator_to_markdown', 'latex_to_markdown']
 
-# %% ../nbs/00_core.ipynb 4
+# %% ../nbs/00_core.ipynb 5
 import sys
 import argparse
 import pathlib
@@ -11,8 +11,6 @@ import importlib.util
 import string
 import collections
 from types import ModuleType
-from typing import Optional, Union
-import warnings
 
 import numpy as np
 import yaml
@@ -27,8 +25,9 @@ import gift_wrapper.question
 # some classes in `gift_wrapper.question` are "patched" when this module is imported
 import py2gift.markdown
 
-# %% ../nbs/00_core.ipynb 9
+# %% ../nbs/00_core.ipynb 8
 def main():
+    "Parses command-line arguments to be passed to `build`"
     
     parser = argparse.ArgumentParser(description='Python to GIFT converter')
 
@@ -55,23 +54,11 @@ def main():
     
     build(command_line_arguments.input_file.name, command_line_arguments.local, questions_generators)
 
-# %% ../nbs/00_core.ipynb 13
-def init_parameters_from_settings(cls_settings: dict) -> dict:
-    """
-    Returns a dictionary with the initialization parameters for a question.
-    
-    **Parameters**
-    
-    - cls_settings: dict
-        
-        Settings for the class, which should include `statement`, `feedback` and, optionally, `time`.
-        
-    **Returns**
-    
-    - out: dict
-        
-        A dictionary with the *exact* parameters that must be passed when instantiating the class.
-    """
+# %% ../nbs/00_core.ipynb 11
+def init_parameters_from_settings(
+    cls_settings: dict # Settings for the class, which should include `statement`, `feedback` and, optionally, `time`
+) -> dict: # *Exact* parameters that must be passed when instantiating the class.
+    "Returns a dictionary with the initialization parameters for a question"
 
     init_parameters = {
         'statement': py2gift.question.TemplatedLatexText(cls_settings['statement']),
@@ -86,40 +73,16 @@ def init_parameters_from_settings(cls_settings: dict) -> dict:
     
     return init_parameters
 
-# %% ../nbs/00_core.ipynb 27
+# %% ../nbs/00_core.ipynb 25
 def build(
-    settings: Union[str, dict], local_run: bool, questions_module: ModuleType,
-    parameters_file: Union[str, dict] = 'parameters.yaml', no_checks: bool = False,
-    embed_images: bool = False) -> None:
-    """
-    Generates a GIFT file.
-
-    **Parameters**
-    
-    - settings: str or dict
-        
-        Settings for all the questions (generators).
-    
-    - local_run: bool
-        
-        If True, pictures will not be copied to a remote host.
-    
-    - questions_module: ModuleType
-        
-        A module or structure that holds the classes referenced in the settings.
-    
-    - parameters_file: str or dict
-        
-        File or dictionary with the parameters for "gift-wrapper".
-    
-    - no_checks: bool
-        
-        Whether or not LaTeX formulas should be checked.
-    
-    - embed_images: bool
-        
-        If True, images will be embedded in the questions (rather than linked).
-    """
+    settings: str | dict, # Settings for all the questions (generators)
+    local_run: bool, # If `True`, pictures will not be copied to a remote host
+    questions_module: ModuleType, # A module or structure to hold the classes referenced in the settings
+    parameters_file: str | dict = 'parameters.yaml', # Parameters to be passed to "gift-wrapper"
+    no_checks: bool = False, # If `True` LaTeX formulas are not be checked
+    embed_images: bool = False # If `True`, images will be embedded in the questions (rather than linked)
+) -> None:
+    "Generates a GIFT file"
     
     # if settings is the name of a file...
     if type(settings) == str:
@@ -174,35 +137,14 @@ def build(
     gift_wrapper.core.wrap(
         parameters_file, output_file, local_run=local_run, no_checks=no_checks, embed_images=embed_images)
 
-# %% ../nbs/00_core.ipynb 49
+# %% ../nbs/00_core.ipynb 47
 def build_question(
-    question_generator: py2gift.question.QuestionGenerator, category_name: str, settings: dict, n_question: int=0
-) -> dict:
-    """
-    Returns the settings for building a question using "gift-wrapper".
-    
-    ***Parameters***
-    
-    - `question_generator`: class
-        
-        The question generator that will generate the appropirate settings.
-    - `category_name`: str
-        
-        The name of category the class belongs to.
-    - `settings`: dict
-        
-        User settings.
-    - `n_question`: int
-        
-        The number of instance to be returned.
-        
-    ***Returns***
-    
-    - `out`: dict
-        
-        A dictionary with the settings that allow building the question using "gift-wrapper".
-        
-    """
+    question_generator: py2gift.question.QuestionGenerator, # The question generator that will generate the appropirate settings
+    category_name: str, # The name of category the class belongs to
+    settings: dict, # User settings
+    n_question: int = 0 # The number of instances to be returned
+) -> dict: # Settings that allow building the question using "gift-wrapper"
+    'Returns the settings for building a question using "gift-wrapper"'
     
     class_name = question_generator.__name__
     
@@ -220,34 +162,13 @@ def build_question(
     else:
         return question_generator()
 
-# %% ../nbs/00_core.ipynb 63
+# %% ../nbs/00_core.ipynb 60
 def generator_to_markdown(
-    settings: Union[str, pathlib.Path, dict], category: str, cls: py2gift.question):
-    """
-    Returns markdown text from a generator.
-
-
-    ***Parameters***
-    
-    - `settings`: str, Pathlib, dict
-        
-        The settings file or corresponding dictionary.
-    
-    - `category`: str
-        
-        The category of the question.
-    
-    - `cls`: py2gift.question.QuestionGenerator
-        
-        The class implementing the generator.
-
-    ***Returns***
-    
-    out: str
-        
-        Markdown text.
-
-    """
+    settings: str | pathlib.Path | dict, # Settings
+    category: str, # Category of the question
+    cls: py2gift.question # Class implementing the generator
+) -> str: # Markdown text
+    "Returns markdown text from a generator"
     
     # if settings is the name of a file...
     if type(settings) == str:
@@ -262,29 +183,12 @@ def generator_to_markdown(
 
     return py2gift.markdown.settings_to_markdown(question_settings)
 
-# %% ../nbs/00_core.ipynb 67
-def latex_to_markdown(input_file: Union[str, pathlib.Path], delete_input_file_afterwards: bool = False) -> str:
-    """
-    Returns markdown text that shows the result of compiling a TeX file.
-
-
-    ***Parameters***
-    
-    - `input_file`: str, Pathlib
-        
-        The TeX file.
-    
-    - `delete_input_file_afterwards`: bool
-        
-        If True the TeX file is deleted after conversion to svg.
-
-    ***Returns***
-    
-    - `out`: str
-        
-        Markdown text.
-
-    """
+# %% ../nbs/00_core.ipynb 64
+def latex_to_markdown(
+    input_file: str | pathlib.Path, # TeX file
+    delete_input_file_afterwards: bool = False # If `True` the TeX file is deleted after conversion to svg
+) -> str: # Markdown text
+    "Returns markdown text that shows the result of compiling a TeX file"
     
     output_file = gift_wrapper.image.pdf_to_svg(gift_wrapper.image.tex_to_pdf(input_file))
     

@@ -20,7 +20,7 @@ echo -e new environment is \"$COLOR$NAME$UNCOLOR\"
 conda activate $NAME
 
 # so that git is aware of nbdev/notebooks (only required once, when creating the repository, not through re-installs of conda)
-nbdev_install_git_hooks
+nbdev_install_hooks
 
 # "gift-wrapper" and other personal libraries are installed "live"...
 pip install -e "$GIFTWRAPPER_PATH"

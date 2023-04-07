@@ -8,8 +8,11 @@ from typing import Union, Optional
 
 import numpy as np
 
-# %% ../nbs/70_hash.ipynb 4
-def matrix(matrix: Union[list, np.ndarray], decimal_sep_replacement: Optional[bool] = '_') -> str:
+# %% ../nbs/70_hash.ipynb 5
+def matrix(
+    matrix: Union[list, np.ndarray], # Input
+    decimal_sep_replacement: Optional[bool] = '_' # Decimal point separator
+) -> str: # Text representation
     
     res = ''.join(np.vectorize(str)(np.array(matrix).flatten()))
     
@@ -21,8 +24,11 @@ def matrix(matrix: Union[list, np.ndarray], decimal_sep_replacement: Optional[bo
 
 assert matrix([2, 3]) == '23'
 
-# %% ../nbs/70_hash.ipynb 14
-def number(number: Union[float, np.float64], decimal_sep_replacement: Optional[bool] = '_') -> str:
+# %% ../nbs/70_hash.ipynb 16
+def number(
+    number: Union[float, np.float64], # Input
+    decimal_sep_replacement: Optional[bool] = '_' # Decimal point separator
+) -> str: # Text representation
     
     res = str(number)
     
@@ -34,7 +40,9 @@ def number(number: Union[float, np.float64], decimal_sep_replacement: Optional[b
 
 assert number(2.3) == '2_3'
 
-# %% ../nbs/70_hash.ipynb 18
-def string(s: str) -> str:
+# %% ../nbs/70_hash.ipynb 20
+def string(
+    s: str # Input
+) -> str: # Text representation
     
     return ''.join(x for x in s if x.isalnum())

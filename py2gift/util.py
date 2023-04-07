@@ -4,12 +4,10 @@
 __all__ = ['render_latex', 'AccessorEndowedClass', 'int_to_roman', 'dict_to_yaml', 'yaml_to_dict', 'write_multiple_categories',
            'add_name', 'wrong_numerical_solutions_from_correct_one']
 
-# %% ../nbs/20_util.ipynb 2
+# %% ../nbs/20_util.ipynb 5
 import pathlib
 import re
 import sys
-from typing import List, Dict, Union, Optional
-import warnings
 
 import numpy as np
 import IPython.display
@@ -21,50 +19,24 @@ from pandas.core.accessor import _register_accessor as register_accessor
 import gift_wrapper.core
 import gift_wrapper.image
 
-# %% ../nbs/20_util.ipynb 7
-def render_latex(text: str) -> str:
-    """
-    Returns latex-aware markdown text.
-
-
-    ***Parameters***
-    
-    - `text`: str
-        
-        Input text.
-
-    ***Returns***
-    
-    - `out`: str
-        
-        Markdown text.
-    """
+# %% ../nbs/20_util.ipynb 8
+def render_latex(
+    text: str # Input text
+) -> str: # Markdown text
+    "Returns latex-aware markdown text"
     
     return IPython.display.Markdown(re.sub(r'\$([^\$]*)\$', '$' + '\\\Large ' + r'\1' + '$', text))
 
-# %% ../nbs/20_util.ipynb 12
+# %% ../nbs/20_util.ipynb 13
 class AccessorEndowedClass:
     
     _accessors = set()
 
-# %% ../nbs/20_util.ipynb 21
-# taken from https://www.w3resource.com/python-exercises/class-exercises/python-class-exercise-1.php
-def int_to_roman(num: int) -> str:
-    """
-    Returns an integer number in roman format.
-    
-    ***Parameters***
-    
-    - `num`: int
-        
-        Input integer.
-
-    ***Returns***
-    
-    - `out`: str
-        
-        Roman number for the input.
-    """
+# %% ../nbs/20_util.ipynb 22
+def int_to_roman(
+    num: int # Input
+) -> str: # Roman number for the input
+    "Returns an integer number in roman format"
     
     val = [
         1000, 900, 500, 400,
@@ -90,8 +62,12 @@ def int_to_roman(num: int) -> str:
 assert int_to_roman(12) == 'XII'
 assert int_to_roman(9) == 'IX'
 
-# %% ../nbs/20_util.ipynb 26
-def dict_to_yaml(d: dict, output_file: Union[str, pathlib.Path]) -> None:
+# %% ../nbs/20_util.ipynb 27
+def dict_to_yaml(
+    d: dict, # Input
+    output_file: str | pathlib.Path # Ouput
+) -> None:
+    "Writes a dictionary in a YAML file"
     
     yaml = ruamel.yaml.YAML()
     yaml.indent(sequence=4, offset=2)
@@ -100,8 +76,11 @@ def dict_to_yaml(d: dict, output_file: Union[str, pathlib.Path]) -> None:
 
         yaml.dump(d, f)
 
-# %% ../nbs/20_util.ipynb 30
-def yaml_to_dict(file: Union[str, pathlib.Path]) -> dict:
+# %% ../nbs/20_util.ipynb 31
+def yaml_to_dict(
+    file: str | pathlib.Path # Input file
+) -> dict: # Output
+    "Reads a dictionary from a YAML file"
 
     with open(file) as f:
 
@@ -109,28 +88,13 @@ def yaml_to_dict(file: Union[str, pathlib.Path]) -> dict:
         
     return d
 
-# %% ../nbs/20_util.ipynb 34
+# %% ../nbs/20_util.ipynb 35
 def write_multiple_categories(
-        category_questions: Dict[str, List[dict]], pictures_base_directory: str, output_file: str = 'out.yaml') -> None:
-    """
-    Writes a file suitable as input to `gift-wrapper`.
-
-    ***Parameters***
-    
-    - `category_questions` : dict
-        
-        Every key is the name of a category, and every value is a list of questions
-        (every question is itself a dictionary).
-    
-    - `pictures_base_directory` : str
-        
-        The "pictures base directory" parameter that must be passed to `gift-wrapper`
-    
-    - `output_file` : str
-        
-        Output file
-
-    """
+    category_questions: dict[str, list[dict]], # Every key is the name of a category, and every value is a list of questions (every question is itself a dictionary)
+    pictures_base_directory: str, # The "pictures base directory" parameter that must be passed to `gift-wrapper`
+    output_file: str | None = 'out.yaml' # Output file
+) -> None:
+    "Writes a file suitable as input to `gift-wrapper`"
 
     file = dict()
     file['pictures base directory'] = pictures_base_directory
@@ -142,28 +106,12 @@ def write_multiple_categories(
     
     dict_to_yaml(file, output_file)
 
-# %% ../nbs/20_util.ipynb 43
-def add_name(questions: List[dict], base_name: str) -> List[dict]:
-    """
-    Adds a name to every question based on a pattern.
-
-    **Parameters**
-    
-    - `questions` : list
-        
-        List of questions; every question is a dictionary.
-    
-    - `base_name` : str
-        
-        All the questions will be given this name and a different (Roman) number.
-
-    **Returns**
-    
-    - `out`: list
-        
-        List with the same questions after adding the corresponding name to each one.
-
-    """
+# %% ../nbs/20_util.ipynb 44
+def add_name(
+    questions: list[dict], # List of questions; every question is a dictionary
+    base_name: str # All the questions will be given this name and a different (Roman) number
+) -> list[dict]: # List with the same questions after adding the corresponding name to each one
+    "Adds a name to every question based on a pattern"
 
     res = []
 
@@ -176,74 +124,22 @@ def add_name(questions: List[dict], base_name: str) -> List[dict]:
 assert add_name([{'k1': 'aa', 'k2': 1}, {'k3': 'pi', 'foo': 'variance'}], 'Viterbi') == [
     {'k1': 'aa', 'k2': 1, 'name': 'Viterbi I'}, {'k3': 'pi', 'foo': 'variance', 'name': 'Viterbi II'}]
 
-# %% ../nbs/20_util.ipynb 46
+# %% ../nbs/20_util.ipynb 47
 def wrong_numerical_solutions_from_correct_one(
-    solution: float, n: int, min_sep: float, max_sep: float, lower_bound: float = -np.inf,
-    upper_bound: float = np.inf, precision: int = 4, to_str: bool = True, fixed_point_format: bool = False,
-    bin_width: Optional[float] = None, unique: bool = False, prng: np.random.RandomState = np.random.RandomState(42)
-) -> Union[List[float], List[str]]:
-    """
-    Generates random numerical wrong answers given the correct one.
-
-
-    **Parameters**
-    
-    - `solution`: float
-        
-        The actual solution.
-    
-    - `n`: int
-        
-        The number of wrong solutions.
-    
-    - `min_sep`: float
-        
-        Minimum separation.
-    
-    - `max_sep`: float
-        
-        Maximum separation.
-    
-    - `lower_bound`: float, optional
-        
-        A lower bound on the returned numbers.
-    
-    - `upper_bound`: float, optional
-        
-        A upper bound on the returned numbers.
-    
-    - `precision`: int, optional
-        
-        The number of decimal places.
-    
-    - `to_str`: bool, optional
-        
-        If True, every element in the result will be converted to a string.
-    
-    - `fixed_point_format`: bool
-        
-        Only meaningful when to_str is True. In such case, if True a fixed-point format (f) is used
-        regardless of the actual type.
-    
-    - `bin_width`: float, optional
-        
-        The granularity on the answers: every one will be a multiple of this parameter.
-    
-    - `unique`: bool, optional
-        
-        If True, all the answers will be different.
-    
-    - `prng`: RandomState, optional
-        
-        A pseudo-random numbers generator.
-
-    **Returns**
-    
-    - `out`: list of float, or list of str
-        
-        The random wrong solutions.
-
-    """
+    solution: float, # The actual solution
+    n: int, # The number of wrong solutions
+    min_sep: float, # Minimum separation
+    max_sep: float, # Maximum separation
+    lower_bound: float | None = -np.inf, # A lower bound on the returned numbers
+    upper_bound: float | None = np.inf, # A upper bound on the returned numbers
+    precision: int | None = 4, # The number of decimal places
+    to_str: bool | None = True, # If `True`, every element in the result will be converted to a string
+    fixed_point_format: bool | None = False, # Only meaningful when `to_str` is `True`. In such case, if `True` a fixed-point format (`f`) is used regardless of the actual type
+    bin_width: float | None = None, # The granularity on the answers: every one will be a multiple of this parameter
+    unique: bool | None = False, # If `True`, all the answers will be different
+    prng: np.random.RandomState | None = np.random.RandomState(42) # A pseudo-random numbers generator
+) -> list[float] | list[str]: # The random wrong solutions
+    "Generates random numerical wrong answers given the correct one"
     
     max_iterations = 1_000
     
