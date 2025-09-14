@@ -24,8 +24,8 @@ def render_latex(
     text: str # Input text
 ) -> str: # Markdown text
     "Returns latex-aware markdown text"
-    
-    return IPython.display.Markdown(re.sub(r'\$([^\$]*)\$', '$' + '\\\Large ' + r'\1' + '$', text))
+
+    return IPython.display.Markdown(re.sub(r'\$([^\$]*)\$', '$' + r'\\Large ' + r'\1' + '$', text))
 
 # %% ../nbs/20_util.ipynb 13
 class AccessorEndowedClass:

@@ -172,7 +172,7 @@ def enumerate_math(
     precision: int | None = 3, # The number of decimal places
     start_at: int | None = 1 # The index of the first element that enters the enumeration
 ) -> str: # $\LaTeX$-compatible text
-    "Builds a $\TeX$ string from a list of numbers in which each one is printed after (optionally) being assigned to an indexed variable that follows a given pattern"
+    r"Builds a $\TeX$ string from a list of numbers in which each one is printed after (optionally) being assigned to an indexed variable that follows a given pattern"
 
     format_specifier = f'.{precision}g'
 
@@ -193,7 +193,7 @@ def enumerate_assignments(
     precision: int = 3, # The number of decimal places
     start_at: int = 1 # The index of the first element that enters the enumeration
 ) -> str: # $\LaTeX$-compatible text
-    "Constructs a enumeration of assignments from left-hand-side and right-hand-side templates and right-hand-side values. It's similar to `enumerate_math` when the argument `assigned_to` is passed to the latter, but more general since the right-hand expression is also obtained from a template"
+    "Constructs a enumeration of assignments from left-hand-side and right-hand-side templates, and right-hand-side values. It's similar to `enumerate_math` when the argument `assigned_to` is passed to the latter, but more general since the right-hand expression is also obtained from a template"
     
     return join([f'{lhs_template} = {rhs_template}'.format(i, r) for i, r in enumerate(rhs, start_at)], nexus=nexus)
 
@@ -204,7 +204,7 @@ def expand(
     to_math: bool = False, # If `True`, every output term is enclosed between \$'s
     nexus: str = ' and ', # String joining the second to last and last terms
     start_at: int = 1 # The number at which indexes start
-) -> str: # $\LaTeX$-compatible text
+) -> str: # r$\LaTeX$-compatible text
     "Expand a symbol according to a pattern"
     
     return join([template.format(i) for i in range(start_at, start_at + n)], nexus=nexus, to_formula=to_math)
